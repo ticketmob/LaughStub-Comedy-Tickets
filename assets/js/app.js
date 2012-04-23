@@ -55,6 +55,7 @@ run(function () {
     });
 	
 	when('#shows', function () {
+		
 		display('#listshows');
     });
 	
