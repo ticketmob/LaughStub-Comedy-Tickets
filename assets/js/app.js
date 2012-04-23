@@ -54,8 +54,8 @@ run(function () {
         display('#welcome');
     });
 	
-	when('#listshows', function () {
-		
+	when('#shows', function () {
+		display('#listshows');
     });
 	
 	
