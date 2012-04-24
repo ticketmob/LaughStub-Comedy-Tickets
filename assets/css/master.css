@@ -27,7 +27,7 @@ body {
   -webkit-border-radius: 20px;
   border-radius: 20px;
   display: inline-block;
-  padding: 5px 20px;
+  padding: 0 20px;
   margin-bottom: 20px;
   cursor: pointer;
   width: 200px;
@@ -35,7 +35,7 @@ body {
   background: -webkit-gradient(linear, 0 0, 0 70%, from(#F7941E), to(#D37F18));
   background: linear-gradient(#F7941E, #D37F18 70%);
   border: 1px solid #C97917;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 200;
   text-shadow: 0 -1px 0 #7E4B0D;
   height: 40px;
@@ -44,25 +44,12 @@ body {
   text-align: center;
 }
 
-.bottom_align {
-	position: absolute;
-	top: 403px;
-	background: #000;
-	color: #fff;
-	text-shadow: none;
-	display: block;
-	width: 280px;
-	height: 50px;
-	border-radius: 0px;
-	border: 1px none;
-}
-
 #back_button {
   background: grey;
 }
  
 .view {
-  /*padding: 35px; */
+  padding: 35px;
 	/*  only one view is displayed at a time
 	    so we'll set the views to default to be un-displayed
 	    and then override this based on the element id */
