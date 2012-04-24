@@ -51,7 +51,10 @@ body {
 	color: #fff;
 	text-shadow: none;
 	display: block;
-	width: 320px;
+	width: 280px;
+	height: 50px;
+	border-radius: 0px;
+	border: 1px none;
 }
 
 #back_button {
