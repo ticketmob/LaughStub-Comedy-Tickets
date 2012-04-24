@@ -55,9 +55,11 @@ run(function () {
     });
 	
 	when('#shows', function () {
-		alert('here');
 		//display('#shows');
     });
 	
+	when('#welcome1', function () {
+		display('#welcome');
+    });
 	
 });
