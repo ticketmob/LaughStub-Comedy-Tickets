@@ -55,7 +55,7 @@ run(function () {
     });
 	
 	when('#shows', function () {
-		
+		alert('here');
 		//display('#shows');
     });
 	
