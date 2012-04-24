@@ -125,6 +125,7 @@ body {
 				cursor: default;
 				position: relative;
 				background: url(../img/show-bg-sm.png) no-repeat top right transparent;
+				border: 1px solid #fff;
 			}
 			.odd {
 			}
@@ -136,6 +137,7 @@ body {
 			}
 			.artistPhoto {
 				float: left;
+				border-right: 1px solid #fff;
 			}
 			.showName {
 				font-size: 12px;
