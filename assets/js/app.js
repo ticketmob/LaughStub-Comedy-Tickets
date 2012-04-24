@@ -7,7 +7,7 @@ run(function () {
         if (navigator.network.connection.type == Connection.NONE) {
             alert("No internet connection - we won't be able to show you any maps");
         } else {
-            alert('"Laughstub" Would Like to Use Your Location');
+            alert("Laughstub Would Like to Use Your Location");
         }
     })();
     
