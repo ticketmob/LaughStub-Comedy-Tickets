@@ -55,6 +55,7 @@ run(function () {
     });
 	
 	when('#shows', function () {
+		/*
 		$.ajax({
 			type: "GET",
 			url: "http://www.ticketmob.com/PhoneGap/index.cfm",
@@ -66,12 +67,19 @@ run(function () {
 				$('#showlist').html(result);
 			}
 		});
-		//$.mobile.loadPage ( );
+		*/
+		$.mobile.loadPage ( 'http://www.ticketmob.com/PhoneGap/index.cfm' );
 		//display('#shows');
+		
     });
 	
 	when('#welcome1', function () {
 		display('#welcome');
+    });
+	
+	when('#welcome2', function () {
+		$.mobile.changePage( "http://www.ticketmob.com/PhoneGap/index.cfm", { pageContainer: 'hidethisdiv' } );
+		
     });
 	
 });
