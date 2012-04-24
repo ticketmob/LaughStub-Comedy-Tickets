@@ -127,10 +127,8 @@ body {
 				background: url(../img/show-bg-sm.png) no-repeat top right transparent;
 			}
 			.odd {
-				background: #ccc;
 			}
 			.even {
-				background: #eee;
 			}
 			.last {
 				border-bottom-right-radius: 			.6em /*{global-radii-blocks}*/;
@@ -151,7 +149,7 @@ body {
 				display: block;
 				margin-left: 70px;
 			}
-			.alistShow:visited, .alistShow:hover {
+			.alistShow:link, .alistShow:visited, .alistShow:hover {
 				text-decoration: none;
 				color: #fff;
 			}
