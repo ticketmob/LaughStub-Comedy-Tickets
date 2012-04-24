@@ -56,7 +56,7 @@ run(function () {
 	
 	when('#shows', function () {
 		$.ajax({
-			type: "POST",
+			type: "GET",
 			url: "http://www.ticketmob.com/PhoneGap/index.cfm",
 			data: {
 				showID: '0'
