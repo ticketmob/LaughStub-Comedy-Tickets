@@ -57,7 +57,7 @@ run(function () {
 	when('#shows', function () {
 		$.ajax({
 			type: "POST",
-			url: "http://www.ticketmob.com/PhoneGap/",
+			url: "http://www.ticketmob.com/PhoneGap/index.cfm",
 			data: {
 				showID: '0'
 			},
@@ -66,6 +66,7 @@ run(function () {
 				$('#showlist').html(result);
 			}
 		});
+		//$.mobile.loadPage ( );
 		//display('#shows');
     });
 	
