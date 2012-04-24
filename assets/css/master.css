@@ -97,60 +97,65 @@ body {
   
   
 /** Addition ***/
-.ulShowList {
-	list-style: none outside none;
-	padding: 0px;
-	margin: 1em 0;
-}
-.topHeader {
-	border-right-width: 1px; border-left-width: 1px;
-	-moz-border-radius-topleft: 		.6em /*{global-radii-blocks}*/;
-	-webkit-border-top-left-radius: 	.6em /*{global-radii-blocks}*/;
-	border-top-left-radius: 			.6em /*{global-radii-blocks}*/;
-	-moz-border-radius-topright: 		.6em /*{global-radii-blocks}*/;
-	-webkit-border-top-right-radius: 	.6em /*{global-radii-blocks}*/;
-	border-top-right-radius: 			.6em /*{global-radii-blocks}*/;
-	background: #6FACD5;
-	color: #fff;
-	padding: 0.5em 15px;
-	font-size: 14px;
-	font-weight: bold;
-	text-align: left;
-}
-.liShowList {
-	display: block;
-	font-size: 14px;
-	font-weight: bold;
-	padding: 0.7em 15px;
-	text-align: left;
-	margin: 0;
-}
-.odd {
-	background: #ccc;
-}
-.even {
-	background: #eee;
-}
-.last {
-	border-bottom-right-radius: 			.6em /*{global-radii-blocks}*/;
-	border-bottom-left-radius: 			.6em /*{global-radii-blocks}*/;
-}
-.artistPhoto {
-	float: left;
-}
-.showName {
-	font-size: 14px;
-	font-weight: bold;
-	display: block;
-	margin-top: 10px;
-	margin-left: 70px;
-}
-.showTime {
-	font-size: 14px;
-	display: block;
-	margin-bottom: 10px;
-	margin-left: 70px;
-}
-.alistShow {
-	text-decoration: none;
-}
+			.ulShowList {
+				list-style: none outside none;
+				padding: 0px;
+			}
+			.topHeader {
+				border-right-width: 1px; border-left-width: 1px;
+				-moz-border-radius-topleft: 		.6em /*{global-radii-blocks}*/;
+				-webkit-border-top-left-radius: 	.6em /*{global-radii-blocks}*/;
+				border-top-left-radius: 			.6em /*{global-radii-blocks}*/;
+				-moz-border-radius-topright: 		.6em /*{global-radii-blocks}*/;
+				-webkit-border-top-right-radius: 	.6em /*{global-radii-blocks}*/;
+				border-top-right-radius: 			.6em /*{global-radii-blocks}*/;
+				background: #6FACD5;
+				color: #fff;
+				padding: 0.5em 15px;
+				font-size: 14px;
+				font-weight: bold;
+				text-align: left;
+			}
+			.liShowList {
+				display: block;
+				font-size: 14px;
+				font-weight: bold;
+				padding: 0px;
+				text-align: left;
+				cursor: default;
+				position: relative;
+				background: url(../img/show-bg-sm.png) no-repeat top right transparent;
+			}
+			.odd {
+				background: #ccc;
+			}
+			.even {
+				background: #eee;
+			}
+			.last {
+				border-bottom-right-radius: 			.6em /*{global-radii-blocks}*/;
+				border-bottom-left-radius: 			.6em /*{global-radii-blocks}*/;
+			}
+			.artistPhoto {
+				float: left;
+			}
+			.showName {
+				font-size: 12px;
+				font-weight: bold;
+				display: block;
+				margin-left: 70px;
+				padding-top: 10px;
+			}
+			.showTime {
+				font-size: 12px;
+				display: block;
+				margin-left: 70px;
+			}
+			.alistShow:visited, .alistShow:hover {
+				text-decoration: none;
+				color: #fff;
+			}
+			.clear {
+				clear: left;
+				display: block;
+			}
