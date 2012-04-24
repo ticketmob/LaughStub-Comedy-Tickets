@@ -68,9 +68,10 @@ run(function () {
 			}
 		});
 		*/
-		$.mobile.changePage( "http://www.ticketmob.com/PhoneGap/index.cfm", { pageContainer: 'hidethisdiv' } );
+		//$.mobile.changePage( "http://www.ticketmob.com/PhoneGap/index.cfm", { pageContainer: 'hidethisdiv' } );
 		//display('#shows');
-		
+		alert($('#showlist').html());
+		$('#showlist').html('Overwrite this div');
     });
 	
 	when('#welcome1', function () {
