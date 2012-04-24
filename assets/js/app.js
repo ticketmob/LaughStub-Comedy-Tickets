@@ -12,7 +12,19 @@ run(function () {
     })();
     
     // a little inline controller
-    when('#welcome');
+    when('#welcome', function() {
+		$.ajax({
+			type: "GET",
+			url: "http://www.ticketmob.com/PhoneGap/index.cfm",
+			data: {
+				showID: '0'
+			},
+			dataType: "html",
+			success: function(result){
+				$('#loadingPage').html(result);
+			}
+		});
+	});
     when('#settings', function() {
 		// load settings from store and make sure we persist radio buttons.
 		store.get('config', function(saved) {
