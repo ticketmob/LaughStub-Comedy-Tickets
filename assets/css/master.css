@@ -159,3 +159,31 @@ body {
 				clear: left;
 				display: block;
 			}
+			.featuredSlideShow {
+				display: block;
+				width: 320px;
+				height: 165px;
+			}
+			.dateFeaturedShow {
+				position: absolute;
+				left: 10px;
+				top: 120px;
+				width: 50px;
+				height: 50px;
+				color: #fff;
+				background: #014a9f;
+			}
+			.descFeaturedShow {
+				background: #090a08;
+				display: block;
+				height: 40px;
+				width: 250px;
+				position: absolute;
+				left: 60px;
+				top: 120px;
+				color: #fff;
+				text-align: left;
+				font-size: 12px;
+				padding-left: 5px;
+				padding-top: 10px;
+			}
