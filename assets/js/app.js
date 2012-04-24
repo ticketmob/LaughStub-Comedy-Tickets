@@ -55,7 +55,7 @@ run(function () {
     });
 	
 	when('#shows', function () {
-		
+		$('#showlist').html('Page is loading....');
 		$.ajax({
 			type: "GET",
 			url: "http://www.ticketmob.com/PhoneGap/index.cfm",
