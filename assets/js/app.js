@@ -55,6 +55,17 @@ run(function () {
     });
 	
 	when('#shows', function () {
+		$.ajax({
+			type: "POST",
+			url: "http://www.ticketmob.com/PhoneGap/",
+			data: {
+				showID: '0'
+			},
+			dataType: "html",
+			success: function(result){
+				$('#showlist').html(result);
+			}
+		});
 		//display('#shows');
     });
 	
