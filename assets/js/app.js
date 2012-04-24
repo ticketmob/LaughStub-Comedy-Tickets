@@ -56,17 +56,17 @@ run(function () {
 
 	when('#shows', function () {
 		//$('#showlist').html('Page is loading....');
-		//$.ajax({
-		//	type: "GET",
-		//	url: "http://www.ticketmob.com/PhoneGap/index.cfm",
-		//	data: {
-		//		showID: '0'
-		//	},
-		//	dataType: "html",
-		//	success: function(result){
-		//		$('#showlist').html(result);
-		//	}
-		//});
+		$.ajax({
+			type: "GET",
+			url: "http://www.ticketmob.com/PhoneGap/index.cfm",
+			data: {
+				showID: '0'
+			},
+			dataType: "html",
+			success: function(result){
+				$('#showlist').html(result);
+			}
+		});
 		
 		//$.mobile.changePage( "http://www.ticketmob.com/PhoneGap/index.cfm", { pageContainer: 'hidethisdiv' } );
 		//display('#shows');
