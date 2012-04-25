@@ -31,6 +31,14 @@ function runGeoLoc() {
 }
 */
 
+function loaded() {
+	document.addEventListener("deviceready", onDeviceReady, false);
+}
+
+function onDeviceReady() {
+	alert('device ready');
+}
+
 // 
 //  --- our app behavior logic ---
 //
@@ -56,7 +64,7 @@ run(function () {
 				}, function () {
 					alert('Can\'t locate the position');
 			});
-			
+			loaded();
 			nativeControls = window.plugins.nativeControls;
 			//nativeControls.createTabBar();
 			//alert('here');
