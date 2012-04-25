@@ -113,21 +113,18 @@ run(function () {
 
 	when('#shows', function () {
 		$('#showlist').html('Page is loading....');
-		var currentLoc;
-		navigator.geolocation.getCurrentPosition(function (position) {
-			currentLoc = "" + position.coords.latitude + "," + position.coords.longitude;
-		});
-		//store.get('config', function (saved) {
-		//	var map  = saved ? saved.map || ui('map') : ui('map')
-		//		,   location = saved ? saved.location || ui('location') : ui('location')
-		//		,   lat = saved ? saved.lat || ui('lat') : ui('lat')
-		//		,   lon = saved ? saved.lon || ui('lon') : ui('lon')
-		//		,   zoom = saved ? saved.zoom || ui('zoom') : ui('zoom')
-		//		,   path = "http://maps.google.com/maps/api/staticmap?center=";
+		var currentLoc = 0;
+		store.get('config', function (saved) {
+			var map  = saved ? saved.map || ui('map') : ui('map')
+				,   location = saved ? saved.location || ui('location') : ui('location')
+				,   lat = saved ? saved.lat || ui('lat') : ui('lat')
+				,   lon = saved ? saved.lon || ui('lon') : ui('lon')
+				,   zoom = saved ? saved.zoom || ui('zoom') : ui('zoom')
+				,   path = "http://maps.google.com/maps/api/staticmap?center=";
 				
 			$.ajax({
 				type: "GET",
-				url: "http://www.ticketmob.com/PhoneGap/index.cfm?map=0&zoom=0&location="+currentLoc+"&lat=0&lon=0",
+				url: "http://www.ticketmob.com/PhoneGap/index.cfm?map="+map+"&zoom="+zoom+"&location="+location+"&lat="+lat+"&lon="+lon,
 				data: {
 					showID: '0'
 				},
@@ -136,6 +133,7 @@ run(function () {
 					$('#showlist').html(result);
 				}
 			});
+		});
     });
 
 	when('#welcome1', function () {
