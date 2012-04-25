@@ -32,15 +32,17 @@ var run = function(application) {
 }
 
 // gets the value of the setting from the ui
-, ui = function(setting, mode) {
-	if(mode == 'radio') {
-		var radio = x$('#settings_form')[0][setting];
-		for (var i = 0, l = radio.length; i < l; i++) {
-			if (radio[i].checked)
-				return radio[i].value;
-		}
-	} else if (mode == 'text') {
-		var text = x$('#settings_form')[0][setting];
-		return text;
+, ui = function(setting) {
+	var radio = x$('#settings_form')[0][setting];
+	for (var i = 0, l = radio.length; i < l; i++) {
+		if (radio[i].checked)
+			return radio[i].value;
 	}
-};
+}
+
+, ut = function(setting) {
+	var text = x$('#settings_form')[0][setting];
+	return text;
+}
+
+;
