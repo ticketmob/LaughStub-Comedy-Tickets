@@ -57,11 +57,14 @@ run(function () {
 				if (saved.zoom) {
 					x$('input[name=zoom][value="' + saved.zoom + '"]').attr('checked',true);
 				}
+				if (saved.location) {
+					x$('input[name=location][value="' + saved.location + '"]');
+				}
 				if (saved.lat) {
-					x$('input[name=lat][values="' + saved.lat + '"]');
+					x$('input[name=lat][value="' + saved.lat + '"]');
 				}
 				if (saved.lon) {
-					x$('input[name=lon][values="' + saved.lon + '"]');
+					x$('input[name=lon][value="' + saved.lon + '"]');
 				}
 			}
 		});
@@ -71,6 +74,9 @@ run(function () {
             // construct a gmap str
             var map  = saved ? saved.map || ui('map') : ui('map')
             ,   zoom = saved ? saved.zoom || ui('zoom') : ui('zoom')
+            ,   lat = saved ? saved.lat || ui('lat') : ui('lat')
+            ,   lon = saved ? saved.lon || ui('lon') : ui('lon')
+            ,   location = saved ? saved.location || ui('location') : ui('location')
             ,   path = "http://maps.google.com/maps/api/staticmap?center=";
 			
             navigator.geolocation.getCurrentPosition(function (position) {
@@ -80,13 +86,12 @@ run(function () {
                 path += location + "&sensor=false";
 
                 x$('img#static_map').attr('src', path);
-				alert('here');
-				alert(location);
+
 				store.save( {
 					key: 'config',
+					location: location,
 					lat: position.coords.latitude,
-					lon: position.coords.longitude,
-					location: location
+					lon: position.coords.longitude
 				});
 				
             }, function () {
@@ -107,8 +112,9 @@ run(function () {
 		$('#showlist').html('Page is loading....');
 		store.get('config', function (saved) {
 			var map  = saved ? saved.map || ui('map') : ui('map')
-				,   lat = saved ? saved.lat || ui('map') : ui('map')
-				,   lon = saved ? saved.lon || ui('zoom') : ui('zoom')
+				,   location = saved ? saved.location || ui('lat') : ui('lat')
+				,   lat = saved ? saved.lat || ui('lat') : ui('lat')
+				,   lon = saved ? saved.lon || ui('lon') : ui('lon')
 				,   zoom = saved ? saved.zoom || ui('zoom') : ui('zoom')
 				,   path = "http://maps.google.com/maps/api/staticmap?center=";
 				
