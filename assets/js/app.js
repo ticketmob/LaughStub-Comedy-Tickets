@@ -41,25 +41,25 @@ run(function () {
             alert("No internet connection - we won't be able to show you any maps");
         } else {
             //alert("We can reach Google - get ready for some awesome maps!");
+			navigator.geolocation.getCurrentPosition(function (position) {
+				var coords = position.coords;
+				var location = "" + position.coords.latitude + "," + position.coords.longitude;
+				var url = "http://maps.google.com/maps/api/staticmap?center=" + coords.latitude + "," + coords.longitude + "&zoom=13&size=320x480&maptype=roadmap&key=MyGoogleMapsAPIKey&sensor=true";
+	
+				store.save( {
+					key: 'config',
+					location: location,
+				});
+				
+				}, function () {
+					alert('Can\'t locate the position');
+			});
 			
         }
     })();
     
     // a little inline controller
     when('#welcome', function() {
-		navigator.geolocation.getCurrentPosition(function (position) {
-			var coords = position.coords;
-			var location = "" + position.coords.latitude + "," + position.coords.longitude;
-			var url = "http://maps.google.com/maps/api/staticmap?center=" + coords.latitude + "," + coords.longitude + "&zoom=13&size=320x480&maptype=roadmap&key=MyGoogleMapsAPIKey&sensor=true";
-
-			store.save( {
-				key: 'config',
-				location: location,
-			});
-			
-		}, function () {
-			alert('Can\'t locate the position');
-		});
 	});
     when('#settings', function() {
 		// load settings from store and make sure we persist radio buttons.
