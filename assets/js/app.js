@@ -113,17 +113,18 @@ run(function () {
 
 	when('#shows', function () {
 		$('#showlist').html('Page is loading....');
-		store.get('config', function (saved) {
-			var map  = saved ? saved.map || ui('map') : ui('map')
-				,   location = saved ? saved.location || ui('location') : ui('location')
-				,   lat = saved ? saved.lat || ui('lat') : ui('lat')
-				,   lon = saved ? saved.lon || ui('lon') : ui('lon')
-				,   zoom = saved ? saved.zoom || ui('zoom') : ui('zoom')
-				,   path = "http://maps.google.com/maps/api/staticmap?center=";
+		navigator.geolocation.getCurrentPosition(function (position) {
+		//store.get('config', function (saved) {
+		//	var map  = saved ? saved.map || ui('map') : ui('map')
+		//		,   location = saved ? saved.location || ui('location') : ui('location')
+		//		,   lat = saved ? saved.lat || ui('lat') : ui('lat')
+		//		,   lon = saved ? saved.lon || ui('lon') : ui('lon')
+		//		,   zoom = saved ? saved.zoom || ui('zoom') : ui('zoom')
+		//		,   path = "http://maps.google.com/maps/api/staticmap?center=";
 				
 			$.ajax({
 				type: "GET",
-				url: "http://www.ticketmob.com/PhoneGap/index.cfm?map="+map+"&zoom="+zoom+"&location="+location+"&lat="+lat+"&lon="+lon,
+				url: "http://www.ticketmob.com/PhoneGap/index.cfm?map="+map+"&zoom="+zoom+"&location=0&lat="+position.coords.latitude+"&lon="+position.coords.longitude,
 				data: {
 					showID: '0'
 				},
