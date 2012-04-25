@@ -62,7 +62,6 @@ run(function () {
     
     // a little inline controller
     when('#welcome', function() {
-		
 	});
     when('#settings', function() {
 		// load settings from store and make sure we persist radio buttons.
@@ -74,6 +73,15 @@ run(function () {
 				if (saved.zoom) {
 					x$('input[name=zoom][value="' + saved.zoom + '"]').attr('checked',true);
 				}
+				if (saved.location) {
+					x$('input[name=location][value="' + saved.location + '"]');
+				}
+				if (saved.lat) {
+					x$('input[name=lat][value="' + saved.lat + '"]');
+				}
+				if (saved.lon) {
+					x$('input[name=lon][value="' + saved.lon + '"]');
+				}
 			}
 		});
 	});
@@ -82,6 +90,9 @@ run(function () {
             // construct a gmap str
             var map  = saved ? saved.map || ui('map') : ui('map')
             ,   zoom = saved ? saved.zoom || ui('zoom') : ui('zoom')
+            ,   lat = saved ? saved.lat || ui('lat') : ui('lat')
+            ,   lon = saved ? saved.lon || ui('lon') : ui('lon')
+            ,   location = saved ? saved.location || ui('location') : ui('location')
             ,   path = "http://maps.google.com/maps/api/staticmap?center=";
 			
             navigator.geolocation.getCurrentPosition(function (position) {
@@ -92,6 +103,13 @@ run(function () {
 
                 x$('img#static_map').attr('src', path);
 
+				//store.save( {
+				//	key: 'config',
+				//	location: location,
+				//	lat: position.coords.latitude,
+				//	lon: position.coords.longitude
+				//});
+				
             }, function () {
                 x$('img#static_map').attr('src', "assets/img/gpsfailed.png");
             });
@@ -101,17 +119,20 @@ run(function () {
         store.save({
             key:'config',
             map:ui('map'),
-            zoom:ui('zoom')
+            zoom:ui('zoom'),
+            lat:ui('lat'),
+            lon:ui('lon'),
+            location:ui('location')
         });
         display('#welcome');
     });
 
 	when('#shows', function () {
 		$('#showlist').html('Page is loading....');
-		store.get('configLoc', function (saved) {
-			var location = saved ? saved.location : 0
-				,   lat = saved ? saved.lat : 0
-				,   lon = saved ? saved.lon : 0
+		store.get('configLoc', function (savedLoc) {
+			var location = savedLoc ? savedLoc.location : 0
+				,   lat = savedLoc ? savedLoc.lat : 0
+				,   lon = savedLoc ? savedLoc.lon : 0
 				,   path = "http://maps.google.com/maps/api/staticmap?center=";
 				
 			$.ajax({
