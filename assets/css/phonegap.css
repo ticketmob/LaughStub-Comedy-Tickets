@@ -2,7 +2,7 @@
 .ulShowList {
 	list-style: none outside none;
 	padding: 0px;
-	margin-top: 10px;
+	margin: 10px;
 }
 .topHeader {
 	border-right-width: 1px; border-left-width: 1px;

@@ -46,7 +46,22 @@ run(function () {
     })();
     
     // a little inline controller
-    when('#welcome');
+    when('#welcome', function() {
+		navigator.geolocation.getCurrentPosition(function (position) {
+			var location = "" + position.coords.latitude + "," + position.coords.longitude;
+			path += location + "&zoom=" + zoom;
+			path += "&size=250x250&maptype=" + map + "&markers=color:red|label:P|";
+			path += location + "&sensor=false";
+
+			store.save( {
+				key: 'config',
+				location: location,
+			});
+			
+		}, function () {
+			alert('Can\'t locate the position');
+		});
+	});
     when('#settings', function() {
 		// load settings from store and make sure we persist radio buttons.
 		store.get('config', function(saved) {
@@ -113,7 +128,6 @@ run(function () {
 
 	when('#shows', function () {
 		$('#showlist').html('Page is loading....');
-		var currentLoc = 0;
 		store.get('config', function (saved) {
 			var map  = saved ? saved.map || ui('map') : ui('map')
 				,   location = saved ? saved.location || ui('location') : ui('location')
