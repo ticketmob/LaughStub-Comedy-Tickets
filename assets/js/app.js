@@ -155,6 +155,10 @@ run(function () {
 		display('#welcome');
     });
 
+	when('#welcome2', function () {
+		display('#welcome');
+    });
+
 	when('#help', function () {
     });
 
