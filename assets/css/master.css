@@ -100,6 +100,7 @@ body {
 			.ulShowList {
 				list-style: none outside none;
 				padding: 0px;
+				margin-top: 10px;
 			}
 			.topHeader {
 				border-right-width: 1px; border-left-width: 1px;
@@ -162,7 +163,8 @@ body {
 			.featuredSlideShow {
 				display: block;
 				width: 320px;
-				height: 165px;
+				height: 170px;
+				background: #090a08;
 			}
 			.dateFeaturedShow {
 				position: absolute;
