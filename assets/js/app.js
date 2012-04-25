@@ -1,4 +1,4 @@
-
+/*
 function loader() {
 	var state = document.readyState;
 	if(state == 'loaded' || state == 'complete') {
@@ -29,7 +29,7 @@ function runGeoLoc() {
 	alert(navigator.geolocation.getCurrentPosition);
 	navigator.geolocation.getCurrentPosition(win, fail);
 }
-
+*/
 
 // 
 //  --- our app behavior logic ---
@@ -57,6 +57,12 @@ run(function () {
 				if (saved.zoom) {
 					x$('input[name=zoom][value="' + saved.zoom + '"]').attr('checked',true);
 				}
+				if (saved.lat) {
+					x$('input[name=lat][values="' + saved.lat + '"]');
+				}
+				if (saved.lon) {
+					x$('input[name=lon][values="' + saved.lon + '"]');
+				}
 			}
 		});
 	});
@@ -75,11 +81,11 @@ run(function () {
 
                 x$('img#static_map').attr('src', path);
 				
-				//store.save( {
-				//	key: 'config',
-				//	lat: position.coords.latitude,
-				//	lon: position.coords.longitude
-				//});
+				store.save( {
+					key: 'config',
+					lat: position.coords.latitude,
+					lon: position.coords.longitude
+				});
 				
             }, function () {
                 x$('img#static_map').attr('src', "assets/img/gpsfailed.png");
