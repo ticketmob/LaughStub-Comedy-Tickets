@@ -131,9 +131,9 @@ run(function () {
 		$('#showlist').html('Page is loading....');
 		store.get('config', function (saved) {
 			var map  = saved ? saved.map || ui('map') : ui('map')
-				,   location = saved ? saved.location || ui('location') : ui('location')
-				,   lat = saved ? saved.lat || ui('lat') : ui('lat')
-				,   lon = saved ? saved.lon || ui('lon') : ui('lon')
+				,   location = saved ? saved.location : 0
+				,   lat = saved ? saved.lat : 0
+				,   lon = saved ? saved.lon : 0
 				,   zoom = saved ? saved.zoom || ui('zoom') : ui('zoom')
 				,   path = "http://maps.google.com/maps/api/staticmap?center=";
 				
