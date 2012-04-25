@@ -103,12 +103,12 @@ run(function () {
 
                 x$('img#static_map').attr('src', path);
 
-				store.save( {
-					key: 'config',
-					location: location,
-					lat: position.coords.latitude,
-					lon: position.coords.longitude
-				});
+				//store.save( {
+				//	key: 'config',
+				//	location: location,
+				//	lat: position.coords.latitude,
+				//	lon: position.coords.longitude
+				//});
 				
             }, function () {
                 x$('img#static_map').attr('src', "assets/img/gpsfailed.png");
@@ -119,10 +119,10 @@ run(function () {
         store.save({
             key:'config',
             map:ui('map'),
-            zoom:ui('zoom'),
-            lat:ui('lat'),
-            lon:ui('lon'),
-            location:ui('location')
+            zoom:ui('zoom')
+            //lat:ui('lat'),
+            //lon:ui('lon'),
+            //location:ui('location')
         });
         display('#welcome');
     });
