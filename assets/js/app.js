@@ -73,15 +73,6 @@ run(function () {
 				if (saved.zoom) {
 					x$('input[name=zoom][value="' + saved.zoom + '"]').attr('checked',true);
 				}
-				if (saved.location) {
-					x$('input[name=location][value="' + saved.location + '"]');
-				}
-				if (saved.lat) {
-					x$('input[name=lat][value="' + saved.lat + '"]');
-				}
-				if (saved.lon) {
-					x$('input[name=lon][value="' + saved.lon + '"]');
-				}
 			}
 		});
 	});
@@ -103,13 +94,6 @@ run(function () {
 
                 x$('img#static_map').attr('src', path);
 
-				//store.save( {
-				//	key: 'config',
-				//	location: location,
-				//	lat: position.coords.latitude,
-				//	lon: position.coords.longitude
-				//});
-				
             }, function () {
                 x$('img#static_map').attr('src', "assets/img/gpsfailed.png");
             });
@@ -120,9 +104,6 @@ run(function () {
             key:'config',
             map:ui('map'),
             zoom:ui('zoom')
-            //lat:ui('lat'),
-            //lon:ui('lon'),
-            //location:ui('location')
         });
         display('#welcome');
     });
