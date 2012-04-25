@@ -117,10 +117,7 @@ run(function () {
         store.save({
             key:'config',
             map:ui('map'),
-            zoom:ui('zoom'),
-			lat:ut('lat'),
-			lon:ut('lon'),
-			location:ut('location')
+            zoom:ui('zoom')
         });
         display('#welcome');
     });
