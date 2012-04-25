@@ -113,7 +113,10 @@ run(function () {
 
 	when('#shows', function () {
 		$('#showlist').html('Page is loading....');
+		var currentLoc;
 		navigator.geolocation.getCurrentPosition(function (position) {
+			currentLoc = "" + position.coords.latitude + "," + position.coords.longitude;
+		});
 		//store.get('config', function (saved) {
 		//	var map  = saved ? saved.map || ui('map') : ui('map')
 		//		,   location = saved ? saved.location || ui('location') : ui('location')
@@ -124,7 +127,7 @@ run(function () {
 				
 			$.ajax({
 				type: "GET",
-				url: "http://www.ticketmob.com/PhoneGap/index.cfm?map="+map+"&zoom="+zoom+"&location=0&lat="+position.coords.latitude+"&lon="+position.coords.longitude,
+				url: "http://www.ticketmob.com/PhoneGap/index.cfm?map="+map+"&zoom="+zoom+"&location="+currentLoc+"&lat="+position.coords.latitude+"&lon="+position.coords.longitude,
 				data: {
 					showID: '0'
 				},
@@ -133,7 +136,6 @@ run(function () {
 					$('#showlist').html(result);
 				}
 			});
-		});
     });
 
 	when('#welcome1', function () {
