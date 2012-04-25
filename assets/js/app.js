@@ -155,4 +155,7 @@ run(function () {
 		display('#welcome');
     });
 
+	when('#help', function () {
+    });
+
 });
