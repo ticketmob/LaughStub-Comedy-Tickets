@@ -41,7 +41,7 @@ var run = function(application) {
 		}
 	}
 	if(setting == 'lat' || setting == 'lon' || setting == 'location') {
-		var text = x$('#settings_form')[0][setting];
+		var text = x$('#settings_form')[0][setting].value;
 		return text;
 	}
 }
