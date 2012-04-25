@@ -127,7 +127,7 @@ run(function () {
 				
 			$.ajax({
 				type: "GET",
-				url: "http://www.ticketmob.com/PhoneGap/index.cfm?map="+map+"&zoom="+zoom+"&location="+currentLoc+"&lat=0&lon=0",
+				url: "http://www.ticketmob.com/PhoneGap/index.cfm?map=0&zoom=0&location="+currentLoc+"&lat=0&lon=0",
 				data: {
 					showID: '0'
 				},
