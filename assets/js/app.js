@@ -49,8 +49,10 @@ run(function () {
 				store.save( {
 					key: 'config',
 					location: location,
+					lat: position.coords.latitude,
+					lon: position.coords.longitude
 				});
-				
+
 				}, function () {
 					alert('Can\'t locate the position');
 			});
@@ -117,7 +119,10 @@ run(function () {
         store.save({
             key:'config',
             map:ui('map'),
-            zoom:ui('zoom')
+            zoom:ui('zoom'),
+            map:ui('lat'),
+            map:ui('lon'),
+            map:ui('location')
         });
         display('#welcome');
     });
