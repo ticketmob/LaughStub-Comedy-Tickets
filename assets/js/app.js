@@ -14,7 +14,7 @@ function loader() {
 
 function runGeoLoc() {
 	nativeControls = window.plugins.nativeControls;
-	nativecontrols.createTabBar(
+	nativeControls.createTabBar(
 		"home", "Home", "lsIcon.png", {"onSelect": function() {
 		}}
 	);
