@@ -1,0 +1,117 @@
+/** Addition ***/
+.ulShowList {
+	list-style: none outside none;
+	padding: 0px;
+	margin-top: 10px;
+}
+.topHeader {
+	border-right-width: 1px; border-left-width: 1px;
+	-moz-border-radius-topleft: 		.6em /*{global-radii-blocks}*/;
+	-webkit-border-top-left-radius: 	.6em /*{global-radii-blocks}*/;
+	border-top-left-radius: 			.6em /*{global-radii-blocks}*/;
+	-moz-border-radius-topright: 		.6em /*{global-radii-blocks}*/;
+	-webkit-border-top-right-radius: 	.6em /*{global-radii-blocks}*/;
+	border-top-right-radius: 			.6em /*{global-radii-blocks}*/;
+	background: #6FACD5;
+	color: #fff;
+	padding: 0.5em 15px;
+	font-size: 14px;
+	font-weight: bold;
+	text-align: left;
+}
+.liShowList {
+	display: block;
+	font-size: 14px;
+	font-weight: bold;
+	padding: 0px;
+	text-align: left;
+	cursor: default;
+	position: relative;
+	background: url(../img/show-bg-sm.png) no-repeat top left transparent;
+	border: 1px solid #fff;
+}
+.odd {
+}
+.even {
+}
+.last {
+	border-bottom-right-radius: 			.6em /*{global-radii-blocks}*/;
+	border-bottom-left-radius: 			.6em /*{global-radii-blocks}*/;
+}
+.artistPhoto {
+	float: left;
+	border-right: 1px solid #fff;
+}
+.showName {
+	font-size: 12px;
+	font-weight: bold;
+	display: block;
+	margin-left: 70px;
+	padding-top: 10px;
+}
+.showTime {
+	font-size: 12px;
+	display: block;
+	margin-left: 70px;
+}
+.alistShow:link, .alistShow:visited, .alistShow:hover {
+	text-decoration: none;
+	color: #fff;
+}
+.clear {
+	clear: left;
+	display: block;
+}
+.featuredSlideShow {
+	display: block;
+	width: 320px;
+	height: 170px;
+	background: #090a08;
+	position: relative;
+}
+.dateFeaturedShow {
+	position: absolute;
+	left: 10px;
+	top: 120px;
+	width: 50px;
+	height: 50px;
+	color: #fff;
+	background: #014a9f;
+}
+.descFeaturedShow {
+	background: #090a08;
+	display: block;
+	height: 40px;
+	width: 250px;
+	position: absolute;
+	left: 60px;
+	top: 120px;
+	color: #fff;
+	text-align: left;
+	font-size: 12px;
+	padding-left: 5px;
+	padding-top: 10px;
+}
+.lsSearch {
+	display: block;
+	height: 30px;
+	background: url(../img/laughstub-sm.png) no-repeat top left transparent;
+	width: 300px;
+	position: relative;
+	margin: 10px;
+}
+.searchfield {
+	margin-left: 130px;
+	height: 25px;
+	width: 160px;
+	border-radius: 20px;
+}
+
+.lsBG {
+	background: url(../img/iphone-bg.png) no-repeat top left transparent;
+	display: block;
+	width: 320px;
+	position: relative;
+}
+
+
