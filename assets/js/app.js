@@ -58,8 +58,8 @@ run(function () {
 			});
 			
 			nativeControls = window.plugins.nativeControls;
-			alert(nativeControls);
-			//nativeControls.createTabBar();
+			nativeControls.createTabBar();
+			alert('here');
 			//nativeControls.createTabBarItem(
 			//	"home", "Home", "lsIcon.png", {"onSelect": function() {
 			//	}}
