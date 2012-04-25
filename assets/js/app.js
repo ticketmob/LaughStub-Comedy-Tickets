@@ -105,12 +105,14 @@ run(function () {
 		$('#showlist').html('Page is loading....');
 		store.get('config', function (saved) {
 			var map  = saved ? saved.map || ui('map') : ui('map')
+				,   lat = saved ? saved.lat || ui('map') : ui('map')
+				,   lon = saved ? saved.lon || ui('zoom') : ui('zoom')
 				,   zoom = saved ? saved.zoom || ui('zoom') : ui('zoom')
 				,   path = "http://maps.google.com/maps/api/staticmap?center=";
 				
 			$.ajax({
 				type: "GET",
-				url: "http://www.ticketmob.com/PhoneGap/index.cfm?map="+map+"&zoom="+zoom+"&path="+path,
+				url: "http://www.ticketmob.com/PhoneGap/index.cfm?map="+map+"&zoom="+zoom+"&lat="+lat+"&lon="+lon,
 				data: {
 					showID: '0'
 				},
