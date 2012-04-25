@@ -98,9 +98,13 @@ run(function () {
 	when('#shows', function () {
 		$('#showlist').html('Page is loading....');
 		store.get('config', function (saved) {
+			var map  = saved ? saved.map || ui('map') : ui('map')
+				,   zoom = saved ? saved.zoom || ui('zoom') : ui('zoom')
+				,   path = "http://maps.google.com/maps/api/staticmap?center=";
+				
 			$.ajax({
 				type: "GET",
-				url: "http://www.ticketmob.com/PhoneGap/index.cfm?map=",
+				url: "http://www.ticketmob.com/PhoneGap/index.cfm?map="+map+"&zoom="+zoom+"&path="+path,
 				data: {
 					showID: '0'
 				},
