@@ -73,15 +73,15 @@ run(function () {
 				if (saved.zoom) {
 					x$('input[name=zoom][value="' + saved.zoom + '"]').attr('checked',true);
 				}
-				if (saved.location) {
-					x$('input[name=location][value="' + saved.location + '"]');
-				}
-				if (saved.lat) {
-					x$('input[name=lat][value="' + saved.lat + '"]');
-				}
-				if (saved.lon) {
-					x$('input[name=lon][value="' + saved.lon + '"]');
-				}
+				//if (saved.location) {
+				//	x$('input[name=location][value="' + saved.location + '"]');
+				//}
+				//if (saved.lat) {
+				//	x$('input[name=lat][value="' + saved.lat + '"]');
+				//}
+				//if (saved.lon) {
+				//	x$('input[name=lon][value="' + saved.lon + '"]');
+				//}
 			}
 		});
 	});
@@ -90,9 +90,9 @@ run(function () {
             // construct a gmap str
             var map  = saved ? saved.map || ui('map') : ui('map')
             ,   zoom = saved ? saved.zoom || ui('zoom') : ui('zoom')
-            ,   lat = saved ? saved.lat || ui('lat') : ui('lat')
-            ,   lon = saved ? saved.lon || ui('lon') : ui('lon')
-            ,   location = saved ? saved.location || ui('location') : ui('location')
+            ,   lat = saved ? saved.lat : 0
+            ,   lon = saved ? saved.lon : 0
+            ,   location = saved ? saved.location : 0
             ,   path = "http://maps.google.com/maps/api/staticmap?center=";
 			
             navigator.geolocation.getCurrentPosition(function (position) {
@@ -103,13 +103,6 @@ run(function () {
 
                 x$('img#static_map').attr('src', path);
 
-				store.save( {
-					key: 'config',
-					location: location,
-					lat: position.coords.latitude,
-					lon: position.coords.longitude
-				});
-				
             }, function () {
                 x$('img#static_map').attr('src', "assets/img/gpsfailed.png");
             });
@@ -119,10 +112,10 @@ run(function () {
         store.save({
             key:'config',
             map:ui('map'),
-            zoom:ui('zoom'),
-            map:ui('lat'),
-            map:ui('lon'),
-            map:ui('location')
+            zoom:ui('zoom')
+            //map:ui('lat'),
+            //map:ui('lon'),
+            //map:ui('location')
         });
         display('#welcome');
     });
@@ -131,9 +124,9 @@ run(function () {
 		$('#showlist').html('Page is loading....');
 		store.get('config', function (saved) {
 			var map  = saved ? saved.map || ui('map') : ui('map')
-				,   location = saved ? saved.location || ui('location') : ui('location')
-				,   lat = saved ? saved.lat || ui('lat') : ui('lat')
-				,   lon = saved ? saved.lon || ui('lon') : ui('lon')
+				,   location = saved ? saved.location : 0
+				,   lat = saved ? saved.lat : 0
+				,   lon = saved ? saved.lon : 0
 				,   zoom = saved ? saved.zoom || ui('zoom') : ui('zoom')
 				,   path = "http://maps.google.com/maps/api/staticmap?center=";
 				
