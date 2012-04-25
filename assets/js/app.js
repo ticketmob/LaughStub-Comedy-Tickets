@@ -86,11 +86,11 @@ run(function () {
     when('#map', function () {
         store.get('config', function (saved) {
             // construct a gmap str
-            var map  = saved ? saved.map || ui('map') : ui('map')
-            ,   zoom = saved ? saved.zoom || ui('zoom') : ui('zoom')
-            ,   lat = saved ? saved.lat || ui('lat') : ui('lat')
-            ,   lon = saved ? saved.lon || ui('lon') : ui('lon')
-            ,   location = saved ? saved.location || ui('location') : ui('location')
+            var map  = saved ? saved.map || ui('map','radio') : ui('map','radio')
+            ,   zoom = saved ? saved.zoom || ui('zoom','radio') : ui('zoom','radio')
+            ,   lat = saved ? saved.lat || ui('lat','text') : ui('lat','text')
+            ,   lon = saved ? saved.lon || ui('lon','text') : ui('lon','text')
+            ,   location = saved ? saved.location || ui('location','text') : ui('location','text')
             ,   path = "http://maps.google.com/maps/api/staticmap?center=";
 			
             navigator.geolocation.getCurrentPosition(function (position) {
@@ -116,11 +116,11 @@ run(function () {
     when('#save', function () {
         store.save({
             key:'config',
-            map:ui('map'),
-            zoom:ui('zoom'),
-			lat:ui('lat'),
-			lon:ui('lon'),
-			location:ui('location')
+            map:ui('map','radio'),
+            zoom:ui('zoom','radio'),
+			lat:ui('lat','text'),
+			lon:ui('lon','text'),
+			location:ui('location','text')
         });
         display('#welcome');
     });
@@ -128,11 +128,11 @@ run(function () {
 	when('#shows', function () {
 		$('#showlist').html('Page is loading....');
 		store.get('config', function (saved) {
-			var map  = saved ? saved.map || ui('map') : ui('map')
-				,   location = saved ? saved.location || ui('location') : ui('location')
-				,   lat = saved ? saved.lat || ui('lat') : ui('lat')
-				,   lon = saved ? saved.lon || ui('lon') : ui('lon')
-				,   zoom = saved ? saved.zoom || ui('zoom') : ui('zoom')
+			var map  = saved ? saved.map || ui('map','radio') : ui('map','radio')
+				,   location = saved ? saved.location || ui('location','text') : ui('location','text')
+				,   lat = saved ? saved.lat || ui('lat','text') : ui('lat','text')
+				,   lon = saved ? saved.lon || ui('lon','text') : ui('lon','text')
+				,   zoom = saved ? saved.zoom || ui('zoom','radio') : ui('zoom','radio')
 				,   path = "http://maps.google.com/maps/api/staticmap?center=";
 				
 			$.ajax({
