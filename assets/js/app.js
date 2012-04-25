@@ -62,6 +62,7 @@ run(function () {
     
     // a little inline controller
     when('#welcome', function() {
+		
 	});
     when('#settings', function() {
 		// load settings from store and make sure we persist radio buttons.
@@ -81,9 +82,6 @@ run(function () {
             // construct a gmap str
             var map  = saved ? saved.map || ui('map') : ui('map')
             ,   zoom = saved ? saved.zoom || ui('zoom') : ui('zoom')
-            ,   lat = saved ? saved.lat || ui('lat') : ui('lat')
-            ,   lon = saved ? saved.lon || ui('lon') : ui('lon')
-            ,   location = saved ? saved.location || ui('location') : ui('location')
             ,   path = "http://maps.google.com/maps/api/staticmap?center=";
 			
             navigator.geolocation.getCurrentPosition(function (position) {
@@ -132,13 +130,6 @@ run(function () {
 
 	when('#welcome1', function () {
 		display('#welcome');
-    });
-
-	when('#welcome2', function () {
-		display('#welcome');
-    });
-
-	when('#help', function () {
     });
 
 });
