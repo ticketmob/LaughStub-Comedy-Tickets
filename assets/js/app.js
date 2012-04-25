@@ -32,6 +32,7 @@ function runGeoLoc() {
 */
 
 function loaded() {
+	alert('searching');
 	document.addEventListener("deviceready", onDeviceReady, false);
 }
 
@@ -105,9 +106,6 @@ run(function () {
             // construct a gmap str
             var map  = saved ? saved.map || ui('map') : ui('map')
             ,   zoom = saved ? saved.zoom || ui('zoom') : ui('zoom')
-            ,   lat = saved ? saved.lat || ui('lat') : ui('lat')
-            ,   lon = saved ? saved.lon || ui('lon') : ui('lon')
-            ,   location = saved ? saved.location || ui('location') : ui('location')
             ,   path = "http://maps.google.com/maps/api/staticmap?center=";
 			
             navigator.geolocation.getCurrentPosition(function (position) {
