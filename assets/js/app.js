@@ -57,6 +57,13 @@ run(function () {
 					alert('Can\'t locate the position');
 			});
 			
+			nativeControls = window.plugins.nativeControls;
+			alert(nativeControls);
+			//nativeControls.createTabBar();
+			//nativeControls.createTabBarItem(
+			//	"home", "Home", "lsIcon.png", {"onSelect": function() {
+			//	}}
+			//);
         }
     })();
     
