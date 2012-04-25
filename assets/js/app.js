@@ -103,7 +103,10 @@ run(function () {
         store.save({
             key:'config',
             map:ui('map'),
-            zoom:ui('zoom')
+            zoom:ui('zoom'),
+			lat:ui('lat'),
+			lon:ui('lon'),
+			location:ui('location')
         });
         display('#welcome');
     });
@@ -112,7 +115,7 @@ run(function () {
 		$('#showlist').html('Page is loading....');
 		store.get('config', function (saved) {
 			var map  = saved ? saved.map || ui('map') : ui('map')
-				,   location = saved ? saved.location || ui('lat') : ui('lat')
+				,   location = saved ? saved.location || ui('location') : ui('location')
 				,   lat = saved ? saved.lat || ui('lat') : ui('lat')
 				,   lon = saved ? saved.lon || ui('lon') : ui('lon')
 				,   zoom = saved ? saved.zoom || ui('zoom') : ui('zoom')
@@ -120,7 +123,7 @@ run(function () {
 				
 			$.ajax({
 				type: "GET",
-				url: "http://www.ticketmob.com/PhoneGap/index.cfm?map="+map+"&zoom="+zoom+"&lat="+lat+"&lon="+lon,
+				url: "http://www.ticketmob.com/PhoneGap/index.cfm?map="+map+"&zoom="+zoom+"&location="+location+"&lat="+lat+"&lon="+lon,
 				data: {
 					showID: '0'
 				},
