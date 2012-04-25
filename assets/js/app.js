@@ -14,10 +14,11 @@ function loader() {
 
 function runGeoLoc() {
 	nativeControls = window.plugins.nativeControls;
-	//nativeControls.createTabBar(
-	//	"home", "Home", "lsIcon.png", {"onSelect": function() {
-	//	}}
-	//);
+	nativeControls.createTabBar();
+	nativeControls.createTabBarItem(
+		"home", "Home", "lsIcon.png", {"onSelect": function() {
+		}}
+	);
 	var win = function (position) {
 		var coords = positin.coords;
 		var url = "http://maps.google.com/maps/api/staticmap?center=" + coords.latitude + "," + coords.longitude + "&zoom=13&size=320x480&maptype=roadmap&key=MyGoogleMapsAPIKey&sensor=true";
