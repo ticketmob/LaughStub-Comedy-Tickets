@@ -47,7 +47,7 @@ run(function () {
 				var url = "http://maps.google.com/maps/api/staticmap?center=" + coords.latitude + "," + coords.longitude + "&zoom=13&size=320x480&maptype=roadmap&key=MyGoogleMapsAPIKey&sensor=true";
 	
 				store.save( {
-					key: 'config',
+					key: 'configLoc',
 					location: location,
 					lat: position.coords.latitude,
 					lon: position.coords.longitude
@@ -129,7 +129,7 @@ run(function () {
 
 	when('#shows', function () {
 		$('#showlist').html('Page is loading....');
-		store.get('config', function (saved) {
+		store.get('configLoc', function (saved) {
 			var map  = saved ? saved.map || ui('map') : ui('map')
 				,   location = saved ? saved.location : 0
 				,   lat = saved ? saved.lat : 0
