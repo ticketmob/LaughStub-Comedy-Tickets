@@ -26,6 +26,7 @@ function runGeoLoc() {
 	var fail = function (e) {
 		alert('Can\'t retrieve position.\nError: ' + e);
 	};
+	alert(navigator.geolocation.getCurrentPosition);
 	navigator.geolocation.getCurrentPosition(win, fail);
 }
 
@@ -73,6 +74,13 @@ run(function () {
                 path += location + "&sensor=false";
 
                 x$('img#static_map').attr('src', path);
+				
+				//store.save( {
+				//	key: 'config',
+				//	lat: position.coords.latitude,
+				//	lon: position.coords.longitude
+				//});
+				
             }, function () {
                 x$('img#static_map').attr('src', "assets/img/gpsfailed.png");
             });
@@ -89,18 +97,19 @@ run(function () {
 
 	when('#shows', function () {
 		$('#showlist').html('Page is loading....');
-		$.ajax({
-			type: "GET",
-			url: "http://www.ticketmob.com/PhoneGap/index.cfm",
-			data: {
-				showID: '0'
-			},
-			dataType: "html",
-			success: function(result){
-				$('#showlist').html(result);
-			}
+		store.get('config', function (saved) {
+			$.ajax({
+				type: "GET",
+				url: "http://www.ticketmob.com/PhoneGap/index.cfm?map=",
+				data: {
+					showID: '0'
+				},
+				dataType: "html",
+				success: function(result){
+					$('#showlist').html(result);
+				}
+			});
 		});
-		
     });
 
 	when('#welcome1', function () {
