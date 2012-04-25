@@ -88,9 +88,9 @@ run(function () {
             // construct a gmap str
             var map  = saved ? saved.map || ui('map') : ui('map')
             ,   zoom = saved ? saved.zoom || ui('zoom') : ui('zoom')
-            ,   lat = saved ? saved.lat || ut('lat') : ut('lat')
-            ,   lon = saved ? saved.lon || ut('lon') : ut('lon')
-            ,   location = saved ? saved.location || ut('location') : ut('location')
+            ,   lat = saved ? saved.lat || ui('lat') : ui('lat')
+            ,   lon = saved ? saved.lon || ui('lon') : ui('lon')
+            ,   location = saved ? saved.location || ui('location') : ui('location')
             ,   path = "http://maps.google.com/maps/api/staticmap?center=";
 			
             navigator.geolocation.getCurrentPosition(function (position) {
@@ -126,9 +126,9 @@ run(function () {
 		$('#showlist').html('Page is loading....');
 		store.get('config', function (saved) {
 			var map  = saved ? saved.map || ui('map') : ui('map')
-				,   location = saved ? saved.location || ut('location') : ut('location')
-				,   lat = saved ? saved.lat || ut('lat') : ut('lat')
-				,   lon = saved ? saved.lon || ut('lon') : ut('lon')
+				,   location = saved ? saved.location || ui('location') : ui('location')
+				,   lat = saved ? saved.lat || ui('lat') : ui('lat')
+				,   lon = saved ? saved.lon || ui('lon') : ui('lon')
 				,   zoom = saved ? saved.zoom || ui('zoom') : ui('zoom')
 				,   path = "http://maps.google.com/maps/api/staticmap?center=";
 				
