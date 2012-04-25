@@ -1,3 +1,29 @@
+
+function loader() {
+	var state = document.readyState;
+	if(state == 'loaded' || state == 'complete') {
+		runGeoLoc();
+	} else {
+		if(navigator.userAgent.indexOf('Browzr') > 1) {
+			setTimeout(runGeoLoc, 250);
+		} else {
+			document.addEventListener('deviceready', runGeoLoc, false);
+		}
+	}
+}
+
+function runGeoLoc() {
+	var win = function (position) {
+		var coords = positin.coords;
+		var url = "http://maps.google.com/maps/api/staticmap?center=" + coords.latitude + "," + coords.longitude + "&zoom=13&size=320x480&maptype=roadmap&key=MyGoogleMapsAPIKey&sensor=true";
+	}
+	var fail = function (e) {
+		alert('Can\'t retrieve position.\nError: ' + e);
+	};
+	navigator.geolocation.getCurrentPosition(win, fail);
+}
+
+
 // 
 //  --- our app behavior logic ---
 //
@@ -8,6 +34,7 @@ run(function () {
             alert("No internet connection - we won't be able to show you any maps");
         } else {
             //alert("We can reach Google - get ready for some awesome maps!");
+			
         }
     })();
     
@@ -68,10 +95,6 @@ run(function () {
 			}
 		});
 		
-		//$.mobile.changePage( "http://www.ticketmob.com/PhoneGap/index.cfm", { pageContainer: 'hidethisdiv' } );
-		//display('#shows');
-		//alert($('#showlist').html());
-		//$('#showlist').html('Overwrite this div');
     });
 
 	when('#welcome1', function () {
