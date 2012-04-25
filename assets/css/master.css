@@ -165,6 +165,7 @@ body {
 				width: 320px;
 				height: 170px;
 				background: #090a08;
+				position: relative;
 			}
 			.dateFeaturedShow {
 				position: absolute;
@@ -188,4 +189,18 @@ body {
 				font-size: 12px;
 				padding-left: 5px;
 				padding-top: 10px;
+			}
+			.lsSearch {
+				display: block;
+				height: 30px;
+				background: url(../img/laughstub-sm.png) no-repeat top left transparent;
+				width: 300px;
+				position: relative;
+				margin: 10px;
+			}
+			.searchfield {
+				margin-left: 130px;
+				height: 25px;
+				width: 160px;
+				border-radius: 20px;
 			}
