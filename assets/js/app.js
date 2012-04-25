@@ -32,7 +32,6 @@ function runGeoLoc() {
 */
 
 function loaded() {
-	alert('searching');
 	document.addEventListener("deviceready", onDeviceReady, false);
 }
 
@@ -65,8 +64,8 @@ run(function () {
 				}, function () {
 					alert('Can\'t locate the position');
 			});
-			loaded();
-			nativeControls = window.plugins.nativeControls;
+			document.addEventListener("deviceready", onDeviceReady, false);
+			//nativeControls = window.plugins.nativeControls;
 			//nativeControls.createTabBar();
 			//alert('here');
 			//nativeControls.createTabBarItem(
@@ -88,15 +87,6 @@ run(function () {
 				}
 				if (saved.zoom) {
 					x$('input[name=zoom][value="' + saved.zoom + '"]').attr('checked',true);
-				}
-				if (saved.location) {
-					x$('input[name=location][value="' + saved.location + '"]');
-				}
-				if (saved.lat) {
-					x$('input[name=lat][value="' + saved.lat + '"]');
-				}
-				if (saved.lon) {
-					x$('input[name=lon][value="' + saved.lon + '"]');
 				}
 			}
 		});
