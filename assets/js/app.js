@@ -80,11 +80,13 @@ run(function () {
                 path += location + "&sensor=false";
 
                 x$('img#static_map').attr('src', path);
-				
+				alert('here');
+				alert(location);
 				store.save( {
 					key: 'config',
 					lat: position.coords.latitude,
-					lon: position.coords.longitude
+					lon: position.coords.longitude,
+					location: location
 				});
 				
             }, function () {
