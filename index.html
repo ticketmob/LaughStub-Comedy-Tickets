@@ -1,140 +1,66 @@
-<!doctype html>
-<html><head>
-		<meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width" />
-		<title>Training App</title>
-        
-		<script src="phonegap.js" type="text/javascript" charset="utf-8"></script>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 
-		<link rel="stylesheet" href="assets/css/jquery.mobile-1.1.0.css" type="text/css" media="screen" />
-        
-        <script src="assets/js/jquery1.7.2.js" type="text/javascript" charset="utf-8"></script>
-        
-		<script src="assets/js/jquery.mobile-1.1.0.js"></script>
-        
-        <script type="text/javascript">
+<html>
 
-			$( function() {
-			
-			$('#searchButton').click(function() {
-			
-			$.getJSON('http://api.alternativeto.net/software/'+$('#searchBox').val()+'/?count=15', 
-			
-			function(data) {
-			
-			var items=data.Items;
-			
-			var list = $('#list');
-			
-			list.html("");
-			
-			$.each(items, function(key, val) {
-			
-			list.append($(document.createElement('li')).html(val.Name));
-			
-			});
-			
-			list.listview("destroy").listview()
-			
-			});
-			
-			});
-			
-			document.addEventListener("deviceready", onDeviceReady, false);
-			
-			});
-			
-			function reachableCallback(reachability) {
-			
-			// There is no consistency on the format of reachability
-			
-			var networkState = reachability.code || reachability;
-			
-			var states = {};
-			
-			states[NetworkStatus.NOT_REACHABLE]                      = 'No network connection';
-			
-			states[NetworkStatus.REACHABLE_VIA_CARRIER_DATA_NETWORK] = 'Carrier data connection';
-			
-			states[NetworkStatus.REACHABLE_VIA_WIFI_NETWORK]         = 'WiFi connection';
-			
-			alert('Connection type: ' + states[networkState]);
-			
-			}
-			
-			// PhoneGap is loaded and it is now safe to make calls PhoneGap methods
-			
-			function onDeviceReady() {
-			
-			navigator.network.isReachable('phonegap.com', reachableCallback);
-			
-			}
-			
-		</script>  
-	</head>
-	<body >
+     <head>
 
-		<div data-role="page" id="home"> 
+          <meta name="viewport" content="width=device-width; height=device-height; user-scalable=no" />
 
-            <div data-role="header"> 
-            
-            <h1>AlternativeTo Home</h1> 
-            
-            </div> 
-            
-            <div data-role="content">
-            
-            <p>Find Alternatives To Your favourite Softwares </p>
-            
-            <p><a href="#search" data-role="button">Search Alternatives</a></p>    
-            
-            <p><a href="#recent" data-role="button">Recent Alternatives</a></p>
-            
-            </div> 
-            
-            </div> 
-            
-            <div data-role="page" id="search"> 
-            
-            <div data-role="header" data-position="fixed"> 
-            
-            <h1>Search Alternatives</h1> 
-            
-            <div class="class= ui-body ui-body-b"> 
-            
-            <input type="text" name="search" id="searchBox" value="" data-theme="a" /> 
-            
-            <button type="submit" data-theme="a" id="searchButton">Search</button>     
-            
-            </div>
-            
-            </div>
-            
-            <div data-role="content"> 
-            
-            <ul data-role="listview" id="list"></ul> 
-            
-            </div> 
-            
-            </div>
-            
-            <div data-role="page" id="recent"> 
-            
-            <div data-role="header"> 
-            
-            <h1> Recent Alternatives</h1> 
-            
-            </div> 
-            
-            <div data-role="content"> 
-            
-            <p>This app rocks!</p> 
-            
-            </div>
-            
-            </div>
-        
-	</body>
+          <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+          <title>Training App</title>
+
+          <link rel="stylesheet" href="/master.css" type="text/css" media="screen" />
+
+          <script type="text/javascript" src="scripts/phonegap.js"></script>
+
+          <script type="text/javascript">
+
+               function loader() {
+
+                    var state = document.readyState;
+
+                    if (state == 'loaded' || state == 'complete') {
+
+                         run();
+
+                    } else {
+
+                         if (navigator.userAgent.indexOf('Browzr') > -1) {
+
+                              setTimeout(run, 250);
+
+                         } else {
+
+                              document.addEventListener('deviceready',run,false);
+
+                         }
+
+                    }
+
+               }
+
+               function run() {
+                    var win = function(position) {                          // Grab coordinates object from the Position object passed into success callback.
+                         var coords = position.coords;
+                         // Call for static google maps data - make sure you use your own Google Maps API key!
+                         var url = "http://maps.google.com/maps/api/staticmap?center=" + coords.latitude + "," + coords.longitude + "&zoom=13&size=320x480&maptype=roadmap&key=MyGoogleMapsAPIKey&sensor=true";
+                         document.getElementById('map').setAttribute('src',url);
+                    };
+                    var fail = function(e) {
+                         alert('Can\'t retrieve position.\nError: ' + e);
+                    };
+                    navigator.geolocation.getCurrentPosition(win, fail);
+               } 
+
+          </script>
+
+     </head>
+
+     <body onload="loader();">
+
+          <img id="map" />
+
+     </body>
+
 </html>
-
-
-
