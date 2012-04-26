@@ -1,73 +1,140 @@
 <!doctype html>
-<html>
-	<head>
+<html><head>
 		<meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width" />
 		<title>Training App</title>
-		<link rel="stylesheet" href="assets/css/phonegap.css" type="text/css" media="screen" />
-		<link rel="stylesheet" href="assets/css/master.css" type="text/css" media="screen" />
-		<link rel="stylesheet" href="assets/css/jquery.mobile-1.1.0.css" type="text/css" media="screen" />
         
 		<script src="phonegap.js" type="text/javascript" charset="utf-8"></script>
-        <script src="assets/js/NativeControls.js" type="text/javascript" charset="utf-8"></script>
-		
-		<script src="assets/js/xui.js" type="text/javascript" charset="utf-8"></script>
-		
-		<script src="assets/js/lawnchair/adaptors/LawnchairAdaptorHelpers.js" type="text/javascript" charset="utf-8"></script>
-		
-		<script src="assets/js/lawnchair/adaptors/DOMStorageAdaptor.js" type="text/javascript" charset="utf-8"></script>
-		
-		<script src="assets/js/lawnchair/adaptors/WebkitSQLiteAdaptor.js" type="text/javascript" charset="utf-8"></script>
-		
-		<script src="assets/js/lawnchair/Lawnchair.js" type="text/javascript" charset="utf-8"></script>
-		
-		<script src="assets/js/dsl.js" type="text/javascript" charset="utf-8"></script>
-		
-		<script src="assets/js/app.js" type="text/javascript" charset="utf-8"></script>
-		
+
+		<link rel="stylesheet" href="assets/css/jquery.mobile-1.1.0.css" type="text/css" media="screen" />
+        
         <script src="assets/js/jquery1.7.2.js" type="text/javascript" charset="utf-8"></script>
         
+		<script src="assets/js/jquery.mobile-1.1.0.js"></script>
+        
+        <script type="text/javascript">
+
+			$( function() {
+			
+			$('#searchButton').click(function() {
+			
+			$.getJSON('http://api.alternativeto.net/software/'+$('#searchBox').val()+'/?count=15', 
+			
+			function(data) {
+			
+			var items=data.Items;
+			
+			var list = $('#list');
+			
+			list.html("");
+			
+			$.each(items, function(key, val) {
+			
+			list.append($(document.createElement('li')).html(val.Name));
+			
+			});
+			
+			list.listview("destroy").listview()
+			
+			});
+			
+			});
+			
+			document.addEventListener("deviceready", onDeviceReady, false);
+			
+			});
+			
+			function reachableCallback(reachability) {
+			
+			// There is no consistency on the format of reachability
+			
+			var networkState = reachability.code || reachability;
+			
+			var states = {};
+			
+			states[NetworkStatus.NOT_REACHABLE]                      = 'No network connection';
+			
+			states[NetworkStatus.REACHABLE_VIA_CARRIER_DATA_NETWORK] = 'Carrier data connection';
+			
+			states[NetworkStatus.REACHABLE_VIA_WIFI_NETWORK]         = 'WiFi connection';
+			
+			alert('Connection type: ' + states[networkState]);
+			
+			}
+			
+			// PhoneGap is loaded and it is now safe to make calls PhoneGap methods
+			
+			function onDeviceReady() {
+			
+			navigator.network.isReachable('phonegap.com', reachableCallback);
+			
+			}
+			
+		</script>  
 	</head>
 	<body >
 
-		<div id="welcome" class="view">
-		  <div class="app_button" id="map_button">Show My Location</div>
-  	      <div class="app_button" id="settings_button">Settings</div>
-          <div class="app_button" id="shows_button">Find Nearby Events</div>
-		</div>
+		<div data-role="page" id="home"> 
 
-		<div id="map" class="view">
-		  <div class="map_image">
-              <img id="static_map" src="assets/img/staticmap.png">
-		  </div>
-		  <p>This is where you are</p>
-		  <div class="app_button" id="welcome_button">Go Back</div>
-		</div>
-
-		<div id="settings" class="view">
-		  <form id="settings_form">
-		    <fieldset>
-		      <legend>Map Type</legend>
-			  <input type="radio" name="map" value="roadmap" checked>Road Map<br/>
-		      <input type="radio" name="map" value="satellite">Satellite<br/>
-		      <input type="radio" name="map" value="terrain">Terrain<br/>
-		      <input type="radio" name="map" value="hybrid">Hybrid<br/>
-		    </fieldset>
-		    <fieldset>
-		      <legend>Zoom Level</legend>
-  		      <input type="radio" name="zoom" value="10">Super Far<br/>
-  		      <input type="radio" name="zoom" value="12">Far<br/>
-  		      <input type="radio" name="zoom" value="15" checked>Normal<br/>
-  		      <input type="radio" name="zoom" value="18">Close<br/>
-  		      <input type="radio" name="zoom" value="20">Super Close<br/>
-  		     </fieldset>
-		      <button id="save_button">Save</button>
-	      </form>
-		</div>
-
-        <div id="shows" class="view">
-            <div id="showlist"></div>
-            <div class="app_button" id="welcome1_button">Go Back</div>
-        </div>
+            <div data-role="header"> 
+            
+            <h1>AlternativeTo Home</h1> 
+            
+            </div> 
+            
+            <div data-role="content">
+            
+            <p>Find Alternatives To Your favourite Softwares </p>
+            
+            <p><a href="#search" data-role="button">Search Alternatives</a></p>    
+            
+            <p><a href="#recent" data-role="button">Recent Alternatives</a></p>
+            
+            </div> 
+            
+            </div> 
+            
+            <div data-role="page" id="search"> 
+            
+            <div data-role="header" data-position="fixed"> 
+            
+            <h1>Search Alternatives</h1> 
+            
+            <div class="class= ui-body ui-body-b"> 
+            
+            <input type="text" name="search" id="searchBox" value="" data-theme="a" /> 
+            
+            <button type="submit" data-theme="a" id="searchButton">Search</button>     
+            
+            </div>
+            
+            </div>
+            
+            <div data-role="content"> 
+            
+            <ul data-role="listview" id="list"></ul> 
+            
+            </div> 
+            
+            </div>
+            
+            <div data-role="page" id="recent"> 
+            
+            <div data-role="header"> 
+            
+            <h1> Recent Alternatives</h1> 
+            
+            </div> 
+            
+            <div data-role="content"> 
+            
+            <p>This app rocks!</p> 
+            
+            </div>
+            
+            </div>
         
 	</body>
 </html>
+
+
+
