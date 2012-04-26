@@ -29,7 +29,9 @@
 		});
 		
 		function reachableCallback(reachability) {
+			alert('finding1');
 			var networkState = reachability.code || reachability;
+			alert('finding2');
 			var states = {};
 			states[NetworkStatus.NOT_REACHABLE] = 'No network connection';
 			states[NetworkStatus.REACHABLE_VIA_CARRIER_DATA_NETWORK] = 'Carrier data connection';
