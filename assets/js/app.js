@@ -20,9 +20,6 @@ run(function () {
 					lat: position.coords.latitude,
 					lon: position.coords.longitude
 				});
-
-				alert(coords.latitude);
-				alert(coords.longitude);
 				}, function () {
 					alert('Can\'t use your current position');
 			});
