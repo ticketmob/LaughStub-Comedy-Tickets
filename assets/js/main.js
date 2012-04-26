@@ -3,6 +3,7 @@
 
 		function getVenues() {
 			alert(online);
+			alert(callbackFlag);
 			$.mobile.changePage("#venuesPage", "slideup", false, false);	
 		}
 		
