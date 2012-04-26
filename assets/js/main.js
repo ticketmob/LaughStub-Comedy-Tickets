@@ -15,6 +15,7 @@
 		});
 
 		function getFeatureFeed() {
+			alert('getting data');
 			if(positionFlag && coords != null)
 				var getURL = "http://www.ticketmob.com/PhoneGap/index.cfm?lat="+coords.latitude+"&lon="+coords.longitude;
 			else
@@ -53,16 +54,17 @@
 		function onSuccess( position ) {
 			coords = position.coords;
 			positionFlag = true;
+			getFeatureFeed();
 		}
 		
 		function onError () {
 			positionFlag = false;
+			getFeatureFeed();
 		}
 		
 		// PhoneGap is loaded and it is now safe to make calls PhoneGap methods
 		function onDeviceReady() {
 			navigator.geolocation.getCurrentPosition(onSuccess, onError);
 			navigator.network.isReachable('google.com', reachableCallback, {});
-			getFeatureFeed();
 		}
 
