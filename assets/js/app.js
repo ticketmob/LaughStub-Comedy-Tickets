@@ -32,6 +32,9 @@ function runGeoLoc() {
 */
 
 
+
+
+
 // 
 //  --- our app behavior logic ---
 //
@@ -55,20 +58,11 @@ run(function () {
 					lon: position.coords.longitude
 				});
 
+				alert(coords.latitude);
+				alert(coords.longitude);
 				}, function () {
 					alert('Can\'t use your current position');
 			});
-			
-			
-			//nativeControls = window.plugins.nativeControls;
-			//alert(nativeControls);
-			//alert(PhoneGap);
-			//nativeControls.createTabBar();
-			//alert('here');
-			//nativeControls.createTabBarItem(
-			//	"home", "Home", "lsIcon.png", {"onSelect": function() {
-			//	}}
-			//);
         }
     })();
     
