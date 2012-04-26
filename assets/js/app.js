@@ -32,7 +32,16 @@ function runGeoLoc() {
 */
 
 
-function onDeviceReady() {
+// 
+//  --- our app behavior logic ---
+//
+run(function () {
+    // immediately invoked on first run
+    var init = (function () {
+        if (navigator.network.connection.type == Connection.NONE) {
+            alert("No internet connection - we won't be able to show you any maps");
+        } else {
+            //alert("We can reach Google - get ready for some awesome maps!");
 			navigator.geolocation.getCurrentPosition(function (position) {
 				var coords = position.coords;
 				var location = "" + position.coords.latitude + "," + position.coords.longitude;
@@ -48,19 +57,13 @@ function onDeviceReady() {
 				}, function () {
 					alert('Can\'t locate the position');
 			});
-}
-
-// 
-//  --- our app behavior logic ---
-//
-run(function () {
-    // immediately invoked on first run
-    var init = (function () {
-        if (navigator.network.connection.type == Connection.NONE) {
-            alert("No internet connection - we won't be able to show you any maps");
-        } else {
-            //alert("We can reach Google - get ready for some awesome maps!");
-			document.addEventListener("deviceready", onDeviceReady, false);
+			//nativeControls = window.plugins.nativeControls;
+			//nativeControls.createTabBar();
+			//alert('here');
+			//nativeControls.createTabBarItem(
+			//	"home", "Home", "lsIcon.png", {"onSelect": function() {
+			//	}}
+			//);
         }
     })();
     
