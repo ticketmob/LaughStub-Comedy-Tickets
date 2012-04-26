@@ -1,4 +1,7 @@
+		var online = navigator.onLine || false;
+
 		function getVenues() {
+			alert(online);
 			$.mobile.changePage("#venuesPage", "slideup", false, false);	
 		}
 		
@@ -35,6 +38,10 @@
 			states[NetworkStatus.NOT_REACHABLE] = 'No network connection';
 			states[NetworkStatus.REACHABLE_VIA_CARRIER_DATA_NETWORK] = 'Carrier data connection';
 			states[NetworkStatus.REACHABLE_VIA_WIFI_NETWORK] = 'WiFi connection';
+			
+			if(networkState != 0)
+				online = true;
+				
 			alert('Connection type: ' + states[networkState]);
 
 			navigator.geolocation.getCurrentPosition(function (position) {
@@ -60,4 +67,6 @@
 		function onDeviceReady() {
 			alert('device ready');
 			navigator.network.isReachable('google.com', reachableCallback, {});
+			alert('done');
 		}
+
