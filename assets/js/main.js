@@ -3,6 +3,7 @@ function loaded() {
 }
 
 function onDeviceReady() {
+	alert('device ready');
   // Initializating TabBar
   nativeControls = window.plugins.nativeControls;
   nativeControls.createTabBar();
