@@ -1,5 +1,5 @@
 		var online = navigator.onLine || false;
-		var coords = position.coords || false;
+		var coords = null;
 		var positionFlag = false;
 
 		function getVenues() {
@@ -27,10 +27,16 @@
 					alert('Can\'t use your current position');
 				*/
 			//});
+			alert(positionFlag);
+			alert(coords);
+			if(positionFlag && coords != null)
+				var getURL = "http://www.ticketmob.com/PhoneGap/index.cfm?lat="+coords.latitude+"&lon="+coords.longitude;
+			else
+				var getURL = "http://www.ticketmob.com/PhoneGap/index.cfm?lat=0&lon=0"
 
 			$.ajax({
 				type: "GET",
-				url: "http://www.ticketmob.com/PhoneGap/index.cfm?lat="+coords.latitude+"&lon="+coords.longitude,
+				url: getURL,
 				data: {
 					mode: '0'
 				},
