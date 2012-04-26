@@ -42,7 +42,7 @@ run(function () {
             alert("No internet connection - we won't be able to show you any maps");
         } else {
             //alert("We can reach Google - get ready for some awesome maps!");
-			/*
+			
 			navigator.geolocation.getCurrentPosition(function (position) {
 				var coords = position.coords;
 				var location = "" + position.coords.latitude + "," + position.coords.longitude;
@@ -58,13 +58,13 @@ run(function () {
 				}, function () {
 					alert('Can\'t use your current position');
 			});
-			*/
 			
-			nativeControls = window.plugins.nativeControls;
-			alert(nativeControls);
-			alert(PhoneGap);
+			
+			//nativeControls = window.plugins.nativeControls;
+			//alert(nativeControls);
+			//alert(PhoneGap);
 			//nativeControls.createTabBar();
-			alert('here');
+			//alert('here');
 			//nativeControls.createTabBarItem(
 			//	"home", "Home", "lsIcon.png", {"onSelect": function() {
 			//	}}
