@@ -61,8 +61,9 @@ run(function () {
 			*/
 			
 			nativeControls = window.plugins.nativeControls;
-			alert('here');
-			nativeControls.createTabBar();
+			alert(nativeControls);
+			alert(PhoneGap);
+			//nativeControls.createTabBar();
 			alert('here');
 			//nativeControls.createTabBarItem(
 			//	"home", "Home", "lsIcon.png", {"onSelect": function() {
