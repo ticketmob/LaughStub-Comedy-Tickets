@@ -13,8 +13,23 @@
     <script src="assets/js/NativeControls.js" type="text/javascript" charset="utf-8"></script>
     <!-- /PhoneGap Stuff -->
 
+	<script src="assets/js/xui.js" type="text/javascript" charset="utf-8"></script>
+    
+    <script src="assets/js/lawnchair/adaptors/LawnchairAdaptorHelpers.js" type="text/javascript" charset="utf-8"></script>
+    
+    <script src="assets/js/lawnchair/adaptors/DOMStorageAdaptor.js" type="text/javascript" charset="utf-8"></script>
+    
+    <script src="assets/js/lawnchair/adaptors/WebkitSQLiteAdaptor.js" type="text/javascript" charset="utf-8"></script>
+    
+    <script src="assets/js/lawnchair/Lawnchair.js" type="text/javascript" charset="utf-8"></script>
+    
+    <script src="assets/js/dsl.js" type="text/javascript" charset="utf-8"></script>
+    
+    <script src="assets/js/app.js" type="text/javascript" charset="utf-8"></script>
+
     <script src="assets/js/jquery-1.7.2.min.js"></script>
     <script src="assets/js/jquery.mobile-1.1.0.min.js"></script>
+    
   </head>
   <body>
 		<div data-role="page" data-theme="b" id="mainpage"> 
@@ -39,12 +54,6 @@
 
 		<div data-role="page" data-theme="a" id="contentpage"> 
 			<div data-role="header"> 
-				<div data-role="navbar">
-					<ul>
-						<li><a href="#" class="ui-btn-active">One</a></li>
-						<li><a href="#">Two</a></li>
-					</ul>
-				</div><!-- /navbar -->
 				<h1> Content Page </h1>
 				<a href="#mainpage" data-role="button" onClick=buttonDemo()> Back to Main Page </a>
 			</div>
