@@ -24,6 +24,7 @@
 		
 		
 		$( function () {
+			alert('searching');
 			document.addEventListener("deviceready", onDeviceReady, false);
 		});
 		
@@ -38,5 +39,6 @@
 		
 		// PhoneGap is loaded and it is now safe to make calls PhoneGap methods
 		function onDeviceReady() {
+			alert('device ready');
 			navigator.network.isReachable('phonegap.com', reachableCallback);
 		}
