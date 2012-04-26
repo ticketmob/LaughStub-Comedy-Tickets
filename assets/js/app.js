@@ -1,5 +1,5 @@
-/*
-function loader() {
+/**/
+function loader() { 
 	var state = document.readyState;
 	if(state == 'loaded' || state == 'complete') {
 		runGeoLoc();
@@ -13,12 +13,6 @@ function loader() {
 }
 
 function runGeoLoc() {
-	nativeControls = window.plugins.nativeControls;
-	//nativeControls.createTabBar();
-	//nativeControls.createTabBarItem(
-	//	"home", "Home", "lsIcon.png", {"onSelect": function() {
-	//	}}
-	//);
 	var win = function (position) {
 		var coords = positin.coords;
 		var url = "http://maps.google.com/maps/api/staticmap?center=" + coords.latitude + "," + coords.longitude + "&zoom=13&size=320x480&maptype=roadmap&key=MyGoogleMapsAPIKey&sensor=true";
@@ -26,10 +20,9 @@ function runGeoLoc() {
 	var fail = function (e) {
 		alert('Can\'t retrieve position.\nError: ' + e);
 	};
-	alert(navigator.geolocation.getCurrentPosition);
 	navigator.geolocation.getCurrentPosition(win, fail);
 }
-*/
+
 
 
 
