@@ -158,6 +158,7 @@
 	height: 50px;
 }
 
-.ui-content {
-	min-height: 320px;
+#mainpage .ui-content {
+	padding: 0px;
 }
+

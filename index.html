@@ -14,7 +14,7 @@
     <script src="assets/js/NativeControls.js" type="text/javascript" charset="utf-8"></script>
     <!-- /PhoneGap Stuff -->
 
-	<!--<script src="assets/js/xui.js" type="text/javascript" charset="utf-8"></script>
+	<script src="assets/js/xui.js" type="text/javascript" charset="utf-8"></script>
     
     <script src="assets/js/lawnchair/adaptors/LawnchairAdaptorHelpers.js" type="text/javascript" charset="utf-8"></script>
     
@@ -26,13 +26,14 @@
     
     <script src="assets/js/dsl.js" type="text/javascript" charset="utf-8"></script>
     
-    <script src="assets/js/app.js" type="text/javascript" charset="utf-8"></script>-->
+    <script src="assets/js/app.js" type="text/javascript" charset="utf-8"></script>
 
     <script src="assets/js/jquery-1.7.2.js"></script>
     <script src="assets/js/jquery.mobile-1.1.0.js"></script>
     
     <script language="javascript">
 	
+		/*
 		$(document).delegate("#featuredpage", "pageinit", function () {
 			alert('A page with an ID of "featuredpage" was just created by jQuery Mobile!');
 		});
@@ -42,23 +43,22 @@
 		});
 		
 		$.mobile.changePage("#featuredpage", "slideup", false, false);	
+		*/
 		
 		$(document).ready( function () {
-			//if( $('#featuredpage').is(':visible') ) {
-			//	alert('content');
-			//}
-			loader();
-			/*$.ajax({
+			
+			$.ajax({
 				type: "GET",
 				url: "http://www.ticketmob.com/PhoneGap/index.cfm",
 				data: {
 					mode: '0'
 				},
-				dataType: "html",
+				dataType: "jsonp",
 				success: function(result){
-					$('#showlist').html(result);
+					$('#showlist').html(result.html);
 				}
-			}); */
+			});
+			
 		});
 		
 		function loader() { 
@@ -90,29 +90,14 @@
   <body>
 		<div data-role="page" data-theme="b" id="mainpage"> 
 			<div data-role="header"> 
-				<h1> Main Page </h1>
+				<h1> Features Page </h1>
 			</div>
 
 			<div data-role="content">
 
 				<div id="showlist">
                 </div>
-					<div style="padding:10px; background:#d5d5d5">
-						<ul data-role="listview" data-theme="c" data-dividertheme="a" id="contentlist">
-							<li data-role="list-divider">Upcoming Shows</li>
-							<li data-inset="true" data-theme="c"><a href="#" data-transition="slide">Lucey</a></li>
-							<li data-inset="true" data-theme="c"><a href="#" data-transition="slide">Lacey</a></li>
-							<li data-inset="true" data-theme="c"><a href="#" data-transition="slide">Laury</a></li>
-							<li data-inset="true" data-theme="c"><a href="#" data-transition="slide">Lucey</a></li>
-							<li data-inset="true" data-theme="c"><a href="#" data-transition="slide">Lucey</a></li>
-							<li data-inset="true" data-theme="c"><a href="#" data-transition="slide">Lacey</a></li>
-							<li data-inset="true" data-theme="c"><a href="#" data-transition="slide">Laury</a></li>
-							<li data-inset="true" data-theme="c"><a href="#" data-transition="slide">Lucey</a></li>
-							<li data-inset="true" data-theme="c"><a href="#" data-transition="slide">Lacey</a></li>
-							<li data-inset="true" data-theme="c"><a href="#" data-transition="slide">Laury</a></li>
-						</ul>
-					</div>
-				<a href="#featuredpage" data-role="button" onClick="gotoFeaturePage()"> Go To Feature Page</a>
+				<!--<a href="#featuredpage" data-role="button" onClick="gotoFeaturePage()"> Go To Feature Page</a>-->
 
 			</div>
 
@@ -146,7 +131,7 @@
 					</div>
 				<p>
 			</div>
-			<div data-role="footer" id="footerPage"> 
+			<div data-role="footer" id="footerPage" data-position="fixed"> 
 				<div data-role="navbar">
 					<ul>
 						<li><a href="#" class="ui-btn-active">Home</a></li>
@@ -176,7 +161,7 @@
 					</div>
 				<p>
 			</div>
-			<div data-role="footer"> 
+			<div data-role="footer" data-position="fixed"> 
 				<div data-role="navbar">
 					<ul>
 						<li><a href="#" class="ui-btn-active">Home</a></li>
@@ -207,7 +192,7 @@
 					</div>
 				<p>
 			</div>
-			<div data-role="footer"> 
+			<div data-role="footer" data-position="fixed"> 
 				<h1> Content Page Footer </h1>
 				<div data-role="navbar">
 					<ul>
