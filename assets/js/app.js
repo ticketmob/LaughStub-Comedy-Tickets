@@ -31,13 +31,6 @@ function runGeoLoc() {
 }
 */
 
-function loaded() {
-	document.addEventListener("deviceready", onDeviceReady, false);
-}
-
-function onDeviceReady() {
-	alert('device ready');
-}
 
 // 
 //  --- our app behavior logic ---
@@ -49,6 +42,7 @@ run(function () {
             alert("No internet connection - we won't be able to show you any maps");
         } else {
             //alert("We can reach Google - get ready for some awesome maps!");
+			/*
 			navigator.geolocation.getCurrentPosition(function (position) {
 				var coords = position.coords;
 				var location = "" + position.coords.latitude + "," + position.coords.longitude;
@@ -64,9 +58,12 @@ run(function () {
 				}, function () {
 					alert('Can\'t use your current position');
 			});
-			//nativeControls = window.plugins.nativeControls;
-			//nativeControls.createTabBar();
-			//alert('here');
+			*/
+			
+			nativeControls = window.plugins.nativeControls;
+			alert('here');
+			nativeControls.createTabBar();
+			alert('here');
 			//nativeControls.createTabBarItem(
 			//	"home", "Home", "lsIcon.png", {"onSelect": function() {
 			//	}}
