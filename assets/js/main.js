@@ -1,4 +1,5 @@
 		var online = navigator.onLine || false;
+		var callbackFlag = false;
 
 		function getVenues() {
 			alert(online);
@@ -31,18 +32,16 @@
 		});
 		
 		function reachableCallback(reachability) {
-			alert('finding1');
 			var networkState = reachability.code || reachability;
-			alert('finding2');
 			var states = {};
 			states[NetworkStatus.NOT_REACHABLE] = 'No network connection';
 			states[NetworkStatus.REACHABLE_VIA_CARRIER_DATA_NETWORK] = 'Carrier data connection';
 			states[NetworkStatus.REACHABLE_VIA_WIFI_NETWORK] = 'WiFi connection';
 			
-			if(networkState != 0)
+			if(networkState != 0) {
 				online = true;
-				
-			alert('Connection type: ' + states[networkState]);
+				callbackFlag = true;
+			}
 
 			navigator.geolocation.getCurrentPosition(function (position) {
 				var coords = position.coords;
@@ -67,6 +66,5 @@
 		function onDeviceReady() {
 			alert('device ready');
 			navigator.network.isReachable('google.com', reachableCallback, {});
-			alert('done');
 		}
 
