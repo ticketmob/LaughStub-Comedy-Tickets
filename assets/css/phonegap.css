@@ -108,10 +108,12 @@
 }
 
 .lsBG {
+	background: #004378;
+}
+
+.page-featuredShow {
 	background: url(../img/iphone-bg.png) no-repeat top left transparent;
 	display: block;
 	width: 320px;
 	position: relative;
 }
-
-
