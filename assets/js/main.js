@@ -1,8 +1,6 @@
 		var online = navigator.onLine || false;
 
 		function getVenues() {
-			alert(online);
-			alert(callbackFlag);
 			$.mobile.changePage("#venuesPage", "slideup", false, false);	
 		}
 		
@@ -11,10 +9,10 @@
 		}
 
 		$(document).ready( function () {
-			navigator.geolocation.getCurrentPosition(function (position) {
-				var coords = position.coords;
-				var location = "" + position.coords.latitude + "," + position.coords.longitude;
-				var url = "http://maps.google.com/maps/api/staticmap?center=" + coords.latitude + "," + coords.longitude + "&zoom=13&size=320x480&maptype=roadmap&key=MyGoogleMapsAPIKey&sensor=true";
+			//navigator.geolocation.getCurrentPosition(function (position) {
+			//	var coords = position.coords;
+			//	var location = "" + position.coords.latitude + "," + position.coords.longitude;
+				//var url = "http://maps.google.com/maps/api/staticmap?center=" + coords.latitude + "," + coords.longitude + "&zoom=13&size=320x480&maptype=roadmap&key=MyGoogleMapsAPIKey&sensor=true";
 	
 				/*
 				store.save( {
@@ -26,7 +24,7 @@
 				}, function () {
 					alert('Can\'t use your current position');
 				*/
-			});
+			//});
 
 			$.ajax({
 				type: "GET",
@@ -58,8 +56,18 @@
 				online = true;
 		}
 		
+		function onSuccess( position ) {
+			var coords = position.coords;
+			alert('success');
+		}
+		
+		function onError () {
+			alert('error');
+		}
+		
 		// PhoneGap is loaded and it is now safe to make calls PhoneGap methods
 		function onDeviceReady() {
+			navigator.geolocation.getCurrentPosition(onSuccess, onError);
 			navigator.network.isReachable('google.com', reachableCallback, {});
 		}
 
