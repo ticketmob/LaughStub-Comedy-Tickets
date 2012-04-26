@@ -20,7 +20,7 @@
 				var getURL = "http://www.ticketmob.com/PhoneGap/index.cfm?lat="+coords.latitude+"&lon="+coords.longitude;
 			else
 				var getURL = "http://www.ticketmob.com/PhoneGap/index.cfm?lat=0&lon=0"
-
+			alert(getURL);
 			$.ajax({
 				type: "GET",
 				url: getURL,
