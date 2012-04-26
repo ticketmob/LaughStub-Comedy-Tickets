@@ -28,10 +28,21 @@
     
     <script src="assets/js/app.js" type="text/javascript" charset="utf-8"></script>-->
 
-    <script src="assets/js/jquery-1.7.2.min.js"></script>
-    <script src="assets/js/jquery.mobile-1.1.0.min.js"></script>
+    <script src="assets/js/jquery-1.7.2.js"></script>
+    <script src="assets/js/jquery.mobile-1.1.0.js"></script>
     
     <script language="javascript">
+	
+		$(document).delegate("#featuredpage", "pageinit", function () {
+			alert('A page with an ID of "featuredpage" was just created by jQuery Mobile!');
+		});
+		
+		$(document).delegate("#featuredpage", "pagebeforecreate", function () {
+			alert('A page with an ID of "featuredpage" is about to be created by jQuery Mobile!');
+		});
+		
+		$.mobile.changePage("#featuredpage", "slideup", false, false);	
+		
 		$(document).ready( function () {
 			//if( $('#featuredpage').is(':visible') ) {
 			//	alert('content');
@@ -93,14 +104,6 @@
 							<li data-inset="true" data-theme="c"><a href="#" data-transition="slide">Lacey</a></li>
 							<li data-inset="true" data-theme="c"><a href="#" data-transition="slide">Laury</a></li>
 							<li data-inset="true" data-theme="c"><a href="#" data-transition="slide">Lucey</a></li>
-							<li data-inset="true" data-theme="c"><a href="#" data-transition="slide">Lacey</a></li>
-							<li data-inset="true" data-theme="c"><a href="#" data-transition="slide">Laury</a></li>
-							<li data-inset="true" data-theme="c"><a href="#" data-transition="slide">Lucey</a></li>
-							<li data-inset="true" data-theme="c"><a href="#" data-transition="slide">Lacey</a></li>
-							<li data-inset="true" data-theme="c"><a href="#" data-transition="slide">Laury</a></li>
-							<li data-inset="true" data-theme="c"><a href="#" data-transition="slide">Lucey</a></li>
-							<li data-inset="true" data-theme="c"><a href="#" data-transition="slide">Lacey</a></li>
-							<li data-inset="true" data-theme="c"><a href="#" data-transition="slide">Laury</a></li>
 							<li data-inset="true" data-theme="c"><a href="#" data-transition="slide">Lucey</a></li>
 							<li data-inset="true" data-theme="c"><a href="#" data-transition="slide">Lacey</a></li>
 							<li data-inset="true" data-theme="c"><a href="#" data-transition="slide">Laury</a></li>
@@ -109,11 +112,11 @@
 							<li data-inset="true" data-theme="c"><a href="#" data-transition="slide">Laury</a></li>
 						</ul>
 					</div>
-				<!--<a href="#featuredpage" data-role="button" onClick="gotoFeaturePage()"> Go To Feature Page</a>-->
+				<a href="#featuredpage" data-role="button" onClick="gotoFeaturePage()"> Go To Feature Page</a>
 
 			</div>
 
-			<div data-role="footer" id="footerPage"> 
+			<div data-role="footer" id="footerPage" data-position="fixed"> 
                 <div data-role="navbar">
                     <ul>
 						<li id="homeNavBar"><a href="#" class="ui-btn-active">Home</a></li>
