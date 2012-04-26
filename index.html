@@ -45,6 +45,12 @@
 		$.mobile.changePage("#featuredpage", "slideup", false, false);	
 		*/
 		
+		window.addEventListener('load', function () {
+			document.addEventListener('deviceready', function () {
+				alert("PoneGap is now loaded!");
+			}, false);
+		}, false);
+		
 		$(document).ready( function () {
 			
 			$.ajax({
@@ -90,7 +96,7 @@
   <body>
 		<div data-role="page" data-theme="b" id="mainpage"> 
 			<div data-role="header"> 
-				<h1> Features Page </h1>
+				<!--<h1> Features Page </h1>-->
 			</div>
 
 			<div data-role="content">
