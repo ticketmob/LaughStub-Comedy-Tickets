@@ -34,7 +34,6 @@ function runGeoLoc() {
 
 
 
-
 // 
 //  --- our app behavior logic ---
 //
