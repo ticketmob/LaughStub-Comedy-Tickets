@@ -12,7 +12,6 @@
 		}
 
 		$(document).ready( function () {
-			run();
 			$.ajax({
 				type: "GET",
 				url: "http://www.ticketmob.com/PhoneGap/index.cfm",
