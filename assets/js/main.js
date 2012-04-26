@@ -1,46 +1,42 @@
-function loaded() {
-  document.addEventListener("deviceready", onDeviceReady, false);
-  alert('loaded');
-}
+		function getVenues() {
+			$.mobile.changePage("#venuesPage", "slideup", false, false);	
+		}
+		
+		function gethome() {
+			$.mobile.changePage("#mainpage", "slideup", false, false);	
+		}
 
-function onDeviceReady() {
-	alert('device ready');
-  // Initializating TabBar
-  nativeControls = window.plugins.nativeControls;
-  nativeControls.createTabBar();
-  
-  // Books tab
-  nativeControls.createTabBarItem(
-    "books",
-    "Books",
-    "/www/tabs/book.png",
-    {"onSelect": function() {
-      books();
-    }}
-  );
-  
-  // Stats tab
-  nativeControls.createTabBarItem(
-    "finished",
-    "Finished",
-    "/www/tabs/box.png",
-    {"onSelect": function() {
-      finished();
-    }}
-  );
-  
-  // About tab
-  nativeControls.createTabBarItem(
-    "about",
-    "About",
-    "/www/tabs/info.png",
-    {"onSelect": function() {
-      about();
-    }}
-  );
-  
-  // Compile the TabBar
-  nativeControls.showTabBar();
-  nativeControls.showTabBarItems("books", "finished", "about");
-  nativeControls.selectTabBarItem("books");
-}
+		$(document).ready( function () {
+			run();
+			$.ajax({
+				type: "GET",
+				url: "http://www.ticketmob.com/PhoneGap/index.cfm",
+				data: {
+					mode: '0'
+				},
+				dataType: "jsonp",
+				success: function(result){
+					$('#showlist').html(result.html);
+				}
+			});
+			
+		});
+		
+		
+		$( function () {
+			document.addEventListener("deviceready", onDeviceReady, false);
+		});
+		
+		function reachableCallback(reachability) {
+			var networkState = reachability.code || reachability;
+			var states = {};
+			states[NetworkStatus.NOT_REACHABLE] = 'No network connection';
+			states[NetworkStatus.REACHABLE_VIA_CARRIER_DATA_NETWORK] = 'Carrier data connection';
+			states[NetworkStatus.REACHABLE_VIA_WIFI_NETWORK] = 'WiFi connection';
+			alert('Connection type: ' + states[networkState]);
+		}
+		
+		// PhoneGap is loaded and it is now safe to make calls PhoneGap methods
+		function onDeviceReady() {
+			navigator.network.isReachable('phonegap.com', reachableCallback);
+		}
