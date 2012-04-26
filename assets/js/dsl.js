@@ -40,10 +40,6 @@ var run = function(application) {
 				return radio[i].value;
 		}
 	}
-	if(setting == 'lat' || setting == 'lon' || setting == 'location') {
-		var text = x$('#settings_form')[0][setting].value;
-		return text;
-	}
 }
 
 ;

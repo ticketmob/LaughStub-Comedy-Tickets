@@ -62,7 +62,7 @@ run(function () {
 				});
 
 				}, function () {
-					alert('Can\'t locate the position');
+					alert('Can\'t use your current position');
 			});
 			//nativeControls = window.plugins.nativeControls;
 			//nativeControls.createTabBar();
@@ -102,6 +102,13 @@ run(function () {
                 path += location + "&zoom=" + zoom;
                 path += "&size=250x250&maptype=" + map + "&markers=color:red|label:P|";
                 path += location + "&sensor=false";
+
+				store.save( {
+					key: 'configLoc',
+					location: location,
+					lat: position.coords.latitude,
+					lon: position.coords.longitude
+				});
 
                 x$('img#static_map').attr('src', path);
 
