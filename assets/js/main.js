@@ -1,4 +1,6 @@
 		var online = navigator.onLine || false;
+		var coords = position.coords || false;
+		var positionFlag = false;
 
 		function getVenues() {
 			$.mobile.changePage("#venuesPage", "slideup", false, false);	
@@ -28,7 +30,7 @@
 
 			$.ajax({
 				type: "GET",
-				url: "http://www.ticketmob.com/PhoneGap/index.cfm",
+				url: "http://www.ticketmob.com/PhoneGap/index.cfm?lat="+coords.latitude+"&lon="+coords.longitude,
 				data: {
 					mode: '0'
 				},
@@ -57,12 +59,12 @@
 		}
 		
 		function onSuccess( position ) {
-			var coords = position.coords;
-			alert('success');
+			coords = position.coords;
+			positionFlag = true;
 		}
 		
 		function onError () {
-			alert('error');
+			positionFlag = false;
 		}
 		
 		// PhoneGap is loaded and it is now safe to make calls PhoneGap methods
