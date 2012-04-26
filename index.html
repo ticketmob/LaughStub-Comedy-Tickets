@@ -45,6 +45,14 @@
 		$.mobile.changePage("#featuredpage", "slideup", false, false);	
 		*/
 		
+		function getVenues() {
+			$.mobile.changePage("#venuesPage", "slideup", false, false);	
+		}
+		
+		function gethome() {
+			$.mobile.changePage("#mainpage", "slideup", false, false);	
+		}
+
 		window.addEventListener('load', function () {
 			document.addEventListener('deviceready', function () {
 				alert("PoneGap is now loaded!");
@@ -111,7 +119,7 @@
                 <div data-role="navbar">
                     <ul>
 						<li id="homeNavBar"><a href="#" class="ui-btn-active">Home</a></li>
-						<li id="venueNavBar"><a href="#">Venues</a></li>
+						<li id="venueNavBar"><a href="#" onclick="getVenues();">Venues</a></li>
 						<li id="comedianNavBar"><a href="#">Comedian</a></li>
 						<li id="calendarNavBar"><a href="#">Calendar</a></li>
 						<li id="moreNavBar"><a href="#">More</a></li>
@@ -120,10 +128,9 @@
 			</div>
 		</div>
 
-		<div data-role="page" data-theme="a" id="contentpage"> 
+		<div data-role="page" data-theme="a" id="venuesPage"> 
 			<div data-role="header"> 
-				<h1> Content Page </h1>
-				<a href="#mainpage" data-role="button" onClick=buttonDemo()> Back </a>
+				<!--<a href="#mainpage" data-role="button" onClick=buttonDemo()> Back </a>-->
 			</div>
 			<div data-role="content" id="page1" class="multiPage">
 				<p>
@@ -140,11 +147,11 @@
 			<div data-role="footer" id="footerPage" data-position="fixed"> 
 				<div data-role="navbar">
 					<ul>
-						<li><a href="#" class="ui-btn-active">Home</a></li>
-						<li><a href="#">Venues</a></li>
-						<li><a href="#">Comedian</a></li>
-						<li><a href="#">Calendar</a></li>
-						<li><a href="#">More</a></li>
+						<li id="homeNavBar"><a href="#" onclick="gethome();">Home</a></li>
+						<li id="venueNavBar"><a href="#" class="ui-btn-active">Venues</a></li>
+						<li id="comedianNavBar"><a href="#">Comedian</a></li>
+						<li id="calendarNavBar"><a href="#">Calendar</a></li>
+						<li id="moreNavBar"><a href="#">More</a></li>
 					</ul>
 				</div><!-- /navbar -->
 			</div>
@@ -170,11 +177,11 @@
 			<div data-role="footer" data-position="fixed"> 
 				<div data-role="navbar">
 					<ul>
-						<li><a href="#" class="ui-btn-active">Home</a></li>
-						<li><a href="#">Venues</a></li>
-						<li><a href="#">Comedian</a></li>
-						<li><a href="#">Calendar</a></li>
-						<li><a href="#">More</a></li>
+						<li id="homeNavBar"><a href="#">Home</a></li>
+						<li id="venueNavBar"><a href="#" onclick="getVenues();">Venues</a></li>
+						<li id="comedianNavBar"><a href="#">Comedian</a></li>
+						<li id="calendarNavBar"><a href="#">Calendar</a></li>
+						<li id="moreNavBar"><a href="#">More</a></li>
 					</ul>
 				</div><!-- /navbar -->
 			</div>
@@ -202,11 +209,11 @@
 				<h1> Content Page Footer </h1>
 				<div data-role="navbar">
 					<ul>
-						<li><a href="#" class="ui-btn-active">Home</a></li>
-						<li><a href="#">Venues</a></li>
-						<li><a href="#">Comedian</a></li>
-						<li><a href="#">Calendar</a></li>
-						<li><a href="#">More</a></li>
+						<li id="homeNavBar"><a href="#" class="ui-btn-active">Home</a></li>
+						<li id="venueNavBar"><a href="#" onclick="getVenues();">Venues</a></li>
+						<li id="comedianNavBar"><a href="#">Comedian</a></li>
+						<li id="calendarNavBar"><a href="#">Calendar</a></li>
+						<li id="moreNavBar"><a href="#">More</a></li>
 					</ul>
 				</div><!-- /navbar -->
 			</div>
