@@ -11,24 +11,10 @@
 		}
 
 		$(document).ready( function () {
-			//navigator.geolocation.getCurrentPosition(function (position) {
-			//	var coords = position.coords;
-			//	var location = "" + position.coords.latitude + "," + position.coords.longitude;
-				//var url = "http://maps.google.com/maps/api/staticmap?center=" + coords.latitude + "," + coords.longitude + "&zoom=13&size=320x480&maptype=roadmap&key=MyGoogleMapsAPIKey&sensor=true";
-	
-				/*
-				store.save( {
-					key: 'configLoc',
-					location: location,
-					lat: position.coords.latitude,
-					lon: position.coords.longitude
-				});
-				}, function () {
-					alert('Can\'t use your current position');
-				*/
-			//});
-			alert(positionFlag);
-			alert(coords);
+			
+		});
+
+		function getFeatureFeed() {
 			if(positionFlag && coords != null)
 				var getURL = "http://www.ticketmob.com/PhoneGap/index.cfm?lat="+coords.latitude+"&lon="+coords.longitude;
 			else
@@ -45,8 +31,8 @@
 					$('#showlist').html(result.html);
 				}
 			});
+		}
 			
-		});
 		
 		
 		$( function () {
@@ -77,5 +63,6 @@
 		function onDeviceReady() {
 			navigator.geolocation.getCurrentPosition(onSuccess, onError);
 			navigator.network.isReachable('google.com', reachableCallback, {});
+			getFeatureFeed();
 		}
 
