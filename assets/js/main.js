@@ -8,41 +8,28 @@
 		
 		function gethome() {
 			$.mobile.changePage("#mainpage", "slideup", false, false);
-			getFeatureFeed(1);
+			getWSFeed(1,1);
 		}
 		
 		function getcomedian() {
 			$.mobile.changePage("#comedianPage", "slideup", false, false);
-			getFeatureFeed(2);
+			getWSFeed(2,2);
 		}
 		
 		function getcalendar() {
 			$.mobile.changePage("#calendarPage", "slideup", false, false);
-			getFeatureFeed(3);
+			getWSFeed(3,3);
 		}
 		
 		$(document).ready( function () {
-			var style = 1;
-			var getURL = "http://www.ticketmob.com/PhoneGap/index.cfm?mode=1"+"&style="+style;
-			$.ajax({
-				type: "GET",
-				url: getURL,
-				data: {
-					mode: '0'
-				},
-				dataType: "jsonp",
-				success: function(result){
-					$('#showlist').html(result.html);
-					$('#showlist').find("ul").listview();
-				}
-			});
+			
 		});
 
-		function getFeatureFeed(style) {
+		function getWSFeed(style, tab) {
 			if(positionFlag && coords != null)
-				var getURL = "http://www.ticketmob.com/PhoneGap/index.cfm?lat="+coords.latitude+"&lon="+coords.longitude+"&style="+style;
+				var getURL = "http://www.ticketmob.com/PhoneGap/index.cfm?lat="+coords.latitude+"&lon="+coords.longitude+"&style="+style+"&tab="+tab;
 			else
-				var getURL = "http://www.ticketmob.com/PhoneGap/index.cfm?lat=0&lon=0"+"&style="+style;
+				var getURL = "http://www.ticketmob.com/PhoneGap/index.cfm?lat=0&lon=0"+"&style="+style+"&tab="+tab;
 
 			$.ajax({
 				type: "GET",
@@ -58,7 +45,6 @@
 			});
 		}
 			
-		
 		function openDialog(id) {
 			var dialog = $( $( "#"+id ).html() ); //actually i'm using here sg like this: _.template( $( "#template-dialog" ).html(), propObject );
 			dialog
@@ -89,12 +75,12 @@
 		function onSuccess( position ) {
 			coords = position.coords;
 			positionFlag = true;
-			getFeatureFeed(1);
+			getWSFeed(1,1);
 		}
 		
 		function onError () {
 			positionFlag = false;
-			getFeatureFeed(1);
+			getWSFeed(1,1);
 		}
 		
 		// PhoneGap is loaded and it is now safe to make calls PhoneGap methods
