@@ -2,23 +2,34 @@
 		var coords = null;
 		var positionFlag = false;
 
-		function getVenues() {
+		function getvenues() {
 			$.mobile.changePage("#venuesPage", "slideup", false, false);
 		}
 		
 		function gethome() {
 			$.mobile.changePage("#mainpage", "slideup", false, false);
-			getFeatureFeed();
+			getFeatureFeed(1);
+		}
+		
+		function getcomedian() {
+			$.mobile.changePage("#comedianPage", "slideup", false, false);
+			getFeatureFeed(2);
+		}
+		
+		function getcalendar() {
+			$.mobile.changePage("#calendarPage", "slideup", false, false);
+			getFeatureFeed(3);
 		}
 		
 		$(document).ready( function () {
+			
 		});
 
-		function getFeatureFeed() {
+		function getFeatureFeed(style) {
 			if(positionFlag && coords != null)
-				var getURL = "http://www.ticketmob.com/PhoneGap/index.cfm?lat="+coords.latitude+"&lon="+coords.longitude;
+				var getURL = "http://www.ticketmob.com/PhoneGap/index.cfm?lat="+coords.latitude+"&lon="+coords.longitude+"&style="+style;
 			else
-				var getURL = "http://www.ticketmob.com/PhoneGap/index.cfm?lat=0&lon=0"
+				var getURL = "http://www.ticketmob.com/PhoneGap/index.cfm?lat=0&lon=0"+"&style="+style;
 
 			$.ajax({
 				type: "GET",
@@ -54,12 +65,12 @@
 		function onSuccess( position ) {
 			coords = position.coords;
 			positionFlag = true;
-			getFeatureFeed();
+			getFeatureFeed(1);
 		}
 		
 		function onError () {
 			positionFlag = false;
-			getFeatureFeed();
+			getFeatureFeed(1);
 		}
 		
 		// PhoneGap is loaded and it is now safe to make calls PhoneGap methods

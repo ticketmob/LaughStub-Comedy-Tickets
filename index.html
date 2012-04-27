@@ -53,9 +53,9 @@
                 <div data-role="navbar">
                     <ul>
 						<li id="homeNavBar"><a href="#" class="ui-btn-active" data-icon="grid">Home</a></li>
-						<li id="venueNavBar"><a href="#" onclick="getVenues();" data-icon="star">Venues</a></li>
-						<li id="comedianNavBar"><a href="#" data-icon="gear">Comedian</a></li>
-						<li id="calendarNavBar"><a href="#">Calendar</a></li>
+						<li id="venueNavBar"><a href="#" onclick="getvenues();" data-icon="star">Venues</a></li>
+						<li id="comedianNavBar"><a href="#" onclick="getcomedian();" data-icon="gear">Comedian</a></li>
+						<li id="calendarNavBar"><a href="#" onclick="getcalendar();">Calendar</a></li>
 						<li id="moreNavBar"><a href="#">More</a></li>
                     </ul>
                 </div><!-- /navbar -->
@@ -83,38 +83,82 @@
 					<ul>
 						<li id="homeNavBar"><a href="#" onclick="gethome();">Home</a></li>
 						<li id="venueNavBar"><a href="#" class="ui-btn-active">Venues</a></li>
-						<li id="comedianNavBar"><a href="#">Comedian</a></li>
-						<li id="calendarNavBar"><a href="#">Calendar</a></li>
+						<li id="comedianNavBar"><a href="#" onclick="getcomedian();">Comedian</a></li>
+						<li id="calendarNavBar"><a href="#" onclick="getcalendar();">Calendar</a></li>
 						<li id="moreNavBar"><a href="#">More</a></li>
 					</ul>
 				</div><!-- /navbar -->
 			</div>
 		</div>
         
-        <div data-role="page" data-theme="a" id="featuredpage"> 
+        <div data-role="page" data-theme="a" id="comedianPage"> 
 			<div data-role="header"> 
 				<h1> Feature Page </h1>
 				<a href="#mainpage" data-role="button" onClick=buttonDemo()> Back </a>
 			</div>
-			<div data-role="content" id="page1" class="multiPage">
+			<div data-role="content" id="page2" class="multiPage">
 				<p>
 					<div style="padding:10px; background:#d5d5d5">
-						<ul data-role="listview" data-theme="c" data-dividertheme="a" id="contentlist">
-							<li data-role="list-divider">Upcoming Shows</li>
-							<li data-inset="true" data-theme="c"><a href="#" data-transition="slide">Lucey</a></li>
-							<li data-inset="true" data-theme="c"><a href="#" data-transition="slide">Lacey</a></li>
-							<li data-inset="true" data-theme="c"><a href="#" data-transition="slide">Laury</a></li>
-						</ul>
+						<div data-role="collapsible" data-theme="a" data-content-theme="a">
+                        	<h3>Header swatch A</h3>
+                            <p>I'm the collapsible content with the themed content block set to "A".</p>
+                        </div>
+						<div data-role="collapsible" data-theme="a" data-content-theme="a">
+                        	<h3>Header swatch B</h3>
+                            <p>I'm the collapsible content with the themed content block set to "B".</p>
+                        </div>
+						<div data-role="collapsible" data-theme="a" data-content-theme="a">
+                        	<h3>Header swatch C</h3>
+                            <p>I'm the collapsible content with the themed content block set to "C".</p>
+                        </div>
 					</div>
 				<p>
 			</div>
 			<div data-role="footer" data-position="fixed"> 
 				<div data-role="navbar">
 					<ul>
-						<li id="homeNavBar"><a href="#">Home</a></li>
-						<li id="venueNavBar"><a href="#" onclick="getVenues();">Venues</a></li>
-						<li id="comedianNavBar"><a href="#">Comedian</a></li>
-						<li id="calendarNavBar"><a href="#">Calendar</a></li>
+						<li id="homeNavBar"><a href="#" onclick="gethome();">Home</a></li>
+						<li id="venueNavBar"><a href="#" onclick="getvenues();">Venues</a></li>
+						<li id="comedianNavBar"><a href="#" class="ui-btn-active">Comedian</a></li>
+						<li id="calendarNavBar"><a href="#" onclick="getcalendar();">Calendar</a></li>
+						<li id="moreNavBar"><a href="#">More</a></li>
+					</ul>
+				</div><!-- /navbar -->
+			</div>
+		</div>
+        
+        <div data-role="page" data-theme="a" id="calendarPage"> 
+			<div data-role="header"> 
+				<h1> Feature Page </h1>
+				<a href="#mainpage" data-role="button" onClick=buttonDemo()> Back </a>
+			</div>
+			<div data-role="content" id="page2" class="multiPage">
+				<p>
+					<div style="padding:10px; background:#d5d5d5">
+                    	<div data-role="collapsible-set">
+                            <div data-role="collapsible" data-theme="a" data-content-theme="a" data-mini="true">
+                                <h3>Header swatch A</h3>
+                                <p>I'm the collapsible content with the themed content block set to "A".</p>
+                            </div>
+                            <div data-role="collapsible" data-theme="a" data-content-theme="a" data-mini="true">
+                                <h3>Header swatch B</h3>
+                                <p>I'm the collapsible content with the themed content block set to "B".</p>
+                            </div>
+                            <div data-role="collapsible" data-theme="a" data-content-theme="a" data-mini="true">
+                                <h3>Header swatch C</h3>
+                                <p>I'm the collapsible content with the themed content block set to "C".</p>
+                            </div>
+						</div>
+                    </div>
+				<p>
+			</div>
+			<div data-role="footer" data-position="fixed"> 
+				<div data-role="navbar">
+					<ul>
+						<li id="homeNavBar"><a href="#" onclick="gethome();">Home</a></li>
+						<li id="venueNavBar"><a href="#" onclick="getvenues();">Venues</a></li>
+						<li id="comedianNavBar"><a href="#" onclick="getcomedian();">Comedian</a></li>
+						<li id="calendarNavBar"><a href="#" class="ui-btn-active">Calendar</a></li>
 						<li id="moreNavBar"><a href="#">More</a></li>
 					</ul>
 				</div><!-- /navbar -->
