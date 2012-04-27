@@ -1069,6 +1069,7 @@ a.ui-link-inherit {
 .ui-mobile a img, .ui-mobile fieldset { border-width: 0; }
 .ui-page { 
   background: url(../img/iphone-bg.png) no-repeat top left transparent;
+  -webkit-backface-visibility: hidden;
 }
 /* responsive page widths */
 .ui-mobile-viewport {  margin: 0; overflow-x: visible; -webkit-text-size-adjust: none; -ms-text-size-adjust:none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
