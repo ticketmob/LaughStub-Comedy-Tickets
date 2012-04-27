@@ -22,7 +22,8 @@
 			getWSFeed(1,4,'calendarlist');
 		}
 		
-		
+		//$(document).bind( "pagebeforechange", function( e, data ) {
+		//});
 		
 		$(document).ready( function () {
 			$("#homeNavBar a").click(function(event){
