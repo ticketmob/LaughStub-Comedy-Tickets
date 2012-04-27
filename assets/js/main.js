@@ -40,7 +40,10 @@
 				dataType: "jsonp",
 				success: function(result){
 					$('#showlist').html(result.html);
-					$('#showlist').find("ul").listview();
+					if(style == 1)
+						$('#showlist').find("ul").listview();
+					else if (style == 2)
+						$('#showlist').find("ul").listview();
 				}
 			});
 		}
