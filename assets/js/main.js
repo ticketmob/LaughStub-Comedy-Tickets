@@ -3,24 +3,23 @@
 		var positionFlag = false;
 
 		function getVenues() {
-			$.mobile.changePage("#venuesPage", "slideup", false, false);	
+			$.mobile.changePage("#venuesPage", "slideup", false, false);
 		}
 		
 		function gethome() {
-			$.mobile.changePage("#mainpage", "slideup", false, false);	
+			$.mobile.changePage("#mainpage", "slideup", false, false);
+			getFeatureFeed();
 		}
-
+		
 		$(document).ready( function () {
-			
 		});
 
 		function getFeatureFeed() {
-			alert('getting data');
 			if(positionFlag && coords != null)
 				var getURL = "http://www.ticketmob.com/PhoneGap/index.cfm?lat="+coords.latitude+"&lon="+coords.longitude;
 			else
 				var getURL = "http://www.ticketmob.com/PhoneGap/index.cfm?lat=0&lon=0"
-			alert(getURL);
+
 			$.ajax({
 				type: "GET",
 				url: getURL,

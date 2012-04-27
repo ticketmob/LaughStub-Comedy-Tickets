@@ -124,41 +124,46 @@
 }
 
 #footerPage #homeNavBar .ui-btn-text {
-	display: block;
+	/*display: block;
 	background: url(../img/navHomeNon.png) no-repeat top left transparent;
 	text-indent: -9999px;
-	height: 50px;
+	height: 50px;*/
 }
 
 #footerPage #venueNavBar .ui-btn-text {
-	display: block;
+	/*display: block;
 	background: url(../img/navVenueNon.png) no-repeat top left transparent;
 	text-indent: -9999px;
-	height: 50px;
+	height: 50px;*/
 }
 
 #footerPage #comedianNavBar .ui-btn-text {
-	display: block;
+	/*display: block;
 	background: url(../img/navComedianNon.png) no-repeat top left transparent;
 	text-indent: -9999px;
-	height: 50px;
+	height: 50px;*/
 }
 
 #footerPage #calendarNavBar .ui-btn-text {
-	display: block;
+	/*display: block;
 	background: url(../img/navCalendarNon.png) no-repeat top left transparent;
 	text-indent: -9999px;
-	height: 50px;
+	height: 50px;*/
 }
 
 #footerPage #moreNavBar .ui-btn-text {
-	display: block;
+	/*display: block;
 	background: url(../img/navMoreNon.png) no-repeat top left transparent;
 	text-indent: -9999px;
-	height: 50px;
+	height: 50px;*/
 }
 
 #mainpage .ui-content {
 	padding: 0px;
+}
+
+#showlist ul {
+	padding: 0px;
+	margin: 10px;
 }
 

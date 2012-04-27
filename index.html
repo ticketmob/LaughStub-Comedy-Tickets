@@ -41,11 +41,8 @@
 				<!--<h1> Features Page </h1>-->
 			</div>
 
-			<div data-role="content">
+			<div data-role="content" id="showlist" class="multiPage">
 
-				<div id="showlist">
-                	Page is loading.....
-                </div>
 				<!--<a href="#featuredpage" data-role="button" onClick="gotoFeaturePage()"> Go To Feature Page</a>-->
 
 			</div>
@@ -53,9 +50,9 @@
 			<div data-role="footer" id="footerPage" data-position="fixed"> 
                 <div data-role="navbar">
                     <ul>
-						<li id="homeNavBar"><a href="#" class="ui-btn-active">Home</a></li>
-						<li id="venueNavBar"><a href="#" onclick="getVenues();">Venues</a></li>
-						<li id="comedianNavBar"><a href="#">Comedian</a></li>
+						<li id="homeNavBar"><a href="#" class="ui-btn-active" data-icon="grid">Home</a></li>
+						<li id="venueNavBar"><a href="#" onclick="getVenues();" data-icon="star">Venues</a></li>
+						<li id="comedianNavBar"><a href="#" data-icon="gear">Comedian</a></li>
 						<li id="calendarNavBar"><a href="#">Calendar</a></li>
 						<li id="moreNavBar"><a href="#">More</a></li>
                     </ul>
