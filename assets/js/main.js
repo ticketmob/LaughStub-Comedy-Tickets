@@ -4,29 +4,29 @@
 
 		function getvenues() {
 			$.mobile.changePage("#venuesPage", "slideup", false, false);
-			getWSFeed(2,2);
+			getWSFeed(2,2,'venuelist');
 		}
 		
 		function gethome() {
 			$.mobile.changePage("#mainpage", "slideup", false, false);
-			getWSFeed(1,1);
+			getWSFeed(1,1,'showlist');
 		}
 		
 		function getcomedian() {
 			$.mobile.changePage("#comedianPage", "slideup", false, false);
-			getWSFeed(3,2);
+			getWSFeed(3,2,'comedianlist');
 		}
 		
 		function getcalendar() {
 			$.mobile.changePage("#calendarPage", "slideup", false, false);
-			getWSFeed(4,1);
+			getWSFeed(4,1,'calendarlist');
 		}
 		
 		$(document).ready( function () {
 			
 		});
 
-		function getWSFeed(style, tab) {
+		function getWSFeed(style, tab, tagID) {
 			if(positionFlag && coords != null)
 				var getURL = "http://www.ticketmob.com/PhoneGap/index.cfm?lat="+coords.latitude+"&lon="+coords.longitude+"&style="+style+"&tab="+tab;
 			else
@@ -40,11 +40,11 @@
 				},
 				dataType: "jsonp",
 				success: function(result){
-					$('#showlist').html(result.html);
+					$('#'+tagID).html(result.html);
 					if(style == 1)
-						$('#showlist').find("ul").listview();
+						$('#'+tagID).find("ul").listview();
 					else if (style == 2)
-						$('#showlist').find('div[data-role=collapsible]').collapsible({theme:'c',refresh:true});
+						$('#'+tagID).find('div[data-role=collapsible]').collapsible({theme:'c',refresh:true});
 				}
 			});
 		}
@@ -79,12 +79,12 @@
 		function onSuccess( position ) {
 			coords = position.coords;
 			positionFlag = true;
-			getWSFeed(1,1);
+			getWSFeed(1,1,'showlist');
 		}
 		
 		function onError () {
 			positionFlag = false;
-			getWSFeed(1,1);
+			getWSFeed(1,1,'showlist');
 		}
 		
 		// PhoneGap is loaded and it is now safe to make calls PhoneGap methods
