@@ -93,12 +93,12 @@
 	padding-top: 10px;
 }
 .lsSearch {
-	display: block;
-	height: 30px;
 	background: url(../img/laughstub-sm.png) no-repeat top left transparent;
-	width: 300px;
-	position: relative;
 	margin: 10px;
+	/*display: block;
+	height: 30px;
+	width: 300px;
+	position: relative;*/
 }
 .searchfield {
 	margin-left: 130px;
