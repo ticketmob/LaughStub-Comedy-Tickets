@@ -14,7 +14,7 @@
 		
 		function getcomedian() {
 			$.mobile.changePage("#comedianPage", "slideup", false, false);
-			getWSFeed(3,2,'comedianlist');
+			//getWSFeed(3,2,'comedianlist');
 		}
 		
 		function getcalendar() {
@@ -23,7 +23,25 @@
 		}
 		
 		$(document).ready( function () {
-			
+			var style = 2;
+			var tab = 3;
+			var tagID = 'showlist'
+			var getURL = "http://www.ticketmob.com/PhoneGap/index.cfm?mode=1"+"&style="+style+"&tab="+tab;
+			$.ajax({
+				type: "GET",
+				url: getURL,
+				data: {
+					mode: '0'
+				},
+				dataType: "jsonp",
+				success: function(result){
+					$('#'+tagID).html(result.html);
+					if(style == 1)
+						$('#'+tagID).find("ul").listview();
+					else if (style == 2)
+						$('#'+tagID).find('div[data-role="collapsible"]').collapsible({theme:'c',refresh:true});
+				}
+			});
 		});
 
 		function getWSFeed(style, tab, tagID) {
