@@ -12,21 +12,6 @@
 		}
 		
 		$(document).ready( function () {
-			var getURL = "http://www.ticketmob.com/PhoneGap/index.cfm"
-
-			$.ajax({
-				type: "GET",
-				async: false,
-				url: getURL,
-				data: {
-					mode: '0'
-				},
-				dataType: "jsonp",
-				success: function(result){
-					$('#showlist').html(result.html);
-					$('#showlist').find("ul").listview();
-				}
-			});
 		});
 
 		function getFeatureFeed() {
