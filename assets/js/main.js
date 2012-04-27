@@ -14,7 +14,7 @@
 		
 		function getcomedian() {
 			$.mobile.changePage("#comedianPage", "slideup", false, false);
-			//getWSFeed(3,2,'comedianlist');
+			getWSFeed(3,2,'comedianlist');
 		}
 		
 		function getcalendar() {
@@ -23,6 +23,7 @@
 		}
 		
 		$(document).ready( function () {
+			/*
 			var style = 2;
 			var tab = 3;
 			var tagID = 'showlist'
@@ -42,6 +43,7 @@
 						$('#'+tagID).find('div[data-role="collapsible"]').collapsible({theme:'c',refresh:true});
 				}
 			});
+			*/
 		});
 
 		function getWSFeed(style, tab, tagID) {
