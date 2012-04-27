@@ -4,6 +4,7 @@
 
 		function getvenues() {
 			$.mobile.changePage("#venuesPage", "slideup", false, false);
+			getWSFeed(2,2);
 		}
 		
 		function gethome() {
@@ -13,12 +14,12 @@
 		
 		function getcomedian() {
 			$.mobile.changePage("#comedianPage", "slideup", false, false);
-			getWSFeed(2,2);
+			getWSFeed(3,2);
 		}
 		
 		function getcalendar() {
 			$.mobile.changePage("#calendarPage", "slideup", false, false);
-			getWSFeed(3,3);
+			getWSFeed(4,1);
 		}
 		
 		$(document).ready( function () {
@@ -43,8 +44,6 @@
 					if(style == 1)
 						$('#showlist').find("ul").listview();
 					else if (style == 2)
-						$('#showlist').find('div[data-role=collapsible]').collapsible({theme:'c',refresh:true});
-					else if (style == 3)
 						$('#showlist').find('div[data-role=collapsible]').collapsible({theme:'c',refresh:true});
 				}
 			});
