@@ -22,7 +22,25 @@
 			getWSFeed(1,4,'calendarlist');
 		}
 		
+		
+		
 		$(document).ready( function () {
+			$("#homeNavBar a").click(function(event){
+				event.preventDefault();
+				gethome();
+			});
+			$("#venueNavBar a").click(function(event){
+				event.preventDefault();
+				getvenues();
+			});
+			$("#comedianNavBar a").click(function(event){
+				event.preventDefault();
+				getcomedian();
+			});
+			$("#calendarNavBar a").click(function(event){
+				event.preventDefault();
+				getcalendar();
+			});
 			if(0) {
 				var style = 1;
 				var tab = 1;
