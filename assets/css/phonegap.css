@@ -45,8 +45,8 @@
 .showName {
 	font-size: 12px;
 	font-weight: bold;
-	display: block;
-	margin-left: 70px;
+	/*display: block;*/
+	margin-left: 10px;
 	padding-top: 10px;
 }
 .showTime {
