@@ -62,6 +62,7 @@
 				online = true;
 		}
 		
+		// If Allow Location
 		function onSuccess( position ) {
 			coords = position.coords;
 			positionFlag = true;

@@ -38,10 +38,12 @@
 	border-bottom-right-radius: 			.6em /*{global-radii-blocks}*/;
 	border-bottom-left-radius: 			.6em /*{global-radii-blocks}*/;
 }
+
 .artistPhoto {
 	float: left;
 	border-right: 1px solid #fff;
 }
+
 .showName {
 	font-size: 12px;
 	font-weight: bold;
