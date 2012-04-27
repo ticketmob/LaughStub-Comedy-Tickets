@@ -22,7 +22,20 @@
 		}
 		
 		$(document).ready( function () {
-			
+			var style = 1;
+			var getURL = "http://www.ticketmob.com/PhoneGap/index.cfm?mode=1"+"&style="+style;
+			$.ajax({
+				type: "GET",
+				url: getURL,
+				data: {
+					mode: '0'
+				},
+				dataType: "jsonp",
+				success: function(result){
+					$('#showlist').html(result.html);
+					$('#showlist').find("ul").listview();
+				}
+			});
 		});
 
 		function getFeatureFeed(style) {
@@ -46,6 +59,17 @@
 		}
 			
 		
+		function openDialog(id) {
+			var dialog = $( $( "#"+id ).html() ); //actually i'm using here sg like this: _.template( $( "#template-dialog" ).html(), propObject );
+			dialog
+				.dialog({
+					close: function(){
+					console.log( "dialogClose", this, arguments );
+				}
+				})
+				.appendTo( document.body );
+			$.mobile.changePage( dialog, { transition: "flip", role: "dialog", reverse: false } );
+		};
 		
 		$( function () {
 			document.addEventListener("deviceready", onDeviceReady, false);
@@ -62,7 +86,6 @@
 				online = true;
 		}
 		
-		// If Allow Location
 		function onSuccess( position ) {
 			coords = position.coords;
 			positionFlag = true;
