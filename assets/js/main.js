@@ -43,7 +43,9 @@
 					if(style == 1)
 						$('#showlist').find("ul").listview();
 					else if (style == 2)
-						$('#showlist').find("ul").listview();
+						$('#showlist').find('div[data-role=collapsible]').collapsible({theme:'c',refresh:true});
+					else if (style == 3)
+						$('#showlist').find('div[data-role=collapsible]').collapsible({theme:'c',refresh:true});
 				}
 			});
 		}
