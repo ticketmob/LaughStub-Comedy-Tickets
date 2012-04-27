@@ -4,7 +4,7 @@
 //>>group: Transitions
 //>>css: ../css/themes/default/jquery.mobile.theme.css, ../css/structure/jquery.mobile.transition.css
 
-define( [ "jquery", "./jquery.mobile.core" ], function( $ ) {
+//define( [ "jquery", "./jquery.mobile.core" ], function( $ ) {
 //>>excludeEnd("jqmBuildExclude");
 (function( $, window, undefined ) {
 
@@ -151,5 +151,5 @@ $.mobile.transitionFallbacks = {};
 
 })( jQuery, this );
 //>>excludeStart("jqmBuildExclude", pragmas.jqmBuildExclude);
-});
+//});
 //>>excludeEnd("jqmBuildExclude");
