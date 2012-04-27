@@ -23,16 +23,41 @@
 		}
 		
 		$(document).ready( function () {
-			
-			
-			
+			if(0) {
+				var style = 1;
+				var tab = 1;
+				var tagID = 'showlist'
+				var getURL = "http://www.ticketmob.com/PhoneGap/index.cfm?mode=1"+"&style="+style+"&tab="+tab;
+				$.ajax({
+					type: "GET",
+					url: getURL,
+					data: {
+						mode: '0'
+					},
+					dataType: "jsonp",
+					success: function(result){
+						$('#'+tagID).html(result.html);
+						if(style == 1)
+							$('#'+tagID).find("ul").listview();
+						else if (style == 2)
+							$('#'+tagID).find('div[data-role="collapsible"]').collapsible({theme:'c',refresh:true});
+					}
+				});
+			}
 		});
+		
+		$(document).on('pageinit','[data-role=page]', function(){
+			$('[data-position=fixed]').fixedtoolbar({ tapToggle:false });
+		  	$.mobile.touchOverflowEnabled = true ;
+		});
+		
 
 		function getWSFeed(style, tab, tagID) {
 			if(positionFlag && coords != null)
 				var getURL = "http://www.ticketmob.com/PhoneGap/index.cfm?lat="+coords.latitude+"&lon="+coords.longitude+"&style="+style+"&tab="+tab;
 			else
 				var getURL = "http://www.ticketmob.com/PhoneGap/index.cfm?lat=0&lon=0"+"&style="+style+"&tab="+tab;
+			var getURL = "http://www.ticketmob.com/PhoneGap/index.cfm?mode=1"+"&style="+style+"&tab="+tab;
 
 			$.ajax({
 				type: "GET",
