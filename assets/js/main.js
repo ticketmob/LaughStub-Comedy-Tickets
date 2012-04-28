@@ -59,7 +59,7 @@
 						if(style == 1)
 							$('#'+tagID).find("ul").listview();
 						else if (style == 2)
-							$('#'+tagID).find('div[data-role=collapsible]').collapsible({refresh:true});
+							$('#'+tagID).find('div[data-role=collapsible-set]').collapsibleset({refresh:true});
 					}
 				});
 			}
@@ -92,7 +92,7 @@
 					if(style == 1)
 						$('#'+tagID).find("ul").listview();
 					else if (style == 2)
-						$('#'+tagID).find('div[data-role=collapsible]').collapsible({refresh:true});
+						$('#'+tagID).find('div[data-role=collapsible-set]').collapsibleset({refresh:true});
 				}
 			});
 		}
