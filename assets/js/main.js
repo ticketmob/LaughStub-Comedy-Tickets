@@ -42,7 +42,7 @@
 				event.preventDefault();
 				getcalendar();
 			});
-			if(1) {
+			if(0) {
 				var style = 1;
 				var tab = 1;
 				var tagID = 'showlist'
