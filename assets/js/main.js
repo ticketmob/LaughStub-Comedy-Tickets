@@ -70,8 +70,10 @@
 		  	$.mobile.touchOverflowEnabled = true ;
 		});
 		
-
+		var pageLoadingHTML = '<div class="loadingPage">Page is loading..... <br /><img src="assets/img/loading.gif"></div>';
+		
 		function getWSFeed(style, tab, tagID) {
+			$('#'+tagID).html(pageLoadingHTML);
 			if(positionFlag && coords != null)
 				var getURL = "http://www.ticketmob.com/PhoneGap/index.cfm?lat="+coords.latitude+"&lon="+coords.longitude+"&style="+style+"&tab="+tab;
 			else
