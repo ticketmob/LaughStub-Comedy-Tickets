@@ -3,27 +3,38 @@
 		var positionFlag = false;
 
 		function getvenues() {
-			$.mobile.changePage("#venuesPage", "slideup", false, false);
+			//$.mobile.changePage("#venuesPage", "slideup", false, false);
+			hideAll();
 			getWSFeed(2,2,'venuelist');
 		}
 		
 		function gethome() {
-			$.mobile.changePage("#mainpage", "slideup", false, false);
+			//$.mobile.changePage("#mainpage", "slideup", false, false);
+			hideAll();
 			getWSFeed(1,1,'showlist');
 		}
 		
 		function getcomedian() {
-			$.mobile.changePage("#comedianPage", "slideup", false, false);
+			//$.mobile.changePage("#comedianPage", "slideup", false, false);
+			hideAll();
 			getWSFeed(2,3,'comedianlist');
 		}
 		
 		function getcalendar() {
-			$.mobile.changePage("#calendarPage", "slideup", false, false);
+			//$.mobile.changePage("#calendarPage", "slideup", false, false);
+			hideAll();
 			getWSFeed(1,4,'calendarlist');
 		}
 		
 		//$(document).bind( "pagebeforechange", function( e, data ) {
 		//});
+		
+		function hideAll() {
+			$('#showlist').html('');
+			$('#venuelist').html('');
+			$('#comedianlist').html('');
+			$('#calendarlist').html('');
+		}
 		
 		$(document).ready( function () {
 			$("#homeNavBar a").click(function(event){
