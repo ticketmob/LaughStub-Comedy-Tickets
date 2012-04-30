@@ -45,32 +45,35 @@
 
 			<div data-role="content" class="multiPage">
 				<div id="showlist">
-				<div style="margin: 5px;">
-                	<form method="get" action="http://www.ticketmob.com/PhoneGap/checkout.cfm" id="submitCheckout">
-                    <ul data-role="listview" data-theme="c" data-dividertheme="a" data-inset="true" >
-                        <li data-role="list-divider">Select Quantity</li>
-                        <li>
-                           <select name="quantity" id="quantity" data-mini="true">
-                              <option value="1">1</option>
-                              <option value="2">2</option>
-                              <option value="3">3</option>
-                              <option value="4">4</option>
-                           </select>
-                        </li>
-                        <li data-role="list-divider">Got Coupon?</li>
-                        <li>
-                        	<input type="text" name="coupon" id="basic" value="" data-mini="true" />
-                        </li>
-                    </ul>
-                    <button type="submit" data-theme="a" name="submit" value="submit-value">Checkout</button>
-                    </form>
-                </div>
                 </div>
 				<div id="venuelist">
                 </div>
                 <div id="comedianlist">
                 </div>
                 <div id="calendarlist">
+                </div>
+				<div data-role="content" id="contentBuyDialog" name="contentBuyDialog" style="margin: 10px;">
+                	<form method="get" action="http://www.ticketmob.com/PhoneGap/buy.cfm" id="submitBuy">
+                        <ul data-role="listview" data-theme="c" data-dividertheme="a" data-inset="true" >
+                            <li data-role="list-divider">Select Quantity</li>
+                            <li>
+                               <select name="quantity" id="quantity" data-mini="true">
+                                  <option value="1">1</option>
+                                  <option value="2">2</option>
+                                  <option value="3">3</option>
+                                  <option value="4">4</option>
+                               </select>
+                            </li>
+                            <li data-role="list-divider">Got Coupon?</li>
+                            <li>
+                                <input type="text" name="coupon" id="basic" value="" data-mini="true" />
+                            </li>
+                        </ul>
+                        <button type="submit" data-theme="a" name="submit" value="submit-value">Checkout</button>
+                    </form>
+                </div>
+                <div data-role="content" id="contentCheckout" name="contentCheckout" style="margin: 10px;">
+                	
                 </div>
 			</div>
 

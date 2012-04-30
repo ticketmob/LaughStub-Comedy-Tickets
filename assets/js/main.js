@@ -1,6 +1,13 @@
 		var online = navigator.onLine || false;
 		var coords = null;
 		var positionFlag = false;
+		var qty = null;
+		var coupon = null;
+		var buyFormVar = null;
+		var buyDialogVar = null;
+		var checkoutFormVar = null;
+		var checkoutDialogVar = null;
+		var checkoutTransitionVar = null;
 
 		function getvenues() {
 			//$.mobile.changePage("#venuesPage", "slideup", false, false);
@@ -53,6 +60,14 @@
 				event.preventDefault();
 				getcalendar();
 			});
+			qty = $('#quantity');
+			coupon = $('#coupon');
+			buyFormVar = $('#submitBuy');
+			buyDialogVar = $('#contentBuyDialog');
+			checkoutFormVar = $('#submitCheckout');
+			checkoutDialogVar = $('#contentCheckout');
+			checkoutDialogVar.hide();
+			
 			if(0) {
 				var style = 1;
 				var tab = 1;
@@ -156,9 +171,22 @@
 			location.href = 'index.html?#buy&showtimingid='+showtimingid;
 		}
 
-		$('#submitCheckout').live('submit', function (e) {
+		$('#submitBuy').live('submit', function (e) {
 				var $this = $(this);
-				e.prefentDefault();
+				e.preventDefault();
 				
-				alert('here');
+				var getURL = "http://www.ticketmob.com/phonegap/buy.cfm";
+				
+				$.ajax({
+					type: "POST",
+					url: getURL,
+					data: buyFormVar.serialize(),
+					dataType: "jsonp",
+					success: function(result){
+						buyDialogVar.hide();
+						var checkoutForm = result.html;
+						checkoutDialogVar.html(checkoutForm);
+						//checkoutDialogVar.show();
+					}
+				});
 		});
