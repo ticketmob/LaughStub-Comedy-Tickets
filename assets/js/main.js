@@ -117,7 +117,7 @@
 				}
 				})
 				.appendTo( document.body );
-			$.mobile.changePage( dialog, { transition: "flip", role: "dialog", reverse: false } );
+			$.mobile.changePage( dialog, { transition: "slide", role: "dialog", reverse: false } );
 		};
 		
 		$( function () {
