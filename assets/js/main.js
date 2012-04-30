@@ -107,7 +107,7 @@
 				}
 			});
 		}
-			
+		
 		function openDialog(id) {
 			var dialog = $( $( "#"+id ).html() ); //actually i'm using here sg like this: _.template( $( "#template-dialog" ).html(), propObject );
 			dialog
@@ -152,3 +152,13 @@
 			navigator.network.isReachable('google.com', reachableCallback, {});
 		}
 
+		function clickBuy(showtimingid) {
+			location.href = 'index.html?#buy&showtimingid='+showtimingid;
+		}
+
+		$('#submitCheckout').live('submit', function (e) {
+				var $this = $(this);
+				e.prefentDefault();
+				
+				alert('here');
+		});
