@@ -46,6 +46,19 @@
 		}
 		
 		$(document).ready( function () {
+			qty = $('#quantity');
+			coupon = $('#coupon');
+			buyFormVar = $('#submitBuy');
+			contentBuyDialogVar = $('#contentBuyDialog');
+			checkoutFormVar = $('#submitCheckout');
+			checkoutDialogVar = $('#contentCheckout');
+			completeDialogVar = $('#contentComplete');
+			var url = $.mobile.path.parseUrl(window.location.href);
+			if(url.hash != '') {
+				contentBuyDialogVar.show();
+				checkoutDialogVar.hide();
+				completeDialogVar.hide();
+			}
 			$("#homeNavBar a").click(function(event){
 				event.preventDefault();
 				gethome();
@@ -62,17 +75,6 @@
 				event.preventDefault();
 				getcalendar();
 			});
-			qty = $('#quantity');
-			coupon = $('#coupon');
-			buyFormVar = $('#submitBuy');
-			contentBuyDialogVar = $('#contentBuyDialog');
-			checkoutFormVar = $('#submitCheckout');
-			checkoutDialogVar = $('#contentCheckout');
-			//completeFormVar = $('#');
-			completeDialogVar = $('#contentComplete');
-			contentBuyDialogVar.hide();
-			checkoutDialogVar.hide();
-			completeDialogVar.hide();
 			
 			if(0) {
 				var style = 1;
@@ -188,7 +190,7 @@
 					data: buyFormVar.serialize(),
 					dataType: "jsonp",
 					success: function(result){
-						buyDialogVar.hide();
+						contentBuyDialogVar.hide();
 						var checkoutForm = result.html;
 						var thisQty = checkoutForm.qty;
 						var thisCoupon = checkoutForm.coupon;
@@ -250,7 +252,6 @@
 
 				e.preventDefault();
 
-				return false;
 				if(!passFlag) {
 					
 				} else {

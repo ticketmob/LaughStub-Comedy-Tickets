@@ -52,8 +52,9 @@
                 </div>
                 <div id="calendarlist">
                 </div>
-				<div data-role="content" id="contentBuyDialog" name="contentBuyDialog" style="margin: 10px;">
+				<!--<div data-role="content" id="contentBuyDialog" name="contentBuyDialog" style="margin: 10px;">
                 	<form method="get" action="http://www.ticketmob.com/PhoneGap/buy.cfm" id="submitBuy">
+                    	 <input type="hidden" name="f_showtimingid" id="f_showtimingid">
                         <ul data-role="listview" data-theme="c" data-dividertheme="a" data-inset="true" >
                             <li data-role="list-divider">Select Quantity</li>
                             <li>
@@ -186,7 +187,7 @@
                 
                 <div data-role="content" id="contentComplete" name="contentComplete" style="margin: 10px;">
                 	Checkout complete
-                </div>
+                </div>-->
                 
 			</div>
 
@@ -209,15 +210,146 @@
 				<a href="#mainpage" data-direction="reverse">Back</a>
 			</div>
             
-            <div data-role="content" class="multiPage">
-				<div style="margin: 5px;">
-                    <ul data-role="listview" data-theme="c" data-dividertheme="a" data-inset="true" >
-                        <li data-role="list-divider">Select Quantity</li>
-                        <li data-role="list-divider">Got Coupon?</li>
-                    </ul>
+            <div data-role="content" id="contentBuyDialog" name="contentBuyDialog" style="padding: 0px;">
+                <div style="margin: 10px;">
+                    <form method="get" action="http://www.ticketmob.com/PhoneGap/buy.cfm" id="submitBuy">
+                         <input type="hidden" name="f_showtimingid" id="f_showtimingid">
+                        <ul data-role="listview" data-theme="c" data-dividertheme="a" data-inset="true" >
+                            <li data-role="list-divider">Select Quantity</li>
+                            <li>
+                               <select name="quantity" data-mini="true">
+                                  <option value="1">1</option>
+                                  <option value="2">2</option>
+                                  <option value="3">3</option>
+                                  <option value="4">4</option>
+                               </select>
+                            </li>
+                            <li data-role="list-divider">Got Coupon?</li>
+                            <li>
+                                <input type="text" name="coupon" id="basic" value="" data-mini="true" />
+                            </li>
+                        </ul>
+                        <button type="submit" data-theme="a" name="submit" value="submit-value">Checkout</button>
+                    </form>
                 </div>
 			</div>
 
+            <div data-role="content" id="contentCheckout" name="contentCheckout" style="margin: 10px;">
+                <form method="get" action="http://www.ticketmob.com/PhoneGap/checkout.cfm" id="submitCheckout">
+                    <input type="hidden" name="quantity" id="ckf_quantity">
+                    <input type="hidden" name="coupon" id="ckf_coupon">
+                    <input type="hidden" name="coupon" id="ckf_showtimingid">
+                    <input type="hidden" name="coupon" id="ckf_subtotal">
+                    <input type="hidden" name="coupon" id="ckf_disc">
+                    <input type="hidden" name="coupon" id="ckf_servicefee">
+                    <input type="hidden" name="coupon" id="ckf_tax">
+                    <input type="hidden" name="coupon" id="ckf_total">
+                    <ul data-role="listview" data-theme="c" data-dividertheme="a" data-inset="true" >
+                        <li data-role="list-divider">Show Information</li>
+                        <li>
+                            <div data-role="fieldcontain">
+                                <label for="basic">Show Name:</label>
+                                <span id="ck_showname"></span>
+                            </div>
+                            <div data-role="fieldcontain">
+                                <label for="basic">Show time:</label>
+                                <span id="ck_showtime"></span>
+                            </div>
+                            <div data-role="fieldcontain">
+                                <label for="basic">Quantity:</label>
+                                <span id="ck_qty"></span>
+                            </div>
+                            <div data-role="fieldcontain">
+                                <label for="basic">Sub-Total:</label>
+                                <span id="ck_subtotal"></span>
+                            </div>
+                            <div data-role="fieldcontain">
+                                <label for="basic">Discount:</label>
+                                <span id="ck_disc"></span>
+                            </div>
+                            <div data-role="fieldcontain">
+                                <label for="basic">Service Fee:</label>
+                                <span id="ck_servicefee"></span>
+                            </div>
+                            <div data-role="fieldcontain">
+                                <label for="basic">Tax:</label>
+                                <span id="ck_tax"></span>
+                            </div>
+                            <div data-role="fieldcontain">
+                                <label for="basic">Total:</label>
+                                <span id="ck_total"></span>
+                            </div>
+                        </li>
+                        <li data-role="list-divider">Client Information</li>
+                        <li>
+                            <div id="firstnameDiv" data-role="fieldcontain">
+                                <label for="firstname" id="firstnameLabel">First Name:</label>
+                                <input type="text" name="firstname" id="firstname" value="" data-mini="true" />
+                            </div>
+                            <div data-role="fieldcontain">
+                                <label for="lastname">Last Name:</label>
+                                <input type="text" name="lastname" id="lastname" value="" data-mini="true" />
+                            </div>
+                            <div data-role="fieldcontain">
+                                <label for="email">Email:</label>
+                                <input type="text" name="email" id="email" value="" data-mini="true" />
+                            </div>
+                            <div data-role="fieldcontain">
+                                <label for="zipcode">Zip Code:</label>
+                                <input type="text" name="zipcode" id="zipcode" value="" data-mini="true" />
+                            </div>
+                            <div data-role="fieldcontain">
+                                <label for="phone">Phone:</label>
+                                <input type="text" name="phone" id="phone" value="" data-mini="true" />
+                            </div>
+                        </li>
+                        <li data-role="list-divider">Credit Card Information</li>
+                        <li>
+                            <div data-role="fieldcontain">
+                                <label for="ccnumber">Number:</label>
+                                <input type="text" name="ccnumber" id="ccnumber" value="" data-mini="true" />
+                            </div>
+                            <div data-role="fieldcontain">
+                                <fieldset data-role="controlgroup" data-type="horizontal">
+                                    <label for="basic">Expiration:</label>
+                                    <select name="expmonth" id="expmonth">
+                                        <option value="jan">Jan</option>
+                                        <option value="dec">Dec</option>
+                                        <option value="feb">Feb</option>
+                                        <option value="mar">Mar</option>
+                                        <option value="apr">Apr</option>
+                                        <option value="may">May</option>
+                                        <option value="jun">Jun</option>
+                                        <option value="jul">Jul</option>
+                                        <option value="aug">Aug</option>
+                                        <option value="sep">Sep</option>
+                                        <option value="oct">Oct</option>
+                                        <option value="nov">Nov</option>
+                                        <option value="dec">Dec</option>
+                                    </select>
+                                    <select name="expyear" id="expyear">
+                                        <option value="2012">2012</option>
+                                        <option value="2013">2013</option>
+                                        <option value="2014">2014</option>
+                                        <option value="2015">2015</option>
+                                        <option value="2016">2016</option>
+                                    </select>
+                                </fieldset>
+                            </div>
+                            <div data-role="fieldcontain">
+                                <label for="cvv">CVV:</label>
+                                <input type="text" name="cvv" id="cvv" value="" data-mini="true" />
+                            </div>
+                        </li>
+                    </ul>
+                    <button type="submit" data-theme="a" name="submit" value="submit-value">Submit</button>
+                </form>
+            </div>
+            
+            <div data-role="content" id="contentComplete" name="contentComplete" style="margin: 10px;">
+                Checkout complete
+            </div>
+            
 			<div data-role="footer" data-position="fixed" data-id="footer1"> 
                 <div data-role="navbar">
                     <ul>
@@ -232,7 +364,7 @@
             
         </div>
         
-        <div data-role="page" data-theme="b" id="checkout" data-title="Checkout Page"> 
+        <!--<div data-role="page" data-theme="b" id="checkout" data-title="Checkout Page"> 
         	<div data-role="header">
             	 <h1>Checkout Header</h1>
 				<a href="#buy" data-direction="reverse">Back</a>
@@ -269,10 +401,10 @@
 						<li id="calendarNavBar"><a href="javascript:void(0);">Calendar</a></li>
 						<li id="moreNavBar"><a href="javascript:void(0);">More</a></li>
                     </ul>
-                </div><!-- /navbar -->
+                </div>
 			</div>
             
-        </div>
+        </div>-->
         
   </body>
 </html>
