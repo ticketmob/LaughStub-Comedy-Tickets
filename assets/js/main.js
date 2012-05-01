@@ -23,7 +23,7 @@
 			//checkoutDialogVar.show();
 			//completeDialogVar.show();
 			
-			if(0) {
+			if(1) {
 				$.mobile.changePage("#loadingPage", "slide", false, false);
 				var getURL = "http://www.ticketmob.com/PhoneGap/index.cfm?mode=1";
 				$.ajax({
@@ -136,7 +136,8 @@
 		}
 
 		$('#submitBuy').live('submit', function (e) {
-				$.mobile.changePage("#loadingPage", "slide", false, false);
+				var thisPage = $('#contentBuyDialog').html();
+				$('#contentBuyDialog').html(pageLoadingHTML);
 				e.preventDefault();
 				var getURL = "http://www.ticketmob.com/phonegap/getticket.cfm";
 				$.ajax({
@@ -145,7 +146,6 @@
 					data: buyFormVar.serialize(),
 					dataType: "jsonp",
 					success: function(result){
-						//contentBuyDialogVar.hide();
 						var checkoutForm = result.html;
 						var thisVenueID = checkoutForm.venueid;
 						var thisSourceID = checkoutForm.sourceid;
@@ -163,9 +163,9 @@
 						var thisTax = checkoutForm.tax;
 						var thisTotal = checkoutForm.total;
 						
+						$('#contentBuyDialog').html(thisPage);
 						if(thisCouponStatus != 'success') {
 							$('#buyErrorMessage').html (thisStatusMessage);
-							//contentBuyDialogVar.show();
 						} else {
 							$('#buyErrorMessage').html ('');
 							$.mobile.changePage("#checkout", "slide", false, false);
@@ -200,7 +200,8 @@
 		});
 		
 		$('#submitCheckout').live('submit', function (e) {
-				$.mobile.changePage("#loadingPage", "slide", false, false);
+				var thisPage = $('#contentCheckout').html();
+				$('#contentCheckout').html(pageLoadingHTML);
 				var passFlag = true;
 				$('#firstnameLabel').removeClass('missing')
 				$('#lastnameLabel').removeClass('missing')
@@ -249,7 +250,6 @@
 						data: checkoutFormVar.serialize(),
 						dataType: "jsonp",
 						success: function(result){
-							//checkoutDialogVar.hide();
 							var checkoutForm = result.html;
 							var thisQty = checkoutForm.qty;
 							var thisCoupon = checkoutForm.coupon;
@@ -264,6 +264,7 @@
 							var thisStatus = checkoutForm.status;
 							var thisStatusMessage = checkoutForm.statusMessage;
 
+							$('#contentCheckout').html(thisPage);
 							if(thisStatus == 'success' || thisStatus == 'fail') {
 								if(thisStatus == 'success') {
 									$.mobile.changePage("#complete", "slide", false, false);
@@ -278,6 +279,7 @@
 						}
 					});
 				}
+				$('#contentCheckout').html(thisPage);
 		});
 		
 		
