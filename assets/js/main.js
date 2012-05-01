@@ -141,8 +141,8 @@
 				var getURL = "http://www.ticketmob.com/PhoneGap/index.cfm?lat="+coords.latitude+"&lon="+coords.longitude;
 			else
 				var getURL = "http://www.ticketmob.com/PhoneGap/index.cfm?lat=0&lon=0";
-			var getURL = "http://www.ticketmob.com/PhoneGap/index.cfm?mode=1";
-
+			//var getURL = "http://www.ticketmob.com/PhoneGap/index.cfm?mode=1";
+			alert(getURL);
 			$.ajax({
 				type: "GET",
 				url: getURL,
@@ -151,6 +151,8 @@
 				},
 				dataType: "jsonp",
 				success: function(result){
+					alert(result.featured);
+					/*
 					$('#showlist').html ( result.featured );
 					$('#showlist').find("ul").listview();
 					$('#venuelist').html ( result.venues );
@@ -159,6 +161,7 @@
 					$('#comedianlist').find('div[data-role=collapsible-set]').collapsibleset({refresh:true});
 					$('#calendarlist').html ( result.calendar );
 					$('#calendarlist').find('div[data-role=collapsible-set]').collapsibleset({refresh:true});
+					*/
 					//$('#'+tagID).html(result.html);
 					//if(style == 1)
 					//	$('#'+tagID).find("ul").listview();
