@@ -98,6 +98,7 @@
 						//	$('#'+tagID).find('div[data-role=collapsible-set]').collapsibleset({refresh:true});
 					}
 				});
+				//$.mobile.changePage("#mainpage", "slide", false, false);
 			}
 		});
 		
