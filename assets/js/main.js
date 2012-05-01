@@ -102,6 +102,7 @@
 			}
 		});
 		
+		// To remove the tap for full screen
 		$(document).on('pageinit','[data-role=page]', function(){
 			$('[data-position=fixed]').fixedtoolbar({ tapToggle:false });
 		  	$.mobile.touchOverflowEnabled = true ;
@@ -233,6 +234,7 @@
 						var checkoutForm = result.html;
 						var thisQty = checkoutForm.qty;
 						var thisCoupon = checkoutForm.coupon;
+						var thisCoupondID = checkoutForm.couponid;
 						var thisCouponStatus = checkoutForm.couponstatus;
 						var thisStatusMessage = checkoutForm.statusmessage;
 						var thisShowTimingID = checkoutForm.showtimingid;
@@ -258,9 +260,10 @@
 							$("#ck_servicefee").html(thisServiceFee);
 							$("#ck_tax").html(thisTax);
 							$("#ck_total").html(thisTotal);
-	
+							
 							$("#ckf_quantity").attr("value", thisQty);
 							$("#ckf_coupon").attr("value", thisCoupon);
+							$("#ckf_couponid").attr("value", thisCoupondID);
 							$("#ckf_showtimingid").attr("value", thisShowTimingID);
 							$("#ckf_subtotal").attr("value", thisSubTotal);
 							$("#ckf_disc").attr("value", thisDiscount);
