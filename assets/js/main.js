@@ -7,7 +7,9 @@
 		var buyDialogVar = null;
 		var checkoutFormVar = null;
 		var checkoutDialogVar = null;
-		var checkoutTransitionVar = null;
+		var completeFormVar = null;
+		var completeDialogVar = null;
+		
 
 		function getvenues() {
 			//$.mobile.changePage("#venuesPage", "slideup", false, false);
@@ -63,10 +65,14 @@
 			qty = $('#quantity');
 			coupon = $('#coupon');
 			buyFormVar = $('#submitBuy');
-			buyDialogVar = $('#contentBuyDialog');
+			contentBuyDialogVar = $('#contentBuyDialog');
 			checkoutFormVar = $('#submitCheckout');
 			checkoutDialogVar = $('#contentCheckout');
+			//completeFormVar = $('#');
+			completeDialogVar = $('#contentComplete');
+			contentBuyDialogVar.hide();
 			checkoutDialogVar.hide();
+			completeDialogVar.hide();
 			
 			if(0) {
 				var style = 1;
@@ -172,7 +178,6 @@
 		}
 
 		$('#submitBuy').live('submit', function (e) {
-				var $this = $(this);
 				e.preventDefault();
 				
 				var getURL = "http://www.ticketmob.com/phonegap/buy.cfm";
@@ -185,8 +190,119 @@
 					success: function(result){
 						buyDialogVar.hide();
 						var checkoutForm = result.html;
-						checkoutDialogVar.html(checkoutForm);
-						//checkoutDialogVar.show();
+						var thisQty = checkoutForm.qty;
+						var thisCoupon = checkoutForm.coupon;
+						var thisShowTimingID = checkoutForm.showtimingid;
+						var thisShowName = checkoutForm.showname;
+						var thisShowTime = checkoutForm.showtime;
+						var thisSubTotal = checkoutForm.subtotal;
+						var thisDiscount = checkoutForm.discount;
+						var thisServiceFee = checkoutForm.servicefee;
+						var thisTax = checkoutForm.tax;
+						var thisTotal = checkoutForm.total;
+						
+						$("#ck_showname").html(thisShowName);
+						$("#ck_showtime").html(thisShowTime);
+						$("#ck_qty").html(thisQty);
+						$("#ck_subtotal").html(thisSubTotal);
+						$("#ck_disc").html(thisDiscount);
+						$("#ck_servicefee").html(thisServiceFee);
+						$("#ck_tax").html(thisTax);
+						$("#ck_total").html(thisTotal);
+
+						$("#ckf_quantity").attr("value", thisQty);
+						$("#ckf_coupon").attr("value", thisCoupon);
+						$("#ckf_showtimingid").attr("value", thisShowTimingID);
+						$("#ckf_subtotal").attr("value", thisSubTotal);
+						$("#ckf_disc").attr("value", thisDiscount);
+						$("#ckf_servicefee").attr("value", thisServiceFee);
+						$("#ckf_tax").attr("value", thisTax);
+						$("#ckf_total").attr("value", thisTotal);
+						
+						checkoutDialogVar.show();
+
+						
 					}
 				});
 		});
+		
+		$('#submitCheckout').live('submit', function (e) {
+				var passFlag = true;
+				$('#firstnameLabel').removeClass(MISSING)
+				if($('#firstname').attr("value") == '') {
+					passFlag = false;
+					$('#firstnameLabel').addClass(MISSING)
+				}
+				if($('#lastname').attr("value") == '')
+					passFlag = false;
+				if($('#email').attr("value") == '')
+					passFlag = false;
+				if($('#zipcode').attr("value") == '')
+					passFlag = false;
+				if($('#ccnumber').attr("value") == '')
+					passFlag = false;
+				if($('#expmonth').attr("value") == '')
+					passFlag = false;
+				if($('#expyear').attr("value") == '')
+					passFlag = false;
+				if($('#cvv').attr("value") == '')
+					passFlag = false;
+
+				e.preventDefault();
+
+				return false;
+				if(!passFlag) {
+					
+				} else {
+					
+					var getURL = "http://www.ticketmob.com/phonegap/checkout.cfm";
+					
+					$.ajax({
+						type: "POST",
+						url: getURL,
+						data: checkoutFormVar.serialize(),
+						dataType: "jsonp",
+						success: function(result){
+							buyDialogVar.hide();
+							checkoutDialogVar.hide();
+							var checkoutForm = result.html;
+							var thisQty = checkoutForm.qty;
+							var thisCoupon = checkoutForm.coupon;
+							var thisShowTimingID = checkoutForm.showtimingid;
+							var thisShowName = checkoutForm.showname;
+							var thisShowTime = checkoutForm.showtime;
+							var thisSubTotal = checkoutForm.subtotal;
+							var thisDiscount = checkoutForm.discount;
+							var thisServiceFee = checkoutForm.servicefee;
+							var thisTax = checkoutForm.tax;
+							var thisTotal = checkoutForm.total;
+							var thisStatus = checkoutForm.status;
+							/*
+							$("#ck_showname").html(thisShowName);
+							$("#ck_showtime").html(thisShowTime);
+							$("#ck_qty").html(thisQty);
+							$("#ck_subtotal").html(thisSubTotal);
+							$("#ck_disc").html(thisDiscount);
+							$("#ck_servicefee").html(thisServiceFee);
+							$("#ck_tax").html(thisTax);
+							$("#ck_total").html(thisTotal);
+	
+							$("#ckf_quantity").attr("value", thisQty);
+							$("#ckf_coupon").attr("value", thisCoupon);
+							$("#ckf_showtimingid").attr("value", thisShowTimingID);
+							$("#ckf_subtotal").attr("value", thisSubTotal);
+							$("#ckf_disc").attr("value", thisDiscount);
+							$("#ckf_servicefee").attr("value", thisServiceFee);
+							$("#ckf_tax").attr("value", thisTax);
+							$("#ckf_total").attr("value", thisTotal);
+							*/
+							completeDialogVar.show();
+	
+							
+						}
+					});
+				}
+		});
+		
+		
+		
