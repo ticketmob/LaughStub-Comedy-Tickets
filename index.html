@@ -233,27 +233,11 @@
                 </form>
 			</div>
 
-            <div data-role="content" id="contentComplete" name="contentComplete" style="padding: 0px; margin: 10px;">
-                Checkout complete
-            </div>
-            
-			<div data-role="footer" data-position="fixed" data-id="footer1"> 
-                <div data-role="navbar">
-                    <ul>
-						<li id="homeNavBar"><a href="javascript:void(0);" class="ui-btn-active ui-state-persist" data-icon="grid">Home</a></li>
-						<li id="venueNavBar"><a href="javascript:void(0);" data-icon="star" data-transition="slide">Venues</a></li>
-						<li id="comedianNavBar"><a href="javascript:void(0);" data-icon="gear">Comedian</a></li>
-						<li id="calendarNavBar"><a href="javascript:void(0);">Calendar</a></li>
-						<li id="moreNavBar"><a href="javascript:void(0);">More</a></li>
-                    </ul>
-                </div><!-- /navbar -->
-			</div>
-            
         </div>
         
         <div data-role="page" data-theme="b" id="checkout" data-title="Checkout Page"> 
         	<div data-role="header">
-            	 <h1>Checkout Header</h1>
+				<h1>Checkout Header</h1>
 				<a href="#buy" data-direction="reverse">Back</a>
 			</div>
             
@@ -385,5 +369,29 @@
             
         </div>
         
-  </body>
+		<div data-role="page" data-theme="b" id="complete" data-title="Complete Page"> 
+        	<div data-role="header">
+            	 <h1>Complete header</h1>
+				<a href="index.html" data-direction="reverse">Back</a>
+			</div>
+            
+            <div data-role="content" id="contentComplete" name="contentComplete" style="padding: 0px; margin: 10px;">
+                Checkout complete
+            </div>
+            
+			<div data-role="footer" data-position="fixed" data-id="footer1"> 
+                <div data-role="navbar">
+                    <ul>
+						<li id="homeNavBar"><a href="javascript:void(0);" class="ui-btn-active ui-state-persist" data-icon="grid">Home</a></li>
+						<li id="venueNavBar"><a href="javascript:void(0);" data-icon="star" data-transition="slide">Venues</a></li>
+						<li id="comedianNavBar"><a href="javascript:void(0);" data-icon="gear">Comedian</a></li>
+						<li id="calendarNavBar"><a href="javascript:void(0);">Calendar</a></li>
+						<li id="moreNavBar"><a href="javascript:void(0);">More</a></li>
+                    </ul>
+                </div><!-- /navbar -->
+			</div>
+            
+        </div>
+        
+	</body>
 </html>

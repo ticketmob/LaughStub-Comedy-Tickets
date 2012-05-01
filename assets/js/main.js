@@ -56,8 +56,8 @@
 			var url = $.mobile.path.parseUrl(window.location.href);
 			if(url.hash != '') {
 				contentBuyDialogVar.show();
-				checkoutDialogVar.hide();
-				completeDialogVar.hide();
+				checkoutDialogVar.show();
+				completeDialogVar.show();
 			}
 			$("#homeNavBar a").click(function(event){
 				event.preventDefault();
@@ -182,9 +182,7 @@
 
 		$('#submitBuy').live('submit', function (e) {
 				e.preventDefault();
-				
 				var getURL = "http://www.ticketmob.com/phonegap/buy.cfm";
-				
 				$.ajax({
 					type: "POST",
 					url: getURL,
@@ -237,41 +235,23 @@
 		
 		$('#submitCheckout').live('submit', function (e) {
 				var passFlag = true;
-				$('#firstnameLabel').removeClass(MISSING)
-				if($('#firstname').attr("value") == '') {
-					passFlag = false;
-					$('#firstnameLabel').addClass(MISSING)
-				}
-				if($('#lastname').attr("value") == '')
-					passFlag = false;
-				if($('#email').attr("value") == '')
-					passFlag = false;
-				if($('#zipcode').attr("value") == '')
-					passFlag = false;
-				if($('#ccnumber').attr("value") == '')
-					passFlag = false;
-				if($('#expmonth').attr("value") == '')
-					passFlag = false;
-				if($('#expyear').attr("value") == '')
-					passFlag = false;
-				if($('#cvv').attr("value") == '')
-					passFlag = false;
-
+				//$('#firstnameLabel').removeClass(MISSING)
+				//if($('#firstname').attr("value") == '') {
+				//	passFlag = false;
+				//	$('#firstnameLabel').addClass(MISSING)
+				//}
 				e.preventDefault();
-
+				var getURL = "http://www.ticketmob.com/phonegap/checkout.cfm";
+				
 				if(!passFlag) {
-					
+					alert('not passed');
 				} else {
-					
-					var getURL = "http://www.ticketmob.com/phonegap/checkout.cfm";
-					
 					$.ajax({
 						type: "POST",
 						url: getURL,
 						data: checkoutFormVar.serialize(),
 						dataType: "jsonp",
 						success: function(result){
-							buyDialogVar.hide();
 							checkoutDialogVar.hide();
 							var checkoutForm = result.html;
 							var thisQty = checkoutForm.qty;
@@ -285,6 +265,13 @@
 							var thisTax = checkoutForm.tax;
 							var thisTotal = checkoutForm.total;
 							var thisStatus = checkoutForm.status;
+							var thisStatusMessage = checkoutForm.statusMessage;
+
+							if(thisStatus != 'success') {
+							} else {
+								$.mobile.changePage("#complete", "slide", false, false);
+								completeDialogVar.show();
+							}
 							/*
 							$("#ck_showname").html(thisShowName);
 							$("#ck_showtime").html(thisShowTime);
@@ -304,7 +291,6 @@
 							$("#ckf_tax").attr("value", thisTax);
 							$("#ckf_total").attr("value", thisTotal);
 							*/
-							completeDialogVar.show();
 	
 							
 						}
