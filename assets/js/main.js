@@ -176,6 +176,7 @@
 		}
 
 		function clickBuy(showtimingid) {
+			//$.mobile.changePage("#buy&showtimingid="+showtimingid, "slide", false, false);
 			location.href = 'index.html?#buy&showtimingid='+showtimingid;
 		}
 
@@ -194,6 +195,8 @@
 						var checkoutForm = result.html;
 						var thisQty = checkoutForm.qty;
 						var thisCoupon = checkoutForm.coupon;
+						var thisCouponStatus = checkoutForm.couponstatus;
+						var thisStatusMessage = checkoutForm.statusmessage;
 						var thisShowTimingID = checkoutForm.showtimingid;
 						var thisShowName = checkoutForm.showname;
 						var thisShowTime = checkoutForm.showtime;
@@ -203,27 +206,31 @@
 						var thisTax = checkoutForm.tax;
 						var thisTotal = checkoutForm.total;
 						
-						$("#ck_showname").html(thisShowName);
-						$("#ck_showtime").html(thisShowTime);
-						$("#ck_qty").html(thisQty);
-						$("#ck_subtotal").html(thisSubTotal);
-						$("#ck_disc").html(thisDiscount);
-						$("#ck_servicefee").html(thisServiceFee);
-						$("#ck_tax").html(thisTax);
-						$("#ck_total").html(thisTotal);
-
-						$("#ckf_quantity").attr("value", thisQty);
-						$("#ckf_coupon").attr("value", thisCoupon);
-						$("#ckf_showtimingid").attr("value", thisShowTimingID);
-						$("#ckf_subtotal").attr("value", thisSubTotal);
-						$("#ckf_disc").attr("value", thisDiscount);
-						$("#ckf_servicefee").attr("value", thisServiceFee);
-						$("#ckf_tax").attr("value", thisTax);
-						$("#ckf_total").attr("value", thisTotal);
-						
-						checkoutDialogVar.show();
-
-						
+						if(thisCouponStatus != 'success') {
+							$('#buyErrorMessage').html (thisStatusMessage);
+							contentBuyDialogVar.show();
+						} else {
+							$.mobile.changePage("#checkout", "slide", false, false);
+							$("#ck_showname").html(thisShowName);
+							$("#ck_showtime").html(thisShowTime);
+							$("#ck_qty").html(thisQty);
+							$("#ck_subtotal").html(thisSubTotal);
+							$("#ck_disc").html(thisDiscount);
+							$("#ck_servicefee").html(thisServiceFee);
+							$("#ck_tax").html(thisTax);
+							$("#ck_total").html(thisTotal);
+	
+							$("#ckf_quantity").attr("value", thisQty);
+							$("#ckf_coupon").attr("value", thisCoupon);
+							$("#ckf_showtimingid").attr("value", thisShowTimingID);
+							$("#ckf_subtotal").attr("value", thisSubTotal);
+							$("#ckf_disc").attr("value", thisDiscount);
+							$("#ckf_servicefee").attr("value", thisServiceFee);
+							$("#ckf_tax").attr("value", thisTax);
+							$("#ckf_total").attr("value", thisTotal);
+							
+							checkoutDialogVar.show();
+						}
 					}
 				});
 		});

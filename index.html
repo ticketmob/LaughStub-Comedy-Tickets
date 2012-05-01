@@ -212,7 +212,7 @@
             
             <div data-role="content" id="contentBuyDialog" name="contentBuyDialog" style="padding: 0px; margin: 10px;">
                 <form method="get" action="http://www.ticketmob.com/PhoneGap/buy.cfm" id="submitBuy">
-                     <input type="hidden" name="f_showtimingid" id="f_showtimingid">
+					<input type="hidden" name="f_showtimingid" id="f_showtimingid">
                     <ul data-role="listview" data-theme="c" data-dividertheme="a" data-inset="true" >
                         <li data-role="list-divider">Select Quantity</li>
                         <li>
@@ -225,6 +225,7 @@
                         </li>
                         <li data-role="list-divider">Got Coupon?</li>
                         <li>
+                        	<label id="buyErrorMessage" class="missing"></label>
                             <input type="text" name="coupon" id="basic" value="" data-mini="true" />
                         </li>
                     </ul>
@@ -232,6 +233,30 @@
                 </form>
 			</div>
 
+            <div data-role="content" id="contentComplete" name="contentComplete" style="padding: 0px; margin: 10px;">
+                Checkout complete
+            </div>
+            
+			<div data-role="footer" data-position="fixed" data-id="footer1"> 
+                <div data-role="navbar">
+                    <ul>
+						<li id="homeNavBar"><a href="javascript:void(0);" class="ui-btn-active ui-state-persist" data-icon="grid">Home</a></li>
+						<li id="venueNavBar"><a href="javascript:void(0);" data-icon="star" data-transition="slide">Venues</a></li>
+						<li id="comedianNavBar"><a href="javascript:void(0);" data-icon="gear">Comedian</a></li>
+						<li id="calendarNavBar"><a href="javascript:void(0);">Calendar</a></li>
+						<li id="moreNavBar"><a href="javascript:void(0);">More</a></li>
+                    </ul>
+                </div><!-- /navbar -->
+			</div>
+            
+        </div>
+        
+        <div data-role="page" data-theme="b" id="checkout" data-title="Checkout Page"> 
+        	<div data-role="header">
+            	 <h1>Checkout Header</h1>
+				<a href="#buy" data-direction="reverse">Back</a>
+			</div>
+            
             <div data-role="content" id="contentCheckout" name="contentCheckout" style="padding: 0px; margin: 10px;">
                 <form method="get" action="http://www.ticketmob.com/PhoneGap/checkout.cfm" id="submitCheckout">
                     <input type="hidden" name="quantity" id="ckf_quantity">
@@ -342,53 +367,9 @@
                     </ul>
                     <button type="submit" data-theme="a" name="submit" value="submit-value">Submit</button>
                 </form>
+                <br /><br />
             </div>
             
-            <div data-role="content" id="contentComplete" name="contentComplete" style="padding: 0px; margin: 10px;">
-                Checkout complete
-            </div>
-            
-			<div data-role="footer" data-position="fixed" data-id="footer1"> 
-                <div data-role="navbar">
-                    <ul>
-						<li id="homeNavBar"><a href="javascript:void(0);" class="ui-btn-active ui-state-persist" data-icon="grid">Home</a></li>
-						<li id="venueNavBar"><a href="javascript:void(0);" data-icon="star" data-transition="slide">Venues</a></li>
-						<li id="comedianNavBar"><a href="javascript:void(0);" data-icon="gear">Comedian</a></li>
-						<li id="calendarNavBar"><a href="javascript:void(0);">Calendar</a></li>
-						<li id="moreNavBar"><a href="javascript:void(0);">More</a></li>
-                    </ul>
-                </div><!-- /navbar -->
-			</div>
-            
-        </div>
-        
-        <!--<div data-role="page" data-theme="b" id="checkout" data-title="Checkout Page"> 
-        	<div data-role="header">
-            	 <h1>Checkout Header</h1>
-				<a href="#buy" data-direction="reverse">Back</a>
-			</div>
-            
-            <div data-role="content" class="multiPage">
-				Checkout page
-                	<form method="post" action="#done" onSubmit="">
-                    <ul data-role="listview" data-theme="c" data-dividertheme="a" data-inset="true" >
-                        <li data-role="list-divider">Select Quantity</li>
-                        <li>
-                           <select name="select-choice-1" id="quantity" data-mini="true">
-                              <option value="1">1</option>
-                              <option value="2">2</option>
-                              <option value="3">3</option>
-                              <option value="4">4</option>
-                           </select>
-                        </li>
-                        <li data-role="list-divider">Got Coupon?</li>
-                        <li>
-                        	<input type="text" name="coupon" id="basic" value="" data-mini="true" />
-                        </li>
-                    </ul>
-                    <button type="submit" data-theme="a" name="submit" value="submit-value">Checkout</button>
-                    </form>
-			</div>
 
 			<div data-role="footer" data-position="fixed" data-id="footer1"> 
                 <div data-role="navbar">
@@ -402,7 +383,7 @@
                 </div>
 			</div>
             
-        </div>-->
+        </div>
         
   </body>
 </html>
