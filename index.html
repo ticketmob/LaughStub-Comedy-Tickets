@@ -39,6 +39,7 @@
     
   </head>
   <body>
+  
 		<div data-role="page" data-theme="b" id="mainpage"> 
 			<div data-role="header"> 
 			</div>
@@ -46,10 +47,76 @@
 			<div data-role="content" class="multiPage">
 				<div id="showlist">
                 </div>
-				<div id="venuelist">
+				<!--<div id="venuelist">
                 </div>
                 <div id="comedianlist">
                 </div>
+                <div id="calendarlist">
+                </div>-->
+			</div>
+
+			<div data-role="footer" data-position="fixed" data-id="footer1"> 
+                <div data-role="navbar">
+                    <ul>
+						<li id="homeNavBar"><a href="#mainpage" class="ui-btn-active ui-state-persist" data-icon="grid">Home</a></li>
+						<li id="venueNavBar"><a href="#venuepage" data-icon="star">Venues</a></li>
+						<li id="comedianNavBar"><a href="#comedianpage" data-icon="gear">Comedian</a></li>
+						<li id="calendarNavBar"><a href="#calendarpage" data-icon="gear">Calendar</a></li>
+						<li id="moreNavBar"><a href="#morepage" data-icon="gear">More</a></li>
+                    </ul>
+                </div><!-- /navbar -->
+			</div>
+		</div>
+        
+        <div data-role="page" data-theme="b" id="venuepage"> 
+			<div data-role="header"> 
+			</div>
+
+			<div data-role="content" class="multiPage">
+				<div id="venuelist">
+                </div>
+			</div>
+
+			<div data-role="footer" data-position="fixed" data-id="footer1"> 
+                <div data-role="navbar">
+                    <ul>
+						<li id="homeNavBar"><a href="#mainpage" data-icon="grid">Home</a></li>
+						<li id="venueNavBar"><a href="#venuepage" class="ui-btn-active ui-state-persist" data-icon="star">Venues</a></li>
+						<li id="comedianNavBar"><a href="#comedianpage" data-icon="gear">Comedian</a></li>
+						<li id="calendarNavBar"><a href="#calendarpage" data-icon="gear">Calendar</a></li>
+						<li id="moreNavBar"><a href="#morepage" data-icon="gear">More</a></li>
+                    </ul>
+                </div><!-- /navbar -->
+			</div>
+		</div>
+        
+        <div data-role="page" data-theme="b" id="comedianpage"> 
+			<div data-role="header"> 
+			</div>
+
+			<div data-role="content" class="multiPage">
+				<div id="comedianlist">
+                </div>
+			</div>
+
+			<div data-role="footer" data-position="fixed" data-id="footer1"> 
+                <div data-role="navbar">
+                    <ul>
+						<li id="homeNavBar"><a href="#mainpage" data-icon="grid">Home</a></li>
+						<li id="venueNavBar"><a href="#venuepage" data-icon="star">Venues</a></li>
+						<li id="comedianNavBar"><a href="#comedianpage" class="ui-btn-active ui-state-persist" data-icon="gear">Comedian</a></li>
+						<li id="calendarNavBar"><a href="#calendarpage" data-icon="gear">Calendar</a></li>
+						<li id="moreNavBar"><a href="#morepage" data-icon="gear">More</a></li>
+                    </ul>
+                </div><!-- /navbar -->
+			</div>
+		</div>
+        
+		<div data-role="page" data-theme="b" id="calendarpage"> 
+			<div data-role="header"> 
+			</div>
+
+			<div data-role="content" class="multiPage">
                 <div id="calendarlist">
                 </div>
 			</div>
@@ -57,11 +124,33 @@
 			<div data-role="footer" data-position="fixed" data-id="footer1"> 
                 <div data-role="navbar">
                     <ul>
-						<li id="homeNavBar"><a href="javascript:void(0);" class="ui-btn-active ui-state-persist" data-icon="grid">Home</a></li>
-						<li id="venueNavBar"><a href="javascript:void(0);" data-icon="star" data-transition="slide">Venues</a></li>
-						<li id="comedianNavBar"><a href="javascript:void(0);" data-icon="gear">Comedian</a></li>
-						<li id="calendarNavBar"><a href="javascript:void(0);">Calendar</a></li>
-						<li id="moreNavBar"><a href="javascript:void(0);">More</a></li>
+						<li id="homeNavBar"><a href="#mainpage" data-icon="grid">Home</a></li>
+						<li id="venueNavBar"><a href="#venuepage" data-icon="star">Venues</a></li>
+						<li id="comedianNavBar"><a href="#comedianpage" data-icon="gear">Comedian</a></li>
+						<li id="calendarNavBar"><a href="#calendarpage" class="ui-btn-active ui-state-persist" data-icon="gear">Calendar</a></li>
+						<li id="moreNavBar"><a href="#morepage" data-icon="gear">More</a></li>
+                    </ul>
+                </div><!-- /navbar -->
+			</div>
+		</div>
+        
+		<div data-role="page" data-theme="b" id="morepage"> 
+			<div data-role="header"> 
+			</div>
+
+			<div data-role="content" class="multiPage">
+                <div id="morelist">
+                </div>
+			</div>
+
+			<div data-role="footer" data-position="fixed" data-id="footer1"> 
+                <div data-role="navbar">
+                    <ul>
+						<li id="homeNavBar"><a href="#mainpage" data-icon="grid">Home</a></li>
+						<li id="venueNavBar"><a href="#venuepage" data-icon="star">Venues</a></li>
+						<li id="comedianNavBar"><a href="#comedianpage" data-icon="gear">Comedian</a></li>
+						<li id="calendarNavBar"><a href="#calendarpage" data-icon="gear">Calendar</a></li>
+						<li id="moreNavBar"><a href="#morepage" class="ui-btn-active ui-state-persist" data-icon="gear">More</a></li>
                     </ul>
                 </div><!-- /navbar -->
 			</div>
