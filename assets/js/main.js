@@ -142,7 +142,7 @@
 			else
 				var getURL = "http://www.ticketmob.com/PhoneGap/index.cfm?lat=0&lon=0";
 			//var getURL = "http://www.ticketmob.com/PhoneGap/index.cfm?mode=1";
-			alert(getURL);
+			//alert(getURL);
 			$.ajax({
 				type: "GET",
 				url: getURL,
@@ -166,7 +166,7 @@
 					//	$('#'+tagID).find('div[data-role=collapsible-set]').collapsibleset({refresh:true});
 				}
 			});
-			//$.mobile.changePage("#mainpage", "slide", false, false);
+			$.mobile.changePage("#mainpage", "slide", false, false);
 		}
 		
 		function openDialog(id) {
