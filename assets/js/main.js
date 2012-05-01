@@ -241,6 +241,8 @@
 				$('#emailLabel').removeClass('missing')
 				$('#ccnumberLabel').removeClass('missing')
 				$('#cvvLabel').removeClass('missing')
+				var additionalMsg = '';
+				var missingMsg = 'Missing required fields';
 				if($('#firstname').attr("value") == '') {
 					passFlag = false;
 					$('#firstnameLabel').addClass('missing')
@@ -249,9 +251,15 @@
 					passFlag = false;
 					$('#lastnameLabel').addClass('missing')
 				}
-				if($('#email').attr("value") == '') {
+				var thisEmail = $('#email').attr("value");
+				if( thisEmail == '') {
 					passFlag = false;
 					$('#emailLabel').addClass('missing')
+				}
+				var emailRegex = new RegExp(/^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$/i);
+				if(thisEmail != '' && !emailRegex.test(thisEmail)) {
+					passFlag = false;
+					additionalMsg += '\nEmail address is not valid';
 				}
 				if($('#ccnumber').attr("value") == '') {
 					passFlag = false;
@@ -265,7 +273,9 @@
 				var getURL = "http://www.ticketmob.com/phonegap/checkout.cfm";
 				
 				if(!passFlag) {
-					alert('Missing required fields');
+					if(additionalMsg != '')
+						missingMsg += additionalMsg;
+					alert(missingMsg);
 				} else {
 					$.ajax({
 						type: "POST",
