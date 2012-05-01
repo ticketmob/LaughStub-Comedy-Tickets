@@ -152,9 +152,10 @@
 				dataType: "jsonp",
 				success: function(result){
 					alert(result.featured);
-					/*
+					
 					$('#showlist').html ( result.featured );
 					$('#showlist').find("ul").listview();
+					/*
 					$('#venuelist').html ( result.venues );
 					$('#venuelist').find('div[data-role=collapsible-set]').collapsibleset({refresh:true});
 					$('#comedianlist').html ( result.comedian );
