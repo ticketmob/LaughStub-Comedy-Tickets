@@ -210,31 +210,29 @@
 				<a href="index.html" data-direction="reverse">Back</a>
 			</div>
             
-            <div data-role="content" id="contentBuyDialog" name="contentBuyDialog" style="padding: 0px;">
-                <div style="margin: 10px;">
-                    <form method="get" action="http://www.ticketmob.com/PhoneGap/buy.cfm" id="submitBuy">
-                         <input type="hidden" name="f_showtimingid" id="f_showtimingid">
-                        <ul data-role="listview" data-theme="c" data-dividertheme="a" data-inset="true" >
-                            <li data-role="list-divider">Select Quantity</li>
-                            <li>
-                               <select name="quantity" data-mini="true">
-                                  <option value="1">1</option>
-                                  <option value="2">2</option>
-                                  <option value="3">3</option>
-                                  <option value="4">4</option>
-                               </select>
-                            </li>
-                            <li data-role="list-divider">Got Coupon?</li>
-                            <li>
-                                <input type="text" name="coupon" id="basic" value="" data-mini="true" />
-                            </li>
-                        </ul>
-                        <button type="submit" data-theme="a" name="submit" value="submit-value">Checkout</button>
-                    </form>
-                </div>
+            <div data-role="content" id="contentBuyDialog" name="contentBuyDialog" style="padding: 0px; margin: 10px;">
+                <form method="get" action="http://www.ticketmob.com/PhoneGap/buy.cfm" id="submitBuy">
+                     <input type="hidden" name="f_showtimingid" id="f_showtimingid">
+                    <ul data-role="listview" data-theme="c" data-dividertheme="a" data-inset="true" >
+                        <li data-role="list-divider">Select Quantity</li>
+                        <li>
+                           <select name="quantity" data-mini="true">
+                              <option value="1">1</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
+                              <option value="4">4</option>
+                           </select>
+                        </li>
+                        <li data-role="list-divider">Got Coupon?</li>
+                        <li>
+                            <input type="text" name="coupon" id="basic" value="" data-mini="true" />
+                        </li>
+                    </ul>
+                    <button type="submit" data-theme="a" name="submit" value="submit-value">Checkout</button>
+                </form>
 			</div>
 
-            <div data-role="content" id="contentCheckout" name="contentCheckout" style="margin: 10px;">
+            <div data-role="content" id="contentCheckout" name="contentCheckout" style="padding: 0px; margin: 10px;">
                 <form method="get" action="http://www.ticketmob.com/PhoneGap/checkout.cfm" id="submitCheckout">
                     <input type="hidden" name="quantity" id="ckf_quantity">
                     <input type="hidden" name="coupon" id="ckf_coupon">
@@ -346,7 +344,7 @@
                 </form>
             </div>
             
-            <div data-role="content" id="contentComplete" name="contentComplete" style="margin: 10px;">
+            <div data-role="content" id="contentComplete" name="contentComplete" style="padding: 0px; margin: 10px;">
                 Checkout complete
             </div>
             
