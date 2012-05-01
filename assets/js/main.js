@@ -151,18 +151,14 @@
 				},
 				dataType: "jsonp",
 				success: function(result){
-					alert(result.featured);
-					
 					$('#showlist').html ( result.featured );
 					$('#showlist').find("ul").listview();
-					/*
 					$('#venuelist').html ( result.venues );
 					$('#venuelist').find('div[data-role=collapsible-set]').collapsibleset({refresh:true});
 					$('#comedianlist').html ( result.comedian );
 					$('#comedianlist').find('div[data-role=collapsible-set]').collapsibleset({refresh:true});
 					$('#calendarlist').html ( result.calendar );
 					$('#calendarlist').find('div[data-role=collapsible-set]').collapsibleset({refresh:true});
-					*/
 					//$('#'+tagID).html(result.html);
 					//if(style == 1)
 					//	$('#'+tagID).find("ul").listview();
@@ -170,7 +166,7 @@
 					//	$('#'+tagID).find('div[data-role=collapsible-set]').collapsibleset({refresh:true});
 				}
 			});
-			$.mobile.changePage("#mainpage", "slide", false, false);
+			//$.mobile.changePage("#mainpage", "slide", false, false);
 		}
 		
 		function openDialog(id) {
