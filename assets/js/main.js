@@ -23,8 +23,8 @@
 			//checkoutDialogVar.show();
 			//completeDialogVar.show();
 			
-			if(0) {
-				$('#showlist').html(pageLoadingHTML);
+			if(1) {
+				$.mobile.changePage("#loadingPage", "slide", false, false);
 				var getURL = "http://www.ticketmob.com/PhoneGap/index.cfm?mode=1";
 				$.ajax({
 					type: "GET",
@@ -44,6 +44,7 @@
 						$('#calendarlist').find('div[data-role=collapsible-set]').collapsibleset({refresh:true});
 					}
 				});
+				$.mobile.changePage("#mainpage", "slide", false, false);
 			}
 		});
 		
@@ -56,7 +57,7 @@
 		var pageLoadingHTML = '<div class="loadingPage">Page is loading..... <br /><img src="assets/img/loading.gif"></div>';
 		
 		function getAllWSFeed() {
-			$('#showlist').html(pageLoadingHTML);
+			$.mobile.changePage("#loadingPage", "slide", false, false);
 			if(positionFlag && coords != null)
 				var getURL = "http://www.ticketmob.com/PhoneGap/index.cfm?lat="+coords.latitude+"&lon="+coords.longitude;
 			else
@@ -195,6 +196,7 @@
 						}
 					}
 				});
+				$.mobile.changePage("#mainpage", "slide", false, false);
 		});
 		
 		$('#submitCheckout').live('submit', function (e) {

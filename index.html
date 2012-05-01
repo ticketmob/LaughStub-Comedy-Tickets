@@ -419,5 +419,33 @@
 
         </div>
         
+        <div data-role="page" data-theme="b" id="loadingPage" data-title="Loading Page"> 
+        	<div data-role="header">
+			</div>
+            
+            <div data-role="content" id="contentComplete" name="contentComplete" style="padding: 0px; margin: 10px;">
+                <ul data-role="listview" data-inset="true" data-theme="a" data-dividertheme="a">
+                    <li class="ui-corner-all">
+                    	<h1>
+						Your Page is loading....
+                        <br /><img src="assets/img/loading.gif"></h1>
+                    </li>
+                </ul>
+            </div>
+            
+			<div data-role="footer" data-position="fixed" data-id="footer1"> 
+                <div data-role="navbar">
+                    <ul>
+						<li id="homeNavBar"><a href="#mainpage" data-icon="grid">Home</a></li>
+						<li id="venueNavBar"><a href="#venuepage" data-icon="star">Venues</a></li>
+						<li id="comedianNavBar"><a href="#comedianpage" data-icon="gear">Comedian</a></li>
+						<li id="calendarNavBar"><a href="#calendarpage" data-icon="gear">Calendar</a></li>
+						<li id="moreNavBar"><a href="#morepage" data-icon="gear">More</a></li>
+                    </ul>
+                </div><!-- /navbar -->
+			</div>
+
+        </div>
+        
 	</body>
 </html>
