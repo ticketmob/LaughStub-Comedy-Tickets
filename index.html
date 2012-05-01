@@ -238,7 +238,8 @@
         <div data-role="page" data-theme="b" id="checkout" data-title="Checkout Page"> 
         	<div data-role="header">
 				<h1>Checkout Header</h1>
-				<a href="#buy" data-direction="reverse">Back</a>
+				<!--<a href="#" data-direction="reverse">Back</a>-->
+				<a href="#" data-rel="back">Back</a>
 			</div>
             
             <div data-role="content" id="contentCheckout" name="contentCheckout" style="padding: 0px; margin: 10px;">
@@ -290,35 +291,35 @@
                         <li data-role="list-divider">Client Information</li>
                         <li>
                             <div id="firstnameDiv" data-role="fieldcontain">
-                                <label for="firstname" id="firstnameLabel">First Name:</label>
+                                <label for="firstname" id="firstnameLabel">First Name*:</label>
                                 <input type="text" name="firstname" id="firstname" value="" data-mini="true" />
                             </div>
                             <div data-role="fieldcontain">
-                                <label for="lastname">Last Name:</label>
+                                <label for="lastname" id="lastnameLabel">Last Name*:</label>
                                 <input type="text" name="lastname" id="lastname" value="" data-mini="true" />
                             </div>
                             <div data-role="fieldcontain">
-                                <label for="email">Email:</label>
+                                <label for="email" id="emailLabel">Email*:</label>
                                 <input type="text" name="email" id="email" value="" data-mini="true" />
                             </div>
                             <div data-role="fieldcontain">
-                                <label for="zipcode">Zip Code:</label>
+                                <label for="zipcode" id="zipcodeLabel">Zip Code:</label>
                                 <input type="text" name="zipcode" id="zipcode" value="" data-mini="true" />
                             </div>
                             <div data-role="fieldcontain">
-                                <label for="phone">Phone:</label>
+                                <label for="phone" id="phoneLabel">Phone:</label>
                                 <input type="text" name="phone" id="phone" value="" data-mini="true" />
                             </div>
                         </li>
                         <li data-role="list-divider">Credit Card Information</li>
                         <li>
                             <div data-role="fieldcontain">
-                                <label for="ccnumber">Number:</label>
+                                <label for="ccnumber" id="ccnumberLabel">Number*:</label>
                                 <input type="text" name="ccnumber" id="ccnumber" value="" data-mini="true" />
                             </div>
                             <div data-role="fieldcontain">
                                 <fieldset data-role="controlgroup" data-type="horizontal">
-                                    <label for="basic">Expiration:</label>
+                                    <label for="basic">Expiration*:</label>
                                     <select name="expmonth" id="expmonth">
                                         <option value="jan">Jan</option>
                                         <option value="dec">Dec</option>
@@ -344,7 +345,7 @@
                                 </fieldset>
                             </div>
                             <div data-role="fieldcontain">
-                                <label for="cvv">CVV:</label>
+                                <label for="cvv" id="cvvLabel">CVV*:</label>
                                 <input type="text" name="cvv" id="cvv" value="" data-mini="true" />
                             </div>
                         </li>

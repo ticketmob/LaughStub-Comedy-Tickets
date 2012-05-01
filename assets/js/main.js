@@ -189,7 +189,7 @@
 					data: buyFormVar.serialize(),
 					dataType: "jsonp",
 					success: function(result){
-						contentBuyDialogVar.hide();
+						//contentBuyDialogVar.hide();
 						var checkoutForm = result.html;
 						var thisQty = checkoutForm.qty;
 						var thisCoupon = checkoutForm.coupon;
@@ -208,6 +208,7 @@
 							$('#buyErrorMessage').html (thisStatusMessage);
 							contentBuyDialogVar.show();
 						} else {
+							$('#buyErrorMessage').html ('');
 							$.mobile.changePage("#checkout", "slide", false, false);
 							$("#ck_showname").html(thisShowName);
 							$("#ck_showtime").html(thisShowTime);
@@ -235,16 +236,36 @@
 		
 		$('#submitCheckout').live('submit', function (e) {
 				var passFlag = true;
-				//$('#firstnameLabel').removeClass(MISSING)
-				//if($('#firstname').attr("value") == '') {
-				//	passFlag = false;
-				//	$('#firstnameLabel').addClass(MISSING)
-				//}
+				$('#firstnameLabel').removeClass('missing')
+				$('#lastnameLabel').removeClass('missing')
+				$('#emailLabel').removeClass('missing')
+				$('#ccnumberLabel').removeClass('missing')
+				$('#cvvLabel').removeClass('missing')
+				if($('#firstname').attr("value") == '') {
+					passFlag = false;
+					$('#firstnameLabel').addClass('missing')
+				}
+				if($('#lastname').attr("value") == '') {
+					passFlag = false;
+					$('#lastnameLabel').addClass('missing')
+				}
+				if($('#email').attr("value") == '') {
+					passFlag = false;
+					$('#emailLabel').addClass('missing')
+				}
+				if($('#ccnumber').attr("value") == '') {
+					passFlag = false;
+					$('#ccnumberLabel').addClass('missing')
+				}
+				if($('#cvv').attr("value") == '') {
+					passFlag = false;
+					$('#cvvLabel').addClass('missing')
+				}
 				e.preventDefault();
 				var getURL = "http://www.ticketmob.com/phonegap/checkout.cfm";
 				
 				if(!passFlag) {
-					alert('not passed');
+					alert('Missing required fields');
 				} else {
 					$.ajax({
 						type: "POST",
@@ -252,7 +273,7 @@
 						data: checkoutFormVar.serialize(),
 						dataType: "jsonp",
 						success: function(result){
-							checkoutDialogVar.hide();
+							//checkoutDialogVar.hide();
 							var checkoutForm = result.html;
 							var thisQty = checkoutForm.qty;
 							var thisCoupon = checkoutForm.coupon;
