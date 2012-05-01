@@ -24,7 +24,8 @@
 			//completeDialogVar.show();
 			
 			if(1) {
-				$.mobile.changePage("#loadingPage", "slide", false, false);
+				var thisPage = $('#contentMainDialog').html();
+				$('#contentMainDialog').html(pageLoadingHTML);
 				var getURL = "http://www.ticketmob.com/PhoneGap/index.cfm?mode=1";
 				$.ajax({
 					type: "GET",
@@ -34,6 +35,7 @@
 					},
 					dataType: "jsonp",
 					success: function(result){
+						$('#contentMainDialog').html(thisPage);
 						$('#showlist').html ( result.featured );
 						$('#showlist').find("ul").listview();
 						$('#venuelist').html ( result.venues );
@@ -44,7 +46,7 @@
 						$('#calendarlist').find('div[data-role=collapsible-set]').collapsibleset({refresh:true});
 					}
 				});
-				$.mobile.changePage("#mainpage", "slide", false, false);
+				//$.mobile.changePage("#mainpage", "slide", false, false);
 			}
 		});
 		
@@ -57,7 +59,8 @@
 		var pageLoadingHTML = '<div class="loadingPage">Page is loading..... <br /><img src="assets/img/loading.gif"></div>';
 		
 		function getAllWSFeed() {
-			$.mobile.changePage("#loadingPage", "slide", false, false);
+			var thisPage = $('#contentMainDialog').html();
+			$('#contentMainDialog').html(pageLoadingHTML);
 			if(positionFlag && coords != null)
 				var getURL = "http://www.ticketmob.com/PhoneGap/index.cfm?lat="+coords.latitude+"&lon="+coords.longitude;
 			else
@@ -72,6 +75,7 @@
 				},
 				dataType: "jsonp",
 				success: function(result){
+					$('#contentMainDialog').html(thisPage);
 					$('#showlist').html ( result.featured );
 					$('#showlist').find("ul").listview();
 					$('#venuelist').html ( result.venues );
@@ -82,7 +86,6 @@
 					$('#calendarlist').find('div[data-role=collapsible-set]').collapsibleset({refresh:true});
 				}
 			});
-			$.mobile.changePage("#mainpage", "slide", false, false);
 		}
 		
 		function openDialog(id) {
