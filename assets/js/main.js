@@ -4,76 +4,27 @@
 		var qty = null;
 		var coupon = null;
 		var buyFormVar = null;
-		var buyDialogVar = null;
+		//var buyDialogVar = null;
 		var checkoutFormVar = null;
-		var checkoutDialogVar = null;
-		var completeFormVar = null;
-		var completeDialogVar = null;
+		//var checkoutDialogVar = null;
+		//var completeFormVar = null;
+		//var completeDialogVar = null;
 		
 
-		/*
-		function getvenues() {
-			hideAll();
-			getWSFeed(2,2,'venuelist');
-		}
-		
-		function gethome() {
-			hideAll();
-			getWSFeed(1,1,'showlist');
-		}
-		
-		function getcomedian() {
-			hideAll();
-			getWSFeed(2,3,'comedianlist');
-		}
-		
-		function getcalendar() {
-			hideAll();
-			getWSFeed(1,4,'calendarlist');
-		}
-		
-		function hideAll() {
-			$('#showlist').html('');
-			$('#venuelist').html('');
-			$('#comedianlist').html('');
-			$('#calendarlist').html('');
-		}
-		*/
-		
 		$(document).ready( function () {
 			qty = $('#quantity');
 			coupon = $('#coupon');
 			buyFormVar = $('#submitBuy');
-			contentBuyDialogVar = $('#contentBuyDialog');
+			//contentBuyDialogVar = $('#contentBuyDialog');
 			checkoutFormVar = $('#submitCheckout');
-			checkoutDialogVar = $('#contentCheckout');
-			completeDialogVar = $('#contentComplete');
-			//var url = $.mobile.path.parseUrl(window.location.href);
-			//if(url.hash != '') {
-				contentBuyDialogVar.show();
-				checkoutDialogVar.show();
-				completeDialogVar.show();
-			//}
-			/*
-			$("#homeNavBar a").click(function(event){
-				event.preventDefault();
-				gethome();
-			});
-			$("#venueNavBar a").click(function(event){
-				event.preventDefault();
-				getvenues();
-			});
-			$("#comedianNavBar a").click(function(event){
-				event.preventDefault();
-				getcomedian();
-			});
-			$("#calendarNavBar a").click(function(event){
-				event.preventDefault();
-				getcalendar();
-			});
-			*/
+			//checkoutDialogVar = $('#contentCheckout');
+			//completeDialogVar = $('#contentComplete');
+			//contentBuyDialogVar.show();
+			//checkoutDialogVar.show();
+			//completeDialogVar.show();
 			
 			if(0) {
+				$('#showlist').html(pageLoadingHTML);
 				var getURL = "http://www.ticketmob.com/PhoneGap/index.cfm?mode=1";
 				$.ajax({
 					type: "GET",
@@ -91,14 +42,8 @@
 						$('#comedianlist').find('div[data-role=collapsible-set]').collapsibleset({refresh:true});
 						$('#calendarlist').html ( result.calendar );
 						$('#calendarlist').find('div[data-role=collapsible-set]').collapsibleset({refresh:true});
-						//$('#'+tagID).html(result.html);
-						//if(style == 1)
-						//	$('#'+tagID).find("ul").listview();
-						//else if (style == 2)
-						//	$('#'+tagID).find('div[data-role=collapsible-set]').collapsibleset({refresh:true});
 					}
 				});
-				//$.mobile.changePage("#mainpage", "slide", false, false);
 			}
 		});
 		
@@ -109,33 +54,6 @@
 		});
 		
 		var pageLoadingHTML = '<div class="loadingPage">Page is loading..... <br /><img src="assets/img/loading.gif"></div>';
-		
-		/*
-		function getWSFeed(style, tab, tagID) {
-			$('#'+tagID).html(pageLoadingHTML);
-			if(positionFlag && coords != null)
-				var getURL = "http://www.ticketmob.com/PhoneGap/index.cfm?lat="+coords.latitude+"&lon="+coords.longitude+"&style="+style+"&tab="+tab;
-			else
-				var getURL = "http://www.ticketmob.com/PhoneGap/index.cfm?lat=0&lon=0"+"&style="+style+"&tab="+tab;
-			//var getURL = "http://www.ticketmob.com/PhoneGap/index.cfm?mode=1"+"&style="+style+"&tab="+tab;
-
-			$.ajax({
-				type: "GET",
-				url: getURL,
-				data: {
-					mode: '0'
-				},
-				dataType: "jsonp",
-				success: function(result){
-					$('#'+tagID).html(result.html);
-					if(style == 1)
-						$('#'+tagID).find("ul").listview();
-					else if (style == 2)
-						$('#'+tagID).find('div[data-role=collapsible-set]').collapsibleset({refresh:true});
-				}
-			});
-		}
-		*/
 		
 		function getAllWSFeed() {
 			$('#showlist').html(pageLoadingHTML);
@@ -161,11 +79,6 @@
 					$('#comedianlist').find('div[data-role=collapsible-set]').collapsibleset({refresh:true});
 					$('#calendarlist').html ( result.calendar );
 					$('#calendarlist').find('div[data-role=collapsible-set]').collapsibleset({refresh:true});
-					//$('#'+tagID).html(result.html);
-					//if(style == 1)
-					//	$('#'+tagID).find("ul").listview();
-					//else if (style == 2)
-					//	$('#'+tagID).find('div[data-role=collapsible-set]').collapsibleset({refresh:true});
 				}
 			});
 			$.mobile.changePage("#mainpage", "slide", false, false);
@@ -219,10 +132,10 @@
 			$.mobile.changePage("#buy", "slide", false, false);
 			$("#f_showtimingid").attr("value", showtimingid);
 			$("#f_venueid").attr("value", venueID);
-			//location.href = 'index.html?#buy';
 		}
 
 		$('#submitBuy').live('submit', function (e) {
+				$('#showlist').html(pageLoadingHTML);
 				e.preventDefault();
 				var getURL = "http://www.ticketmob.com/phonegap/getticket.cfm";
 				$.ajax({
@@ -251,7 +164,7 @@
 						
 						if(thisCouponStatus != 'success') {
 							$('#buyErrorMessage').html (thisStatusMessage);
-							contentBuyDialogVar.show();
+							//contentBuyDialogVar.show();
 						} else {
 							$('#buyErrorMessage').html ('');
 							$.mobile.changePage("#checkout", "slide", false, false);
@@ -278,7 +191,7 @@
 							$("#ckf_venueid").attr("value", thisVenueID);
 							$("#ckf_sourceid").attr("value", thisSourceID);
 							
-							checkoutDialogVar.show();
+							//checkoutDialogVar.show();
 						}
 					}
 				});
@@ -351,16 +264,9 @@
 							if(thisStatus == 'success' || thisStatus == 'fail') {
 								if(thisStatus == 'success') {
 									$.mobile.changePage("#complete", "slide", false, false);
+									$("#coupon").attr("value", '');
 									$("#ccnumber").attr("value", '');
 									$("#cvv").attr("value", '');
-									/*$("#cp_showname").html(thisShowName);
-									$("#cp_showtime").html(thisShowTime);
-									$("#cp_qty").html(thisQty);
-									$("#cp_subtotal").html(thisSubTotal);
-									$("#cp_disc").html(thisDiscount);
-									$("#cp_servicefee").html(thisServiceFee);
-									$("#cp_tax").html(thisTax);
-									$("#cp_total").html(thisTotal);*/
 								} else {
 									$.mobile.changePage("#errCheckout", "slide", false, false);
 								}
