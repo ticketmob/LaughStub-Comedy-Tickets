@@ -136,7 +136,7 @@
 		*/
 		
 		function getAllWSFeed() {
-			$('#mainpage').html(pageLoadingHTML);
+			$('#showlist').html(pageLoadingHTML);
 			if(positionFlag && coords != null)
 				var getURL = "http://www.ticketmob.com/PhoneGap/index.cfm?lat="+coords.latitude+"&lon="+coords.longitude;
 			else
@@ -170,6 +170,7 @@
 					//	$('#'+tagID).find('div[data-role=collapsible-set]').collapsibleset({refresh:true});
 				}
 			});
+			$.mobile.changePage("#mainpage", "slide", false, false);
 		}
 		
 		function openDialog(id) {
