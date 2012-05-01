@@ -102,10 +102,10 @@
 			}
 		});
 		
-		//$(document).on('pageinit','[data-role=page]', function(){
-		//	$('[data-position=fixed]').fixedtoolbar({ tapToggle:false });
-		//  	$.mobile.touchOverflowEnabled = true ;
-		//});
+		$(document).on('pageinit','[data-role=page]', function(){
+			$('[data-position=fixed]').fixedtoolbar({ tapToggle:false });
+		  	$.mobile.touchOverflowEnabled = true ;
+		});
 		
 		var pageLoadingHTML = '<div class="loadingPage">Page is loading..... <br /><img src="assets/img/loading.gif"></div>';
 		
