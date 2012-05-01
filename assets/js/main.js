@@ -176,8 +176,9 @@
 		}
 
 		function clickBuy(showtimingid) {
-			//$.mobile.changePage("#buy&showtimingid="+showtimingid, "slide", false, false);
-			location.href = 'index.html?#buy&showtimingid='+showtimingid;
+			$.mobile.changePage("#buy", "slide", false, false);
+			$("#f_showtimingid").attr("value", showtimingid);
+			//location.href = 'index.html?#buy';
 		}
 
 		$('#submitBuy').live('submit', function (e) {
@@ -298,19 +299,21 @@
 							var thisStatus = checkoutForm.status;
 							var thisStatusMessage = checkoutForm.statusMessage;
 
-							if(thisStatus != 'success') {
+							if(thisStatus == 'success' || thisStatus == 'fail') {
+								if(thisStatus == 'success') {
+									$.mobile.changePage("#complete", "slide", false, false);
+									/*$("#cp_showname").html(thisShowName);
+									$("#cp_showtime").html(thisShowTime);
+									$("#cp_qty").html(thisQty);
+									$("#cp_subtotal").html(thisSubTotal);
+									$("#cp_disc").html(thisDiscount);
+									$("#cp_servicefee").html(thisServiceFee);
+									$("#cp_tax").html(thisTax);
+									$("#cp_total").html(thisTotal);*/
+								} else {
+									$.mobile.changePage("#errCheckout", "slide", false, false);
+								}
 							} else {
-								$.mobile.changePage("#complete", "slide", false, false);
-								$("#cp_showname").html(thisShowName);
-								$("#cp_showtime").html(thisShowTime);
-								$("#cp_qty").html(thisQty);
-								$("#cp_subtotal").html(thisSubTotal);
-								$("#cp_disc").html(thisDiscount);
-								$("#cp_servicefee").html(thisServiceFee);
-								$("#cp_tax").html(thisTax);
-								$("#cp_total").html(thisTotal);
-		
-								//completeDialogVar.show();
 							}
 						}
 					});

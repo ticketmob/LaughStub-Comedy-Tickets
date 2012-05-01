@@ -79,7 +79,7 @@
                     <ul data-role="listview" data-theme="c" data-dividertheme="a" data-inset="true" >
                         <li data-role="list-divider">Select Quantity</li>
                         <li>
-                           <select name="quantity" data-mini="true">
+                           <select id="quantity" name="quantity" data-mini="true">
                               <option value="1">1</option>
                               <option value="2">2</option>
                               <option value="3">3</option>
@@ -105,7 +105,7 @@
                         <li data-role="list-divider">Got Coupon?</li>
                         <li>
                         	<label id="buyErrorMessage" class="missing"></label>
-                            <input type="text" name="coupon" id="basic" value="" data-mini="true" />
+                            <input type="text" name="coupon" id="coupon" value="" data-mini="true" />
                         </li>
                     </ul>
                     <button type="submit" data-theme="a" name="submit" value="submit-value">Checkout</button>
@@ -123,14 +123,16 @@
             
             <div data-role="content" id="contentCheckout" name="contentCheckout" style="padding: 0px; margin: 10px;">
                 <form method="get" action="http://www.ticketmob.com/PhoneGap/checkout.cfm" id="submitCheckout">
-                    <input type="hidden" name="quantity" id="ckf_quantity">
-                    <input type="hidden" name="coupon" id="ckf_coupon">
-                    <input type="hidden" name="coupon" id="ckf_showtimingid">
-                    <input type="hidden" name="coupon" id="ckf_subtotal">
-                    <input type="hidden" name="coupon" id="ckf_disc">
-                    <input type="hidden" name="coupon" id="ckf_servicefee">
-                    <input type="hidden" name="coupon" id="ckf_tax">
-                    <input type="hidden" name="coupon" id="ckf_total">
+                    <input type="hidden" name="ckf_quantity" id="ckf_quantity">
+                    <input type="hidden" name="ckf_coupon" id="ckf_coupon">
+                    <input type="hidden" name="ckf_showtimingid" id="ckf_showtimingid">
+                    <input type="hidden" name="ckf_subtotal" id="ckf_subtotal">
+                    <input type="hidden" name="ckf_disc" id="ckf_disc">
+                    <input type="hidden" name="ckf_servicefee" id="ckf_servicefee">
+                    <input type="hidden" name="ckf_tax" id="ckf_tax">
+                    <input type="hidden" name="ckf_total" id="ckf_total">
+                    <input type="hidden" name="ckf_showname" id="ckf_showname">
+                    <input type="hidden" name="ckf_showtime" id="ckf_showtime">
                     <ul data-role="listview" data-theme="c" data-dividertheme="a" data-inset="true" >
                         <li data-role="list-divider">Show Information</li>
                         <li>
@@ -251,45 +253,50 @@
         
 		<div data-role="page" data-theme="b" id="complete" data-title="Complete Page"> 
         	<div data-role="header">
-            	<h1>Complete header</h1>
+            	<h1>Confirmation</h1>
 			</div>
             
             <div data-role="content" id="contentComplete" name="contentComplete" style="padding: 0px; margin: 10px;">
-                <ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="a">
-                    <li data-role="list-divider">Order Summary</li>
+                <ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="b">
+                    <li data-role="list-divider">Your Ticket</li>
                     <li>
-                        <div data-role="fieldcontain">
-                            <label for="basic" font-size>Show Name:</label>
-                            <span id="cp_showname"></span>
-                        </div>
-                        <div data-role="fieldcontain">
-                            <label for="basic">Show time:</label>
-                            <span id="cp_showtime"></span>
-                        </div>
-                        <div data-role="fieldcontain">
-                            <label for="basic">Quantity:</label>
-                            <span id="cp_qty"></span>
-                        </div>
-                        <div data-role="fieldcontain">
-                            <label for="basic">Sub-Total:</label>
-                            <span id="cp_subtotal"></span>
-                        </div>
-                        <div data-role="fieldcontain">
-                            <label for="basic">Discount:</label>
-                            <span id="cp_disc"></span>
-                        </div>
-                        <div data-role="fieldcontain">
-                            <label for="basic">Service Fee:</label>
-                            <span id="cp_servicefee"></span>
-                        </div>
-                        <div data-role="fieldcontain">
-                            <label for="basic">Tax:</label>
-                            <span id="cp_tax"></span>
-                        </div>
-                        <div data-role="fieldcontain">
-                            <label for="basic">Total:</label>
-                            <span id="cp_total"></span>
-                        </div>
+                    	<table width="100%" cellpadding="3" cellspacing="0" border="0" style="font-size:12px; font-weight:normal;">
+                            <tr>
+                                <td>
+                                    Thank you for using Laughstub Mobile Ticketing. Your name will be at the will call window along with the tickets. A copy of ticket has been mailed to you if you'd like to print the ticket at home.<br /><br />
+                                </td>
+                            </tr>
+                        </table>
+                    </li>
+                </ul>
+                <br /><br />
+            </div>
+            
+			<div data-role="footer" data-position="fixed" data-id="footer1"> 
+                <div data-role="navbar">
+                    <ul>
+						<li id="homeNavBar"><a href="#mainpage" class="ui-btn-active ui-state-persist" data-icon="grid">Home</a></li>
+						<li id="venueNavBar"><a href="#mainpage" data-icon="star" data-transition="slide">Venues</a></li>
+						<li id="comedianNavBar"><a href="#mainpage" data-icon="gear">Comedian</a></li>
+						<li id="calendarNavBar"><a href="#mainpage">Calendar</a></li>
+						<li id="moreNavBar"><a href="javascript:void(0);">More</a></li>
+                    </ul>
+                </div><!-- /navbar -->
+			</div>
+            
+        </div>
+        
+        <div data-role="page" data-theme="b" id="errCheckout" data-title="Error Page"> 
+        	<div data-role="header">
+				<a href="#" data-rel="back">Back</a>
+            	<h1>Error</h1>
+			</div>
+            
+            <div data-role="content" id="contentComplete" name="contentComplete" style="padding: 0px; margin: 10px;">
+                <ul data-role="listview" data-inset="true" data-theme="e" data-dividertheme="a">
+                    <li class="ui-corner-all">
+						An error occurred while processing your transaction.<br />
+                        Error Details: <span id="errorCheckout"></span>
                     </li>
                 </ul>
                 <br /><br />
