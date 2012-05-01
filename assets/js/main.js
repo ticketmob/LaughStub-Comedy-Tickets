@@ -215,15 +215,16 @@
 			navigator.network.isReachable('google.com', reachableCallback, {});
 		}
 
-		function clickBuy(showtimingid) {
+		function clickBuy(showtimingid, venueID) {
 			$.mobile.changePage("#buy", "slide", false, false);
 			$("#f_showtimingid").attr("value", showtimingid);
+			$("#f_venueid").attr("value", venueID);
 			//location.href = 'index.html?#buy';
 		}
 
 		$('#submitBuy').live('submit', function (e) {
 				e.preventDefault();
-				var getURL = "http://www.ticketmob.com/phonegap/buy.cfm";
+				var getURL = "http://www.ticketmob.com/phonegap/getticket.cfm";
 				$.ajax({
 					type: "POST",
 					url: getURL,
@@ -232,6 +233,8 @@
 					success: function(result){
 						//contentBuyDialogVar.hide();
 						var checkoutForm = result.html;
+						var thisVenueID = checkoutForm.venueid;
+						var thisSourceID = checkoutForm.sourceid;
 						var thisQty = checkoutForm.qty;
 						var thisCoupon = checkoutForm.coupon;
 						var thisCoupondID = checkoutForm.couponid;
@@ -270,6 +273,10 @@
 							$("#ckf_servicefee").attr("value", thisServiceFee);
 							$("#ckf_tax").attr("value", thisTax);
 							$("#ckf_total").attr("value", thisTotal);
+							$("#ckf_showname").attr("value", thisShowName);
+							$("#ckf_showtime").attr("value", thisShowTime);
+							$("#ckf_venueid").attr("value", thisVenueID);
+							$("#ckf_sourceid").attr("value", thisSourceID);
 							
 							checkoutDialogVar.show();
 						}

@@ -163,8 +163,9 @@
 			</div>
             
             <div data-role="content" id="contentBuyDialog" name="contentBuyDialog" style="padding: 0px; margin: 10px;">
-                <form method="get" action="http://www.ticketmob.com/PhoneGap/buy.cfm" id="submitBuy">
+                <form method="get" action="http://www.ticketmob.com/PhoneGap/getticket.cfm" id="submitBuy">
 					<input type="hidden" name="f_showtimingid" id="f_showtimingid">
+					<input type="hidden" name="f_venueid" id="f_venueid">
                     <ul data-role="listview" data-theme="c" data-dividertheme="a" data-inset="true" >
                         <li data-role="list-divider">Select Quantity</li>
                         <li>
@@ -234,6 +235,8 @@
                     <input type="hidden" name="ckf_total" id="ckf_total">
                     <input type="hidden" name="ckf_showname" id="ckf_showname">
                     <input type="hidden" name="ckf_showtime" id="ckf_showtime">
+					<input type="hidden" name="ckf_venueid" id="ckf_venueid">
+					<input type="hidden" name="ckf_sourceid" id="ckf_sourceid">
                     <ul data-role="listview" data-theme="c" data-dividertheme="a" data-inset="true" >
                         <li data-role="list-divider">Show Information</li>
                         <li>
@@ -297,7 +300,7 @@
                         <li>
                             <div data-role="fieldcontain">
                                 <label for="ccnumber" id="ccnumberLabel">Number*:</label>
-                                <input type="tel" name="ccnumber" id="ccnumber" value="" data-mini="true" />
+                                <input type="tel" name="ccnumber" id="ccnumber" value="" data-mini="true" maxlength="16" />
                             </div>
                             <div data-role="fieldcontain">
                                 <fieldset data-role="controlgroup" data-type="horizontal">
@@ -328,7 +331,7 @@
                             </div>
                             <div data-role="fieldcontain">
                                 <label for="cvv" id="cvvLabel">CVV*:</label>
-                                <input type="tel" name="cvv" id="cvv" value="" data-mini="true" />
+                                <input type="tel" name="cvv" id="cvv" value="" data-mini="true" maxlength="4" />
                             </div>
                         </li>
                     </ul>
