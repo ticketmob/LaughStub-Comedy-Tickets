@@ -302,6 +302,8 @@
 							if(thisStatus == 'success' || thisStatus == 'fail') {
 								if(thisStatus == 'success') {
 									$.mobile.changePage("#complete", "slide", false, false);
+									$("#ccnumber").attr("value", '');
+									$("#cvv").attr("value", '');
 									/*$("#cp_showname").html(thisShowName);
 									$("#cp_showtime").html(thisShowTime);
 									$("#cp_qty").html(thisQty);
