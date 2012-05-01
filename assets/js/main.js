@@ -11,32 +11,26 @@
 		var completeDialogVar = null;
 		
 
+		/*
 		function getvenues() {
-			//$.mobile.changePage("#venuesPage", "slideup", false, false);
 			hideAll();
 			getWSFeed(2,2,'venuelist');
 		}
 		
 		function gethome() {
-			//$.mobile.changePage("#mainpage", "slideup", false, false);
 			hideAll();
 			getWSFeed(1,1,'showlist');
 		}
 		
 		function getcomedian() {
-			//$.mobile.changePage("#comedianPage", "slideup", false, false);
 			hideAll();
 			getWSFeed(2,3,'comedianlist');
 		}
 		
 		function getcalendar() {
-			//$.mobile.changePage("#calendarPage", "slideup", false, false);
 			hideAll();
 			getWSFeed(1,4,'calendarlist');
 		}
-		
-		//$(document).bind( "pagebeforechange", function( e, data ) {
-		//});
 		
 		function hideAll() {
 			$('#showlist').html('');
@@ -44,6 +38,7 @@
 			$('#comedianlist').html('');
 			$('#calendarlist').html('');
 		}
+		*/
 		
 		$(document).ready( function () {
 			qty = $('#quantity');
@@ -78,7 +73,7 @@
 			});
 			*/
 			
-			if(1) {
+			if(0) {
 				var getURL = "http://www.ticketmob.com/PhoneGap/index.cfm?mode=1";
 				$.ajax({
 					type: "GET",
@@ -106,13 +101,14 @@
 			}
 		});
 		
-		$(document).on('pageinit','[data-role=page]', function(){
-			$('[data-position=fixed]').fixedtoolbar({ tapToggle:false });
-		  	$.mobile.touchOverflowEnabled = true ;
-		});
+		//$(document).on('pageinit','[data-role=page]', function(){
+		//	$('[data-position=fixed]').fixedtoolbar({ tapToggle:false });
+		//  	$.mobile.touchOverflowEnabled = true ;
+		//});
 		
 		var pageLoadingHTML = '<div class="loadingPage">Page is loading..... <br /><img src="assets/img/loading.gif"></div>';
 		
+		/*
 		function getWSFeed(style, tab, tagID) {
 			$('#'+tagID).html(pageLoadingHTML);
 			if(positionFlag && coords != null)
@@ -137,14 +133,15 @@
 				}
 			});
 		}
+		*/
 		
 		function getAllWSFeed() {
 			$('#mainpage').html(pageLoadingHTML);
 			if(positionFlag && coords != null)
-				var getURL = "http://www.ticketmob.com/PhoneGap/index.cfm?lat="+coords.latitude+"&lon="+coords.longitude+"&style="+style+"&tab="+tab;
+				var getURL = "http://www.ticketmob.com/PhoneGap/index.cfm?lat="+coords.latitude+"&lon="+coords.longitude;
 			else
-				var getURL = "http://www.ticketmob.com/PhoneGap/index.cfm?lat=0&lon=0"+"&style="+style+"&tab="+tab;
-			var getURL = "http://www.ticketmob.com/PhoneGap/index.cfm?mode=1"+"&style="+style+"&tab="+tab;
+				var getURL = "http://www.ticketmob.com/PhoneGap/index.cfm?lat=0&lon=0";
+			//var getURL = "http://www.ticketmob.com/PhoneGap/index.cfm?mode=1";
 
 			$.ajax({
 				type: "GET",
