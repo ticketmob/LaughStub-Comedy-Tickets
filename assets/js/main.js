@@ -23,7 +23,7 @@
 			//checkoutDialogVar.show();
 			//completeDialogVar.show();
 			
-			if(1) {
+			if(0) {
 				$.mobile.changePage("#loadingPage", "slide", false, false);
 				var getURL = "http://www.ticketmob.com/PhoneGap/index.cfm?mode=1";
 				$.ajax({
@@ -136,7 +136,7 @@
 		}
 
 		$('#submitBuy').live('submit', function (e) {
-				$('#showlist').html(pageLoadingHTML);
+				$.mobile.changePage("#loadingPage", "slide", false, false);
 				e.preventDefault();
 				var getURL = "http://www.ticketmob.com/phonegap/getticket.cfm";
 				$.ajax({
@@ -196,10 +196,11 @@
 						}
 					}
 				});
-				$.mobile.changePage("#mainpage", "slide", false, false);
+				$.mobile.changePage("#checkout", "slide", false, false);
 		});
 		
 		$('#submitCheckout').live('submit', function (e) {
+				$.mobile.changePage("#loadingPage", "slide", false, false);
 				var passFlag = true;
 				$('#firstnameLabel').removeClass('missing')
 				$('#lastnameLabel').removeClass('missing')
