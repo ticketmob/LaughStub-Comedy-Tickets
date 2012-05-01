@@ -291,29 +291,17 @@
 							if(thisStatus != 'success') {
 							} else {
 								$.mobile.changePage("#complete", "slide", false, false);
-								completeDialogVar.show();
+								$("#cp_showname").html(thisShowName);
+								$("#cp_showtime").html(thisShowTime);
+								$("#cp_qty").html(thisQty);
+								$("#cp_subtotal").html(thisSubTotal);
+								$("#cp_disc").html(thisDiscount);
+								$("#cp_servicefee").html(thisServiceFee);
+								$("#cp_tax").html(thisTax);
+								$("#cp_total").html(thisTotal);
+		
+								//completeDialogVar.show();
 							}
-							/*
-							$("#ck_showname").html(thisShowName);
-							$("#ck_showtime").html(thisShowTime);
-							$("#ck_qty").html(thisQty);
-							$("#ck_subtotal").html(thisSubTotal);
-							$("#ck_disc").html(thisDiscount);
-							$("#ck_servicefee").html(thisServiceFee);
-							$("#ck_tax").html(thisTax);
-							$("#ck_total").html(thisTotal);
-	
-							$("#ckf_quantity").attr("value", thisQty);
-							$("#ckf_coupon").attr("value", thisCoupon);
-							$("#ckf_showtimingid").attr("value", thisShowTimingID);
-							$("#ckf_subtotal").attr("value", thisSubTotal);
-							$("#ckf_disc").attr("value", thisDiscount);
-							$("#ckf_servicefee").attr("value", thisServiceFee);
-							$("#ckf_tax").attr("value", thisTax);
-							$("#ckf_total").attr("value", thisTotal);
-							*/
-	
-							
 						}
 					});
 				}
