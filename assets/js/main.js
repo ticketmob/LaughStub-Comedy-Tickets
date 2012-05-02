@@ -21,7 +21,7 @@
 			//completeDialogVar = $('#contentComplete');
 			//contentBuyDialogVar.show();
 			//checkoutDialogVar.show();
-			//completeDialogVar.show();
+			///completeDialogVar.show();
 			
 			if(0) { 
 				var thisPage = $('#contentMainDialog').html();
