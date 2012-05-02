@@ -4,24 +4,14 @@
 		var qty = null;
 		var coupon = null;
 		var buyFormVar = null;
-		//var buyDialogVar = null;
 		var checkoutFormVar = null;
-		//var checkoutDialogVar = null;
-		//var completeFormVar = null;
-		//var completeDialogVar = null;
 		
 
 		$(document).ready( function () {
 			qty = $('#quantity');
 			coupon = $('#coupon');
 			buyFormVar = $('#submitBuy');
-			//contentBuyDialogVar = $('#contentBuyDialog');
 			checkoutFormVar = $('#submitCheckout');
-			//checkoutDialogVar = $('#contentCheckout');
-			//completeDialogVar = $('#contentComplete');
-			//contentBuyDialogVar.show();
-			//checkoutDialogVar.show();
-			///completeDialogVar.show();
 			
 			if(0) { 
 				var thisPage = $('#contentMainDialog').html();
@@ -156,78 +146,77 @@
 		});
 		
 		$('#submitBuy').live('submit', function (e) {
-				//var thisPage = $('#contentBuyDialog').html();
-				//$('#contentBuyDialog').html(pageLoadingHTML);
-				$('#buyErrorMessageQty').html ('');
-				$('#buyErrorMessage').html ('');
-				e.preventDefault();
-				var getURL = "http://www.ticketmob.com/phonegap/getticket.cfm";
-				$.ajax({
-					type: "POST",
-					url: getURL,
-					data: buyFormVar.serialize(),
-					dataType: "jsonp",
-					success: function(result){
-						var checkoutForm = result.html;
-						var thisVenueID = checkoutForm.venueid;
-						var thisSourceID = checkoutForm.sourceid;
-						var thisQty = checkoutForm.qty;
-						var thisCoupon = checkoutForm.coupon;
-						var thisCoupondID = checkoutForm.couponid;
-						var thisCouponStatus = checkoutForm.couponstatus;
-						var thisStatusMessage = checkoutForm.statusmessage;
-						var thisShowTimingID = checkoutForm.showtimingid;
-						var thisShowName = checkoutForm.showname;
-						var thisShowTime = checkoutForm.showtime;
-						var thisSubTotal = checkoutForm.subtotal;
-						var thisDiscount = checkoutForm.discount;
-						var thisServiceFee = checkoutForm.servicefee;
-						var thisTax = checkoutForm.tax;
-						var thisTotal = checkoutForm.total;
-						var thisShowTier = checkoutForm.showtier;
-						var thisShowTierList = checkoutForm.showtierlist;
+			$('#checkoutBtn').attr("disabled", true);
+			$('#buyErrorMessageQty').html ('');
+			$('#buyErrorMessage').html ('');
+			e.preventDefault();
+			var getURL = "http://www.ticketmob.com/phonegap/getticket.cfm";
+			$.ajax({
+				type: "POST",
+				url: getURL,
+				data: buyFormVar.serialize(),
+				dataType: "jsonp",
+				success: function(result){
+					var checkoutForm = result.html;
+					var thisVenueID = checkoutForm.venueid;
+					var thisSourceID = checkoutForm.sourceid;
+					var thisQty = checkoutForm.qty;
+					var thisCoupon = checkoutForm.coupon;
+					var thisCoupondID = checkoutForm.couponid;
+					var thisCouponStatus = checkoutForm.couponstatus;
+					var thisStatusMessage = checkoutForm.statusmessage;
+					var thisShowTimingID = checkoutForm.showtimingid;
+					var thisShowName = checkoutForm.showname;
+					var thisShowTime = checkoutForm.showtime;
+					var thisSubTotal = checkoutForm.subtotal;
+					var thisDiscount = checkoutForm.discount;
+					var thisServiceFee = checkoutForm.servicefee;
+					var thisTax = checkoutForm.tax;
+					var thisTotal = checkoutForm.total;
+					var thisShowTier = checkoutForm.showtier;
+					var thisShowTierList = checkoutForm.showtierlist;
+					
+					$('#checkoutBtn').attr("disabled", false);
+					if(thisCouponStatus != 'success') {
+						if(thisCouponStatus == 'qty')
+							$('#buyErrorMessageQty').html (thisStatusMessage);
+						else
+							$('#buyErrorMessage').html (thisStatusMessage);
+					} else {
+						$('#buyErrorMessage').html ('');
+						$("#ck_showname").html(thisShowName);
+						$("#ck_showtime").html(thisShowTime);
+						$("#ck_qty").html(thisQty + ' ' + thisShowTier);
+						$("#ck_subtotal").html(thisSubTotal);
+						$("#ck_disc").html(thisDiscount);
+						$("#ck_servicefee").html(thisServiceFee);
+						$("#ck_tax").html(thisTax);
+						$("#ck_total").html(thisTotal);
 						
-						//$('#contentBuyDialog').html(thisPage);
-						if(thisCouponStatus != 'success') {
-							if(thisCouponStatus == 'qty')
-								$('#buyErrorMessageQty').html (thisStatusMessage);
-							else
-								$('#buyErrorMessage').html (thisStatusMessage);
-						} else {
-							$('#buyErrorMessage').html ('');
-							$("#ck_showname").html(thisShowName);
-							$("#ck_showtime").html(thisShowTime);
-							$("#ck_qty").html(thisQty + ' ' + thisShowTier);
-							$("#ck_subtotal").html(thisSubTotal);
-							$("#ck_disc").html(thisDiscount);
-							$("#ck_servicefee").html(thisServiceFee);
-							$("#ck_tax").html(thisTax);
-							$("#ck_total").html(thisTotal);
-							
-							$("#ckf_quantity").attr("value", thisQty);
-							$("#ckf_coupon").attr("value", thisCoupon);
-							$("#ckf_couponid").attr("value", thisCoupondID);
-							$("#ckf_showtimingid").attr("value", thisShowTimingID);
-							$("#ckf_subtotal").attr("value", thisSubTotal);
-							$("#ckf_disc").attr("value", thisDiscount);
-							$("#ckf_servicefee").attr("value", thisServiceFee);
-							$("#ckf_tax").attr("value", thisTax);
-							$("#ckf_total").attr("value", thisTotal);
-							$("#ckf_showname").attr("value", thisShowName);
-							$("#ckf_showtime").attr("value", thisShowTime);
-							$("#ckf_venueid").attr("value", thisVenueID);
-							$("#ckf_sourceid").attr("value", thisSourceID);
-							$("#ckf_showtierlist").attr("value", thisShowTierList);
-							$.mobile.changePage("#checkout", "slide", false, false);
-						}
+						$("#ckf_quantity").attr("value", thisQty);
+						$("#ckf_coupon").attr("value", thisCoupon);
+						$("#ckf_couponid").attr("value", thisCoupondID);
+						$("#ckf_showtimingid").attr("value", thisShowTimingID);
+						$("#ckf_subtotal").attr("value", thisSubTotal);
+						$("#ckf_disc").attr("value", thisDiscount);
+						$("#ckf_servicefee").attr("value", thisServiceFee);
+						$("#ckf_tax").attr("value", thisTax);
+						$("#ckf_total").attr("value", thisTotal);
+						$("#ckf_showname").attr("value", thisShowName);
+						$("#ckf_showtime").attr("value", thisShowTime);
+						$("#ckf_venueid").attr("value", thisVenueID);
+						$("#ckf_sourceid").attr("value", thisSourceID);
+						$("#ckf_showtierlist").attr("value", thisShowTierList);
+						$.mobile.changePage("#checkout", "slide", false, false);
 					}
-				});
-				$.mobile.changePage("#buy", "slide", false, false);
+				}
+			});
+			$('#checkoutBtn').attr("disabled", false);
+			$.mobile.changePage("#buy", "slide", false, false);
 		});
 		
 		$('#submitCheckout').live('submit', function (e) {
-				//var thisPage = $('#contentCheckout').html();
-				//$('#contentCheckout').html(pageLoadingHTML);
+				$('#submitBtn').attr("disabled", true);
 				var passFlag = true;
 				$('#firstnameLabel').removeClass('missing')
 				$('#lastnameLabel').removeClass('missing')
@@ -269,6 +258,7 @@
 					if(additionalMsg != '')
 						missingMsg += additionalMsg;
 					alert(missingMsg);
+					$('#submitBtn').attr("disabled", false);
 				} else {
 					$.ajax({
 						type: "POST",
@@ -291,7 +281,7 @@
 							var thisStatusMessage = checkoutForm.statusMessage;
 							var thisBarCode = checkoutForm.barcode;
 
-							//$('#contentCheckout').html(thisPage);
+							$('#submitBtn').attr("disabled", false);
 							if(thisStatus == 'success' || thisStatus == 'fail') {
 								if(thisStatus == 'success') {
 									$.mobile.changePage("#complete", "slide", false, false);
@@ -307,7 +297,6 @@
 						}
 					});
 				}
-				//$('#contentCheckout').html(thisPage);
 		});
 		
 		
