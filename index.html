@@ -168,11 +168,13 @@
                                 <input type="text" name="coupon" id="coupon" value="" data-mini="true" />
                             </div>
                         </li>
+                        <li>
+                            <div id="processingCheckout" style="display: none; width: 100%; text-align: center;">
+                                <img src="assets/img/loading.gif" alt="Please wait...">
+                            </div>
+                            <button type="submit" data-theme="a" name="submit" value="submit-value" id="checkoutBtn">Checkout</button>
+                        </li>
                     </ul>
-                    <div id="processingCheckout" style="display: none;">
-                    	<img src="assets/img/loading.gif" alt="Please wait...">
-                    </div>
-                    <button type="submit" data-theme="a" name="submit" value="submit-value" id="checkoutBtn">Checkout</button>
                 </form>
                 <br /><br /><br /><br />
 			</div>
@@ -310,11 +312,15 @@
                                 <input type="tel" name="cvv" id="cvv" value="" data-mini="true" maxlength="4" />
                             </div>
                         </li>
+                        <li>
+                            <div data-role="fieldcontain">
+                                <div id="processingSubmit"  style="display: none; width: 100%; text-align: center;">
+                                    <img src="assets/img/loading.gif" alt="Please wait...">
+                                </div>
+                                <button type="submit" data-theme="a" name="submit" value="submit-value" id="submitBtn">Submit</button>
+                            </div>
+                        </li>
                     </ul>
-                    <div id="processingSubmit" style="display: none;">
-                    	<img src="assets/img/loading.gif" alt="Please wait...">
-                    </div>
-                    <button type="submit" data-theme="a" name="submit" value="submit-value" id="submitBtn">Submit</button>
                 </form>
                 <br /><br /><br />
             </div>
