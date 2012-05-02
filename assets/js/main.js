@@ -23,7 +23,7 @@
 			//checkoutDialogVar.show();
 			//completeDialogVar.show();
 			
-			if(1) {
+			if(0) {
 				var thisPage = $('#contentMainDialog').html();
 				$('#contentMainDialog').html(pageLoadingHTML);
 				var getURL = "http://www.ticketmob.com/PhoneGap/index.cfm?mode=1";
@@ -74,7 +74,7 @@
 				},
 				dataType: "jsonp",
 				success: function(result){
-					//$('#contentMainDialog').html(thisPage);
+					$('#contentMainDialog').html(thisPage);
 					$('#contentMainDialog').html ( result.featured );
 					$('#contentMainDialog').find("ul").listview();
 					$('#contentVenueDialog').html ( result.venues );
