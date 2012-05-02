@@ -127,6 +127,8 @@
 			$("#tierInfo").html($("#tier"+showtimingid).html());
 			$.mobile.changePage("#buy", "slide", false, false);
 			$("#contentBuyDialog").find("ul").listview();
+			$('#buyErrorMessageQty').html ('');
+			$('#buyErrorMessage').html ('');
 		}
 
 		$('#searchShow').live('submit', function (e) {
@@ -147,6 +149,7 @@
 		
 		$('#submitBuy').live('submit', function (e) {
 			$('#checkoutBtn').attr("disabled", true);
+			$('#processingCheckout').show();
 			$('#buyErrorMessageQty').html ('');
 			$('#buyErrorMessage').html ('');
 			e.preventDefault();
@@ -176,6 +179,7 @@
 					var thisShowTier = checkoutForm.showtier;
 					var thisShowTierList = checkoutForm.showtierlist;
 					
+					$('#processingCheckout').hide();
 					$('#checkoutBtn').attr("disabled", false);
 					if(thisCouponStatus != 'success') {
 						if(thisCouponStatus == 'qty')
@@ -183,6 +187,7 @@
 						else
 							$('#buyErrorMessage').html (thisStatusMessage);
 					} else {
+						$('#buyErrorMessageQty').html ('');
 						$('#buyErrorMessage').html ('');
 						$("#ck_showname").html(thisShowName);
 						$("#ck_showtime").html(thisShowTime);
@@ -216,87 +221,90 @@
 		});
 		
 		$('#submitCheckout').live('submit', function (e) {
-				$('#submitBtn').attr("disabled", true);
-				var passFlag = true;
-				$('#firstnameLabel').removeClass('missing')
-				$('#lastnameLabel').removeClass('missing')
-				$('#emailLabel').removeClass('missing')
-				$('#ccnumberLabel').removeClass('missing')
-				$('#cvvLabel').removeClass('missing')
-				var additionalMsg = '';
-				var missingMsg = 'Missing required fields';
-				if($('#firstname').attr("value") == '') {
-					passFlag = false;
-					$('#firstnameLabel').addClass('missing')
-				}
-				if($('#lastname').attr("value") == '') {
-					passFlag = false;
-					$('#lastnameLabel').addClass('missing')
-				}
-				var thisEmail = $('#email').attr("value");
-				if( thisEmail == '') {
-					passFlag = false;
-					$('#emailLabel').addClass('missing')
-				}
-				var emailRegex = new RegExp(/^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$/i);
-				if(thisEmail != '' && !emailRegex.test(thisEmail)) {
-					passFlag = false;
-					additionalMsg += '\nEmail address is not valid';
-				}
-				if($('#ccnumber').attr("value") == '') {
-					passFlag = false;
-					$('#ccnumberLabel').addClass('missing')
-				}
-				if($('#cvv').attr("value") == '') {
-					passFlag = false;
-					$('#cvvLabel').addClass('missing')
-				}
-				e.preventDefault();
-				var getURL = "http://www.ticketmob.com/phonegap/checkout.cfm";
-				
-				if(!passFlag) {
-					if(additionalMsg != '')
-						missingMsg += additionalMsg;
-					alert(missingMsg);
-					$('#submitBtn').attr("disabled", false);
-				} else {
-					$.ajax({
-						type: "POST",
-						url: getURL,
-						data: checkoutFormVar.serialize(),
-						dataType: "jsonp",
-						success: function(result){
-							var checkoutForm = result.html;
-							var thisQty = checkoutForm.qty;
-							var thisCoupon = checkoutForm.coupon;
-							var thisShowTimingID = checkoutForm.showtimingid;
-							var thisShowName = checkoutForm.showname;
-							var thisShowTime = checkoutForm.showtime;
-							var thisSubTotal = checkoutForm.subtotal;
-							var thisDiscount = checkoutForm.discount;
-							var thisServiceFee = checkoutForm.servicefee;
-							var thisTax = checkoutForm.tax;
-							var thisTotal = checkoutForm.total;
-							var thisStatus = checkoutForm.status;
-							var thisStatusMessage = checkoutForm.statusMessage;
-							var thisBarCode = checkoutForm.barcode;
+			$('#submitBtn').attr("disabled", true);
+			$('#processingSubmit').show();
+			var passFlag = true;
+			$('#firstnameLabel').removeClass('missing')
+			$('#lastnameLabel').removeClass('missing')
+			$('#emailLabel').removeClass('missing')
+			$('#ccnumberLabel').removeClass('missing')
+			$('#cvvLabel').removeClass('missing')
+			var additionalMsg = '';
+			var missingMsg = 'Missing required fields';
+			if($('#firstname').attr("value") == '') {
+				passFlag = false;
+				$('#firstnameLabel').addClass('missing')
+			}
+			if($('#lastname').attr("value") == '') {
+				passFlag = false;
+				$('#lastnameLabel').addClass('missing')
+			}
+			var thisEmail = $('#email').attr("value");
+			if( thisEmail == '') {
+				passFlag = false;
+				$('#emailLabel').addClass('missing')
+			}
+			var emailRegex = new RegExp(/^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$/i);
+			if(thisEmail != '' && !emailRegex.test(thisEmail)) {
+				passFlag = false;
+				additionalMsg += '\nEmail address is not valid';
+			}
+			if($('#ccnumber').attr("value") == '') {
+				passFlag = false;
+				$('#ccnumberLabel').addClass('missing')
+			}
+			if($('#cvv').attr("value") == '') {
+				passFlag = false;
+				$('#cvvLabel').addClass('missing')
+			}
+			e.preventDefault();
+			var getURL = "http://www.ticketmob.com/phonegap/checkout.cfm";
+			
+			if(!passFlag) {
+				if(additionalMsg != '')
+					missingMsg += additionalMsg;
+				alert(missingMsg);
+				$('#processingSubmit').hide();
+				$('#submitBtn').attr("disabled", false);
+			} else {
+				$.ajax({
+					type: "POST",
+					url: getURL,
+					data: checkoutFormVar.serialize(),
+					dataType: "jsonp",
+					success: function(result){
+						var checkoutForm = result.html;
+						var thisQty = checkoutForm.qty;
+						var thisCoupon = checkoutForm.coupon;
+						var thisShowTimingID = checkoutForm.showtimingid;
+						var thisShowName = checkoutForm.showname;
+						var thisShowTime = checkoutForm.showtime;
+						var thisSubTotal = checkoutForm.subtotal;
+						var thisDiscount = checkoutForm.discount;
+						var thisServiceFee = checkoutForm.servicefee;
+						var thisTax = checkoutForm.tax;
+						var thisTotal = checkoutForm.total;
+						var thisStatus = checkoutForm.status;
+						var thisStatusMessage = checkoutForm.statusMessage;
+						var thisBarCode = checkoutForm.barcode;
 
-							$('#submitBtn').attr("disabled", false);
-							if(thisStatus == 'success' || thisStatus == 'fail') {
-								if(thisStatus == 'success') {
-									$.mobile.changePage("#complete", "slide", false, false);
-									$("#coupon").attr("value", '');
-									$("#ccnumber").attr("value", '');
-									$("#cvv").attr("value", '');
-									$("#barcodeplace").html(thisBarCode);
-								} else {
-									$.mobile.changePage("#errCheckout", "slide", false, false);
-								}
+						$('#processingSubmit').hide();
+						$('#submitBtn').attr("disabled", false);
+						if(thisStatus == 'success' || thisStatus == 'fail') {
+							if(thisStatus == 'success') {
+								$.mobile.changePage("#complete", "slide", false, false);
+								$("#coupon").attr("value", '');
+								$("#ccnumber").attr("value", '');
+								$("#cvv").attr("value", '');
+								$("#barcodeplace").html(thisBarCode);
 							} else {
+								$.mobile.changePage("#errCheckout", "slide", false, false);
 							}
+						} else {
 						}
-					});
-				}
+					}
+				});
+			}
 		});
 		
 		
