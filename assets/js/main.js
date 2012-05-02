@@ -132,11 +132,28 @@
 		}
 
 		function clickBuy(showtimingid, venueID) {
-			$.mobile.changePage("#buy", "slide", false, false);
 			$("#f_showtimingid").attr("value", showtimingid);
 			$("#f_venueid").attr("value", venueID);
+			$("#tierInfo").html($("#tier"+showtimingid).html());
+			$.mobile.changePage("#buy", "slide", false, false);
 		}
 
+		$('#searchShow').live('submit', function (e) {
+			$.mobile.changePage("#showSearch", "slide", false, false);
+		});
+		
+		$('#searchVenue').live('submit', function (e) {
+			$.mobile.changePage("#venueSearch", "slide", false, false);
+		});
+		
+		$('#searchShow').live('submit', function (e) {
+			$.mobile.changePage("#searchShow", "slide", false, false);
+		});
+		
+		$('#searchShow').live('submit', function (e) {
+			$.mobile.changePage("#searchShow", "slide", false, false);
+		});
+		
 		$('#submitBuy').live('submit', function (e) {
 				//var thisPage = $('#contentBuyDialog').html();
 				//$('#contentBuyDialog').html(pageLoadingHTML);
@@ -164,6 +181,7 @@
 						var thisServiceFee = checkoutForm.servicefee;
 						var thisTax = checkoutForm.tax;
 						var thisTotal = checkoutForm.total;
+						var thisShowTier = checkoutForm.showtier;
 						
 						//$('#contentBuyDialog').html(thisPage);
 						if(thisCouponStatus != 'success') {
@@ -263,6 +281,7 @@
 							var thisTotal = checkoutForm.total;
 							var thisStatus = checkoutForm.status;
 							var thisStatusMessage = checkoutForm.statusMessage;
+							var thisBarCode = checkoutForm.barcode;
 
 							//$('#contentCheckout').html(thisPage);
 							if(thisStatus == 'success' || thisStatus == 'fail') {
@@ -271,6 +290,7 @@
 									$("#coupon").attr("value", '');
 									$("#ccnumber").attr("value", '');
 									$("#cvv").attr("value", '');
+									$("#barcodeplace").html(thisBarCode);
 								} else {
 									$.mobile.changePage("#errCheckout", "slide", false, false);
 								}
