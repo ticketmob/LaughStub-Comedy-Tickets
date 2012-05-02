@@ -160,7 +160,7 @@
 	height: 50px;*/
 }
 
-#mainpage .ui-content {
+#mainpage .ui-content, #venuepage .ui-content, #comedianpage .ui-content, #calendarpage .ui-content, #morepage .ui-content {
 	padding: 0px;
 }
 

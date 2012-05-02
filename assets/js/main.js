@@ -23,7 +23,7 @@
 			//checkoutDialogVar.show();
 			//completeDialogVar.show();
 			
-			if(0) {
+			if(1) {
 				var thisPage = $('#contentMainDialog').html();
 				$('#contentMainDialog').html(pageLoadingHTML);
 				var getURL = "http://www.ticketmob.com/PhoneGap/index.cfm?mode=1";
@@ -35,15 +35,14 @@
 					},
 					dataType: "jsonp",
 					success: function(result){
-						$('#contentMainDialog').html(thisPage);
-						$('#showlist').html ( result.featured );
-						$('#showlist').find("ul").listview();
-						$('#venuelist').html ( result.venues );
-						$('#venuelist').find('div[data-role=collapsible-set]').collapsibleset({refresh:true});
-						$('#comedianlist').html ( result.comedian );
-						$('#comedianlist').find('div[data-role=collapsible-set]').collapsibleset({refresh:true});
-						$('#calendarlist').html ( result.calendar );
-						$('#calendarlist').find('div[data-role=collapsible-set]').collapsibleset({refresh:true});
+						$('#contentMainDialog').html ( result.featured );
+						$('#contentMainDialog').find("ul").listview();
+						$('#contentVenueDialog').html ( result.venues );
+						$('#contentVenueDialog').find('div[data-role=collapsible-set]').collapsibleset({refresh:true});
+						$('#contentComedianDialog').html ( result.comedian );
+						$('#contentComedianDialog').find('div[data-role=collapsible-set]').collapsibleset({refresh:true});
+						$('#contentCalendarDialog').html ( result.calendar );
+						$('#contentCalendarDialog').find('div[data-role=collapsible-set]').collapsibleset({refresh:true});
 					}
 				});
 				//$.mobile.changePage("#mainpage", "slide", false, false);
@@ -76,14 +75,14 @@
 				dataType: "jsonp",
 				success: function(result){
 					//$('#contentMainDialog').html(thisPage);
-					$('#showlist').html ( result.featured );
-					$('#showlist').find("ul").listview();
-					$('#venuelist').html ( result.venues );
-					$('#venuelist').find('div[data-role=collapsible-set]').collapsibleset({refresh:true});
-					$('#comedianlist').html ( result.comedian );
-					$('#comedianlist').find('div[data-role=collapsible-set]').collapsibleset({refresh:true});
-					$('#calendarlist').html ( result.calendar );
-					$('#calendarlist').find('div[data-role=collapsible-set]').collapsibleset({refresh:true});
+					$('#contentMainDialog').html ( result.featured );
+					$('#contentMainDialog').find("ul").listview();
+					$('#contentVenueDialog').html ( result.venues );
+					$('#contentVenueDialog').find('div[data-role=collapsible-set]').collapsibleset({refresh:true});
+					$('#contentComedianDialog').html ( result.comedian );
+					$('#contentComedianDialog').find('div[data-role=collapsible-set]').collapsibleset({refresh:true});
+					$('#contentCalendarDialog').html ( result.calendar );
+					$('#contentCalendarDialog').find('div[data-role=collapsible-set]').collapsibleset({refresh:true});
 				}
 			});
 		}
