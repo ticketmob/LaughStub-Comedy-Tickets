@@ -170,7 +170,7 @@
 							$('#buyErrorMessage').html (thisStatusMessage);
 						} else {
 							$('#buyErrorMessage').html ('');
-							$.mobile.changePage("#checkout", "slide", false, false);
+							//$.mobile.changePage("#checkout", "slide", false, false);
 							$("#ck_showname").html(thisShowName);
 							$("#ck_showtime").html(thisShowTime);
 							$("#ck_qty").html(thisQty);
