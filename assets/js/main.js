@@ -23,7 +23,7 @@
 			//checkoutDialogVar.show();
 			//completeDialogVar.show();
 			
-			if(0) {
+			if(1) {
 				var thisPage = $('#contentMainDialog').html();
 				$('#contentMainDialog').html(pageLoadingHTML);
 				var getURL = "http://www.ticketmob.com/PhoneGap/index.cfm?mode=1";
@@ -198,7 +198,7 @@
 						}
 					}
 				});
-				$.mobile.changePage("#checkout", "slide", false, false);
+				$.mobile.changePage("#buy", "slide", false, false);
 		});
 		
 		$('#submitCheckout').live('submit', function (e) {
