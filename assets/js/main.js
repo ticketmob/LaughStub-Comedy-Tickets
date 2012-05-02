@@ -138,8 +138,8 @@
 		}
 
 		$('#submitBuy').live('submit', function (e) {
-				var thisPage = $('#contentBuyDialog').html();
-				$('#contentBuyDialog').html(pageLoadingHTML);
+				//var thisPage = $('#contentBuyDialog').html();
+				//$('#contentBuyDialog').html(pageLoadingHTML);
 				e.preventDefault();
 				var getURL = "http://www.ticketmob.com/phonegap/getticket.cfm";
 				$.ajax({
@@ -165,7 +165,7 @@
 						var thisTax = checkoutForm.tax;
 						var thisTotal = checkoutForm.total;
 						
-						$('#contentBuyDialog').html(thisPage);
+						//$('#contentBuyDialog').html(thisPage);
 						if(thisCouponStatus != 'success') {
 							$('#buyErrorMessage').html (thisStatusMessage);
 						} else {
@@ -202,8 +202,8 @@
 		});
 		
 		$('#submitCheckout').live('submit', function (e) {
-				var thisPage = $('#contentCheckout').html();
-				$('#contentCheckout').html(pageLoadingHTML);
+				//var thisPage = $('#contentCheckout').html();
+				//$('#contentCheckout').html(pageLoadingHTML);
 				var passFlag = true;
 				$('#firstnameLabel').removeClass('missing')
 				$('#lastnameLabel').removeClass('missing')
@@ -266,7 +266,7 @@
 							var thisStatus = checkoutForm.status;
 							var thisStatusMessage = checkoutForm.statusMessage;
 
-							$('#contentCheckout').html(thisPage);
+							//$('#contentCheckout').html(thisPage);
 							if(thisStatus == 'success' || thisStatus == 'fail') {
 								if(thisStatus == 'success') {
 									$.mobile.changePage("#complete", "slide", false, false);
@@ -281,7 +281,7 @@
 						}
 					});
 				}
-				$('#contentCheckout').html(thisPage);
+				//$('#contentCheckout').html(thisPage);
 		});
 		
 		
