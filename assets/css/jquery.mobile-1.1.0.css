@@ -1068,7 +1068,6 @@ a.ui-link-inherit {
 .ui-mobile fieldset, .ui-page { padding: 0; margin: 0; }
 .ui-mobile a img, .ui-mobile fieldset { border-width: 0; }
 .ui-page { 
-  background: url(../img/iphone-bg.png) no-repeat top left transparent fixed;
   -webkit-backface-visibility: hidden;
 }
 /* responsive page widths */
