@@ -184,9 +184,15 @@
 
 #upcomingshowLi {
 	background: url(../img/show-bg.png) no-repeat bottom left transparent;
+	height: 82px;
 }
 
 #upcomingshowLi a {
 	color: #fff;
 }
+
+#upcomingshowLi img {
+	border-right: 1px solid #FFF;
+}
+
 
