@@ -181,3 +181,12 @@
 	width: 160px;
 	border-radius: 20px;
 }
+
+#upcomingshowLi {
+	background: url(../img/show-bg.png) no-repeat bottom left transparent;
+}
+
+#upcomingshowLi a {
+	color: #fff;
+}
+
