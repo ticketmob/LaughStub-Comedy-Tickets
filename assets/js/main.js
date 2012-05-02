@@ -13,7 +13,7 @@
 			buyFormVar = $('#submitBuy');
 			checkoutFormVar = $('#submitCheckout');
 			
-			if(1) { 
+			if(0) { 
 				var thisPage = $('#contentMainDialog').html();
 				$('#contentMainDialog').html(pageLoadingHTML);
 				var getURL = "http://www.ticketmob.com/PhoneGap/index.cfm?mode=1";
@@ -179,13 +179,14 @@
 					var thisShowTier = checkoutForm.showtier;
 					var thisShowTierList = checkoutForm.showtierlist;
 					
-					$('#processingCheckout').hide();
-					$('#checkoutBtn').attr("disabled", false);
 					if(thisCouponStatus != 'success') {
 						if(thisCouponStatus == 'qty')
 							$('#buyErrorMessageQty').html (thisStatusMessage);
 						else
 							$('#buyErrorMessage').html (thisStatusMessage);
+						$.mobile.changePage("#buy", "slide", false, false);
+						$('#processingCheckout').hide();
+						$('#checkoutBtn').attr("disabled", false);
 					} else {
 						$('#buyErrorMessageQty').html ('');
 						$('#buyErrorMessage').html ('');
@@ -213,11 +214,11 @@
 						$("#ckf_sourceid").attr("value", thisSourceID);
 						$("#ckf_showtierlist").attr("value", thisShowTierList);
 						$.mobile.changePage("#checkout", "slide", false, false);
+						$('#processingCheckout').hide();
+						$('#checkoutBtn').attr("disabled", false);
 					}
 				}
 			});
-			$('#checkoutBtn').attr("disabled", false);
-			$.mobile.changePage("#buy", "slide", false, false);
 		});
 		
 		$('#submitCheckout').live('submit', function (e) {
@@ -288,19 +289,23 @@
 						var thisStatusMessage = checkoutForm.statusMessage;
 						var thisBarCode = checkoutForm.barcode;
 
-						$('#processingSubmit').hide();
-						$('#submitBtn').attr("disabled", false);
 						if(thisStatus == 'success' || thisStatus == 'fail') {
 							if(thisStatus == 'success') {
 								$.mobile.changePage("#complete", "slide", false, false);
+								$('#processingSubmit').hide();
+								$('#submitBtn').attr("disabled", false);
 								$("#coupon").attr("value", '');
 								$("#ccnumber").attr("value", '');
 								$("#cvv").attr("value", '');
 								$("#barcodeplace").html(thisBarCode);
 							} else {
 								$.mobile.changePage("#errCheckout", "slide", false, false);
+								$('#processingSubmit').hide();
+								$('#submitBtn').attr("disabled", false);
 							}
 						} else {
+							$('#processingSubmit').hide();
+							$('#submitBtn').attr("disabled", false);
 						}
 					}
 				});
