@@ -154,62 +154,17 @@
 					<input type="hidden" name="f_venueid" id="f_venueid">
                     <ul data-role="listview" data-theme="c" data-dividertheme="a" data-inset="true" >
                         <li data-role="list-divider">Select Quantity</li>
+                        <li id="tierQty">
+                        	<label id="buyErrorMessageQty" class="missing"></label>
+                        </li>
                         <li id="tierInfo">
-                        	<!--<div id="tierDiv1" data-role="fieldcontain">
-                                <label for="tierLabel1" id="tierLabel1"></label>
-                                <select id="quantity1" name="quantity1" data-mini="true">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                    <option value="9">9</option>
-                                    <option value="10">10</option>
-                                    <option value="11">11</option>
-                                    <option value="12">12</option>
-                                    <option value="13">13</option>
-                                    <option value="14">14</option>
-                                    <option value="15">15</option>
-                                    <option value="16">16</option>
-                                    <option value="17">17</option>
-                                    <option value="18">18</option>
-                                    <option value="19">19</option>
-                                    <option value="20">20</option>
-                            	</select>
-                            </div>
-                            <div id="tierDiv2" data-role="fieldcontain" style="display: none;">
-                                <label for="tierLabel2" id="tierLabel2"></label>
-                                <select id="quantity2" name="quantity2" data-mini="true">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                    <option value="9">9</option>
-                                    <option value="10">10</option>
-                                    <option value="11">11</option>
-                                    <option value="12">12</option>
-                                    <option value="13">13</option>
-                                    <option value="14">14</option>
-                                    <option value="15">15</option>
-                                    <option value="16">16</option>
-                                    <option value="17">17</option>
-                                    <option value="18">18</option>
-                                    <option value="19">19</option>
-                                    <option value="20">20</option>
-                            	</select>
-                            </div>-->
                         </li>
                         <li data-role="list-divider">Got Coupon?</li>
+                        <li id="tierCoupon">
+							<label id="buyErrorMessage" class="missing"></label>
+                        </li>
                         <li>
                         	<div id="couponDiv" data-role="fieldcontain">
-                                <label id="buyErrorMessage" class="missing"></label>
                                 <input type="text" name="coupon" id="coupon" value="" data-mini="true" />
                             </div>
                         </li>
@@ -253,6 +208,7 @@
                     <input type="hidden" name="ckf_showtime" id="ckf_showtime">
 					<input type="hidden" name="ckf_venueid" id="ckf_venueid">
 					<input type="hidden" name="ckf_sourceid" id="ckf_sourceid">
+					<input type="hidden" name="ckf_showtierlist" id="ckf_showtierlist">
                     <ul data-role="listview" data-theme="c" data-dividertheme="a" data-inset="true" >
                         <li data-role="list-divider">Show Information</li>
                         <li>

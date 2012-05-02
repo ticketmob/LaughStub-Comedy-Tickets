@@ -23,7 +23,7 @@
 			//checkoutDialogVar.show();
 			//completeDialogVar.show();
 			
-			if(0) { 
+			if(1) { 
 				var thisPage = $('#contentMainDialog').html();
 				$('#contentMainDialog').html(pageLoadingHTML);
 				var getURL = "http://www.ticketmob.com/PhoneGap/index.cfm?mode=1";
@@ -136,6 +136,7 @@
 			$("#f_venueid").attr("value", venueID);
 			$("#tierInfo").html($("#tier"+showtimingid).html());
 			$.mobile.changePage("#buy", "slide", false, false);
+			$("#contentBuyDialog").find("ul").listview();
 		}
 
 		$('#searchShow').live('submit', function (e) {
@@ -157,6 +158,8 @@
 		$('#submitBuy').live('submit', function (e) {
 				//var thisPage = $('#contentBuyDialog').html();
 				//$('#contentBuyDialog').html(pageLoadingHTML);
+				$('#buyErrorMessageQty').html ('');
+				$('#buyErrorMessage').html ('');
 				e.preventDefault();
 				var getURL = "http://www.ticketmob.com/phonegap/getticket.cfm";
 				$.ajax({
@@ -182,15 +185,19 @@
 						var thisTax = checkoutForm.tax;
 						var thisTotal = checkoutForm.total;
 						var thisShowTier = checkoutForm.showtier;
+						var thisShowTierList = checkoutForm.showtierlist;
 						
 						//$('#contentBuyDialog').html(thisPage);
 						if(thisCouponStatus != 'success') {
-							$('#buyErrorMessage').html (thisStatusMessage);
+							if(thisCouponStatus == 'qty')
+								$('#buyErrorMessageQty').html (thisStatusMessage);
+							else
+								$('#buyErrorMessage').html (thisStatusMessage);
 						} else {
 							$('#buyErrorMessage').html ('');
 							$("#ck_showname").html(thisShowName);
 							$("#ck_showtime").html(thisShowTime);
-							$("#ck_qty").html(thisQty);
+							$("#ck_qty").html(thisQty + ' ' + thisShowTier);
 							$("#ck_subtotal").html(thisSubTotal);
 							$("#ck_disc").html(thisDiscount);
 							$("#ck_servicefee").html(thisServiceFee);
@@ -210,6 +217,7 @@
 							$("#ckf_showtime").attr("value", thisShowTime);
 							$("#ckf_venueid").attr("value", thisVenueID);
 							$("#ckf_sourceid").attr("value", thisSourceID);
+							$("#ckf_showtierlist").attr("value", thisShowTierList);
 							$.mobile.changePage("#checkout", "slide", false, false);
 						}
 					}
