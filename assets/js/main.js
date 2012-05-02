@@ -170,7 +170,6 @@
 							$('#buyErrorMessage').html (thisStatusMessage);
 						} else {
 							$('#buyErrorMessage').html ('');
-							//$.mobile.changePage("#checkout", "slide", false, false);
 							$("#ck_showname").html(thisShowName);
 							$("#ck_showtime").html(thisShowTime);
 							$("#ck_qty").html(thisQty);
@@ -193,8 +192,7 @@
 							$("#ckf_showtime").attr("value", thisShowTime);
 							$("#ckf_venueid").attr("value", thisVenueID);
 							$("#ckf_sourceid").attr("value", thisSourceID);
-							
-							//checkoutDialogVar.show();
+							$.mobile.changePage("#checkout", "slide", false, false);
 						}
 					}
 				});
