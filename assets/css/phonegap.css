@@ -64,14 +64,61 @@
 	clear: left;
 	display: block;
 }
-.featuredSlideShow {
+
+#featuredSlideShow {
 	display: block;
 	width: 320px;
 	height: 170px;
 	background: #090a08;
 	position: relative;
+	overflow: hidden;
 }
-.dateFeaturedShow {
+
+#featuredSlideShow ul {
+	margin: 0px;
+	width: 1280px;
+}
+
+#featuredSlideShow ul li{
+	float: left;
+	width: 320px;
+}
+
+#featuredSlideShow .imgFeaturedShow {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 320px;
+	height: 170px;
+}
+
+#featuredSlideShow ul li .dateFeaturedShow {
+	position: absolute;
+	left: 0px;
+	top: 118px;
+	width: 41px;
+	height: 40px;
+	color: #fff;
+	background: #014a9f;
+	padding: 5px;
+}
+
+#featuredSlideShow ul li .descFeaturedShow {
+	background: #090a08;
+	display: block;
+	height: 40px;
+	width: 250px;
+	position: absolute;
+	left: 60px;
+	top: 118px;
+	color: #fff;
+	text-align: left;
+	font-size: 12px;
+	padding-left: 5px;
+	padding-top: 10px;
+}
+
+/*.dateFeaturedShow {
 	position: absolute;
 	left: 10px;
 	top: 120px;
@@ -94,6 +141,7 @@
 	padding-left: 5px;
 	padding-top: 10px;
 }
+*/
 .lsSearch {
 	background: url(../img/laughstub-sm.png) no-repeat center left transparent;
 	background-color: #ccc;
@@ -161,7 +209,7 @@
 	height: 50px;*/
 }
 
-#mainpage {
+#mainpage,  #venuepage, #comedianpage, #calendarpage {
 	background: #fff;
 }
 

@@ -16,7 +16,7 @@
 			if(0) { 
 				var thisPage = $('#contentMainDialog').html();
 				$('#contentMainDialog').html(pageLoadingHTML);
-				var getURL = "http://www.ticketmob.com/PhoneGap/index.cfm?mode=1";
+				var getURL = "https://www.ticketmob.com/PhoneGap/index.cfm?mode=1";
 				$.ajax({
 					type: "GET",
 					url: getURL,
@@ -26,7 +26,8 @@
 					dataType: "jsonp",
 					success: function(result){
 						$('#contentMainDialog').html ( result.featured );
-						$('#contentMainDialog').find("ul").listview();
+						//$('#contentMainDialog').find("ul").listview();
+						$('#contentMainDialog').find("ul#upcoming").listview();
 						$('#contentVenueDialog').html ( result.venues );
 						$('#contentVenueDialog').find('div[data-role=collapsible-set]').collapsibleset({refresh:true});
 						$('#contentComedianDialog').html ( result.comedian );
@@ -51,9 +52,9 @@
 			var thisPage = $('#contentMainDialog').html();
 			$('#contentMainDialog').html(pageLoadingHTML);
 			if(positionFlag && coords != null)
-				var getURL = "http://www.ticketmob.com/PhoneGap/index.cfm?lat="+coords.latitude+"&lon="+coords.longitude;
+				var getURL = "https://www.ticketmob.com/PhoneGap/index.cfm?lat="+coords.latitude+"&lon="+coords.longitude;
 			else
-				var getURL = "http://www.ticketmob.com/PhoneGap/index.cfm?lat=0&lon=0";
+				var getURL = "https://www.ticketmob.com/PhoneGap/index.cfm?lat=0&lon=0";
 			//var getURL = "http://www.ticketmob.com/PhoneGap/index.cfm?mode=1";
 			//alert(getURL);
 			$.ajax({
@@ -66,7 +67,7 @@
 				success: function(result){
 					$('#contentMainDialog').html(thisPage);
 					$('#contentMainDialog').html ( result.featured );
-					$('#contentMainDialog').find("ul").listview();
+					$('#contentMainDialog').find("ul#upcoming").listview();
 					$('#contentVenueDialog').html ( result.venues );
 					$('#contentVenueDialog').find('div[data-role=collapsible-set]').collapsibleset({refresh:true});
 					$('#contentComedianDialog').html ( result.comedian );
@@ -153,7 +154,7 @@
 			$('#buyErrorMessageQty').html ('');
 			$('#buyErrorMessage').html ('');
 			e.preventDefault();
-			var getURL = "http://www.ticketmob.com/phonegap/getticket.cfm";
+			var getURL = "https://www.ticketmob.com/phonegap/getticket.cfm";
 			$.ajax({
 				type: "POST",
 				url: getURL,
@@ -259,7 +260,7 @@
 				$('#cvvLabel').addClass('missing')
 			}
 			e.preventDefault();
-			var getURL = "http://www.ticketmob.com/phonegap/checkout.cfm";
+			var getURL = "https://www.ticketmob.com/phonegap/checkout.cfm";
 			
 			if(!passFlag) {
 				if(additionalMsg != '')
