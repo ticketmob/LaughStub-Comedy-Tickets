@@ -13,7 +13,7 @@
 			buyFormVar = $('#submitBuy');
 			checkoutFormVar = $('#submitCheckout');
 			
-			if(0) { 
+			if(1) { 
 				var thisPage = $('#contentMainDialog').html();
 				$('#contentMainDialog').html(pageLoadingHTML);
 				var getURL = "https://www.ticketmob.com/PhoneGap/index.cfm?mode=1";
